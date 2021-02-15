@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 826f8ef4949f9f442a90c0c07eb23070
+guid: 21893fb3199195e41b651e0b2a7ee9fa
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -39,8 +39,8 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 1
-    importBlendShapes: 1
+    importVisibility: 0
+    importBlendShapes: 0
     importCameras: 0
     importLights: 0
     fileIdsGeneration: 2
@@ -93,6 +93,6 @@ ModelImporter:
   avatarSetup: 0
   additionalBone: 0
   userData: <PartModelData><PartMeshData id="Missile" submeshCount="5" isCollider="false"
-    subpartId="1" submeshMap="0,1,2,3,4" antiDistortion="false" /></PartModelData>
+    subpartId="0" submeshMap="0,1,2,3,4" antiDistortion="false" /></PartModelData>
   assetBundleName: 
   assetBundleVariant: 

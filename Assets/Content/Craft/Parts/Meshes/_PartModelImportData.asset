@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: _PartModelImportData
   m_EditorClassIdentifier: 
   _models:
-  - _id: Missile MRAAM Type A
+  - _id: Missile MRAAM Type A 1
     _meshes:
     - _id: Missile
       _initialized: 1
       _isCollider: 0
       _antiDistortion: 0
-      _mesh: {fileID: -4436863061088633788, guid: 826f8ef4949f9f442a90c0c07eb23070,
+      _mesh: {fileID: -4436863061088633788, guid: 21893fb3199195e41b651e0b2a7ee9fa,
         type: 3}
       _sortOrderOverride: 
       _submeshMap: 0000000001000000020000000300000004000000
-      _subpartId: 1
-    _model: {fileID: 919132149155446097, guid: 826f8ef4949f9f442a90c0c07eb23070, type: 3}
+      _subpartId: 0
+    _model: {fileID: 919132149155446097, guid: 21893fb3199195e41b651e0b2a7ee9fa, type: 3}
