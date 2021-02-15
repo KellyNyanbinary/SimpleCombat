@@ -50,6 +50,35 @@ MonoBehaviour:
     _xmlName: 
     _styles: {fileID: 6928506101201691034}
   _subpartsSharePartStyle: 0
+--- !u!136 &1694066941151460911
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400643389392788702}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.001
+  m_Height: 0.037
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.0015203075}
+--- !u!114 &771429108861449027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400643389392788702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -468989955, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ignoreDesignerCollisions: 0
+  _ignoreFirstPersonCollisions: 0
+  _isPrimary: 1
 --- !u!1 &2818667523200908808
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +402,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21893fb3199195e41b651e0b2a7ee9fa, type: 3}
+--- !u!1 &1400643389392788702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 21893fb3199195e41b651e0b2a7ee9fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2283743289449161103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1746205959412368996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 21893fb3199195e41b651e0b2a7ee9fa,
@@ -386,16 +421,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9184415965154505214}
     m_Modifications:
-    - target: {fileID: 2509468280928256784, guid: cc5a204154e780848acf3e8571eab53f,
-        type: 3}
-      propertyPath: Data._preventDebris
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2509468280928256784, guid: cc5a204154e780848acf3e8571eab53f,
-        type: 3}
-      propertyPath: Data._supportsActivation
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5293811629604702617, guid: cc5a204154e780848acf3e8571eab53f,
         type: 3}
       propertyPath: m_LocalPosition.x

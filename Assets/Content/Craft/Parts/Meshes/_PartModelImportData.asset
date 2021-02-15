@@ -22,6 +22,6 @@ MonoBehaviour:
       _mesh: {fileID: -4436863061088633788, guid: 21893fb3199195e41b651e0b2a7ee9fa,
         type: 3}
       _sortOrderOverride: 
-      _submeshMap: 0000000001000000020000000300000004000000
+      _submeshMap: 0000000001000000000000000100000000000000
       _subpartId: 0
     _model: {fileID: 919132149155446097, guid: 21893fb3199195e41b651e0b2a7ee9fa, type: 3}

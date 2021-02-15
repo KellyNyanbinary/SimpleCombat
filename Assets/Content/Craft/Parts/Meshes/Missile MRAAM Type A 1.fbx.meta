@@ -62,14 +62,14 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -93,6 +93,6 @@ ModelImporter:
   avatarSetup: 0
   additionalBone: 0
   userData: <PartModelData><PartMeshData id="Missile" submeshCount="5" isCollider="false"
-    subpartId="0" submeshMap="0,1,2,3,4" antiDistortion="false" /></PartModelData>
+    subpartId="0" submeshMap="0,1,0,1,0" antiDistortion="false" /></PartModelData>
   assetBundleName: 
   assetBundleVariant: 
