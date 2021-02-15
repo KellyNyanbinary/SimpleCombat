@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: -1366777262, guid: c37b925f2b4978342b2e0b83a8fa404a, type: 3}
   m_Name: ModData
   m_EditorClassIdentifier: 
-  _assemblies: []
+  _assemblies:
+  - SimpleCombat.dll
   _author: s5ehfr9, Kelly Nyanbinary
   _description: 
   _loadPriority: 1000
@@ -28,7 +29,8 @@ MonoBehaviour:
   _versionMajor: 0
   _versionMinor: 1
   _partCategories: []
-  _parts: []
+  _parts:
+  - {fileID: 4900000, guid: d0c6beba9f057bd4ca71543d5d20de90, type: 3}
   _partStyleExtensions: []
   _partTextureStyles: []
   _persistentObjects: []
