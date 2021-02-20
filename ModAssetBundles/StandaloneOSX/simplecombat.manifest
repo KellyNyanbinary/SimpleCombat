@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1446934507
+CRC: 836819602
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2c955625200f46b7d757074ec26db66c
+    Hash: ac6c8df7f35e2dfb61316581eecd95a9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 38552cecc671385211fa35c43a00c371
+    Hash: 6600fe70e5f12027a8b2066e536f64ee
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,6 +17,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 23
   Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
 - Class: 33
   Script: {instanceID: 0}
 - Class: 43
@@ -26,14 +28,19 @@ ClassTypes:
 - Class: 49
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 2121057919, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
+- Class: 114
   Script: {fileID: -468989955, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
   Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
 Assets:
+- Assets/_ModAssets_/ModManifest.xml.bytes
+- Assets/_ModAssets_/SimpleCombat.dll.bytes
 - Assets/Resources/Craft/Parts/Prefabs/Missile MRAAM Type A.prefab
 - Assets/Resources/Craft/Parts/Definitions/Missile MRAAM Type A.xml
-- Assets/_ModAssets_/SimpleCombat.dll.bytes
-- Assets/_ModAssets_/ModManifest.xml.bytes
+- Assets/Content/Craft/Parts/Categories/Weapons.asset
 Dependencies: []
