@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Weapons
   _displayName: Weapons
-  _displayOrder: 0
-  _icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  _displayOrder: 1500
+  _icon: {fileID: 21300000, guid: f8e49e553c514b046aa86ef77b4bb2ec, type: 3}
   _tooltip: SimpleCombat weapons and radars

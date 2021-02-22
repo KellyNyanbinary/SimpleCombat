@@ -51,8 +51,8 @@ MonoBehaviour:
     _defaultColorIndexPrimary: 0
     _defaultColorIndexTrim1: 1
     _defaultColorIndexTrim2: 1
-    _defaultColorIndexTrim3: 2
-    _defaultColorIndexTrim4: 2
+    _defaultColorIndexTrim3: 3
+    _defaultColorIndexTrim4: 3
     _id: Missile SRAAM Type A
     _includeInBodyDrag: 1
     _mirrorConfig:
