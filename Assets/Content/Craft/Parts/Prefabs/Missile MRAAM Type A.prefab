@@ -129,7 +129,7 @@ MonoBehaviour:
     _canSeek: 1
     _connectionType: 1
     _disableJointCollisions: 0
-    _displayName: AttachmentPoint1
+    _displayName: AttachPoint1
     _fuelLine: 0
     _hidden: 0
     _ignoreSurfaces: 0
