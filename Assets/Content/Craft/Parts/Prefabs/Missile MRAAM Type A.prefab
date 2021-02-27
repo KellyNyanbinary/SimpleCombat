@@ -168,7 +168,11 @@ MonoBehaviour:
     targetRange: 3000
     targetAngle: 180
     wingArea: 0.05
+<<<<<<< HEAD
     torque: 0.2
+=======
+    torque: 0.002
+>>>>>>> a247e0d6c0f6a3fcc23dc94d307f08e72a065f06
     centerOfDrag: -1
     guidanceMethod: Pure Pursuit
 --- !u!114 &2078659079453418203

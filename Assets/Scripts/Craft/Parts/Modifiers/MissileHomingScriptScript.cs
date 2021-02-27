@@ -37,7 +37,11 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
             if (PartScript.Data.Activated^fired)//first frame after part activation
                 GetComponentInChildren<ParticleSystem>().Play();
             if (burnTime > 0 && PartScript.Data.Activated)
+<<<<<<< HEAD
             {//adds thrust
+=======
+            {
+>>>>>>> a247e0d6c0f6a3fcc23dc94d307f08e72a065f06
                 fired = true;
                 PartScript.BodyScript.RigidBody.AddRelativeForce(Vector3.forward * Data.missileImpulse / Data.burnTime,ForceMode.Acceleration);
                 burnTime -= (float)frame.DeltaTime;
@@ -64,11 +68,17 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         //Adds force and torque from aerodynamics
         void ApplyAreoEffect()//Yes, naming it Aero Effect is deliberate.
         {
+<<<<<<< HEAD
             ModApi.Craft.IBodyScript body = PartScript.BodyScript;//save the reference to reduce a little bit of code
             Vector3 force = Vector3.right * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.right) + Vector3.forward * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.forward);
             //lift is proportional to cosine of AoA and velocity^2
             body.RigidBody.AddForceAtPosition(PartScript.Transform.TransformVector(force) * Data.wingArea * -body.SurfaceVelocity.magnitude * PartScript.BodyScript.FluidDensity, PartScript.Transform.TransformVector(Vector3.up * Data.centerOfDrag) + PartScript.Transform.position, ForceMode.Force);
             //steering torque is proportional to velocity^2 and wing area
+=======
+            ModApi.Craft.IBodyScript body = PartScript.BodyScript;
+            Vector3 force = Vector3.right * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.right) + Vector3.forward * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.forward);
+            body.RigidBody.AddForceAtPosition(PartScript.Transform.TransformVector(force) * Data.wingArea * -body.SurfaceVelocity.magnitude * PartScript.BodyScript.FluidDensity, PartScript.Transform.TransformVector(Vector3.up * Data.centerOfDrag) + PartScript.Transform.position, ForceMode.Force);
+>>>>>>> a247e0d6c0f6a3fcc23dc94d307f08e72a065f06
             body.RigidBody.AddTorque(steering * Data.torque * Data.wingArea * body.SurfaceVelocity.sqrMagnitude * PartScript.BodyScript.FluidDensity,ForceMode.Force);
         }
         void ComputeSteering()
