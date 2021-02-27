@@ -13,7 +13,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
     {
         ModApi.Craft.ICraftNode targetCraft;
         List<ModApi.Craft.ICraftNode> Crafts;
-        Vector3 steering = Vector3.zero;
+        Vector2 steering = Vector2.zero;
         float burnTime;
         bool fired = false;
         public void FlightStart(in FlightFrameData frame)//Called on the first frame in flight scene
@@ -36,10 +36,14 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
 
             if (PartScript.Data.Activated^fired)//first frame after part activation
                 GetComponentInChildren<ParticleSystem>().Play();
+<<<<<<< HEAD
             if (burnTime > 0 && PartScript.Data.Activated)
 <<<<<<< HEAD
             {//adds thrust
 =======
+=======
+            if (burnTime >= 0 && PartScript.Data.Activated)
+>>>>>>> parent of b8d2748 (Trying to commit to development branch)
             {
 >>>>>>> a247e0d6c0f6a3fcc23dc94d307f08e72a065f06
                 fired = true;
@@ -76,21 +80,22 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
             //steering torque is proportional to velocity^2 and wing area
 =======
             ModApi.Craft.IBodyScript body = PartScript.BodyScript;
+<<<<<<< HEAD
             Vector3 force = Vector3.right * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.right) + Vector3.forward * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.forward);
             body.RigidBody.AddForceAtPosition(PartScript.Transform.TransformVector(force) * Data.wingArea * -body.SurfaceVelocity.magnitude * PartScript.BodyScript.FluidDensity, PartScript.Transform.TransformVector(Vector3.up * Data.centerOfDrag) + PartScript.Transform.position, ForceMode.Force);
 >>>>>>> a247e0d6c0f6a3fcc23dc94d307f08e72a065f06
             body.RigidBody.AddTorque(steering * Data.torque * Data.wingArea * body.SurfaceVelocity.sqrMagnitude * PartScript.BodyScript.FluidDensity,ForceMode.Force);
+=======
+            Vector3 force = Vector3.right * Vector3.Dot(body.SurfaceVelocity, body.Transform.right) + Vector3.up * Vector3.Dot(body.SurfaceVelocity, body.Transform.up);
+            body.RigidBody.AddForceAtPosition(body.Transform.TransformVector(force) * Data.wingArea * -body.SurfaceVelocity.magnitude, body.Transform.TransformPoint(Vector3.forward * Data.centerOfDrag));
+            body.RigidBody.AddRelativeTorque((Vector3.right * steering.y + Vector3.up * steering.x) * Data.torque * body.SurfaceVelocity.sqrMagnitude);
+>>>>>>> parent of b8d2748 (Trying to commit to development branch)
         }
         void ComputeSteering()
         {
-            if (Data.guidanceMethod == "Pure Pursuit")
-                steering = (Vector3)Vector3d.Cross(PartScript.Transform.up, (targetCraft.Position - PartScript.BodyScript.CraftScript.CraftNode.Position).normalized);
-            else if (Data.guidanceMethod == "Proportional")
-            {
-                steering = (Vector3)Vector3d.Cross(PartScript.CraftScript.CraftNode.Velocity - targetCraft.Velocity, (targetCraft.Position - PartScript.BodyScript.CraftScript.CraftNode.Position) / (targetCraft.Position - PartScript.BodyScript.CraftScript.CraftNode.Position).sqrMagnitude);
-                steering -= PartScript.Transform.up * Vector3.Dot(PartScript.Transform.up, steering);
-            }
-            else steering = Vector3.zero;
+            //Vector3 losAngularVel = (Vector3)Vector3d.Cross(targetCraft.Velocity - PartScript.CraftScript.CraftNode.Velocity, targetCraft.Position - PartScript.BodyScript.CraftScript.CraftNode.Position);
+            steering.x = PartScript.BodyScript.Transform.InverseTransformVector((Vector3)(targetCraft.Position - PartScript.BodyScript.CraftScript.CraftNode.Position)).x/ PartScript.BodyScript.Transform.InverseTransformVector((Vector3)(targetCraft.Position - PartScript.BodyScript.CraftScript.CraftNode.Position)).z;// Vector3.Dot(losAngularVel, PartScript.CraftScript.Transform.up);
+            steering.y = PartScript.BodyScript.Transform.InverseTransformVector((Vector3)(targetCraft.Position - PartScript.BodyScript.CraftScript.CraftNode.Position)).y / PartScript.BodyScript.Transform.InverseTransformVector((Vector3)(targetCraft.Position - PartScript.BodyScript.CraftScript.CraftNode.Position)).z;// Vector3.Dot(losAngularVel, PartScript.CraftScript.Transform.right);
         }
         //Converts INode list to ICraftNode list. Could use a better alternative but I don't want to waste more time on trial and error.
         List<ModApi.Craft.ICraftNode> FilterCraft(List<ModApi.Flight.Sim.INode> nodes)
