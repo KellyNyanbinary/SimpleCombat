@@ -16,31 +16,28 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         Vector3 steering = Vector3.zero;
         float burnTime;
         bool fired = false;
-        public void FlightStart(in FlightFrameData frame)
+        public void FlightStart(in FlightFrameData frame)//Called on the first frame in flight scene
         {
             burnTime = Data.burnTime;
             targetCraft = null;
         }
-        public void FlightFixedUpdate(in FlightFrameData frame)
+        public void FlightFixedUpdate(in FlightFrameData frame)//Called every physics update in flight scene
         {
-            ApplyAreoEffect();
-            Crafts = FilterCraft((List<ModApi.Flight.Sim.INode>)PartScript.CraftScript.CraftNode.Parent.DynamicNodes);
+            ApplyAreoEffect();//aerodynamics
             if (targetCraft == null)
-            {
-                Debug.Log("null target");
+            {//try to acquire a target
+                Crafts = FilterCraft((List<ModApi.Flight.Sim.INode>)PartScript.CraftScript.CraftNode.Parent.DynamicNodes);
                 targetCraft = ConeAcquireTarget(Data.targetRange, Data.targetAngle);
             }
-            else if (PartScript.Data.Activated)
-            {
+            else if (PartScript.Data.Activated)//If has target and launched
                 ComputeSteering();
-                Debug.Log(steering);//-7,13
-            }
             else if (Vector3d.Angle(targetCraft.Position - PartScript.CraftScript.FlightData.Position, PartScript.CraftScript.FlightData.CraftForward) >= Data.targetAngle)
-            { Debug.Log("Unlocked "+Vector3d.Angle(targetCraft.Position - PartScript.CraftScript.FlightData.Position, PartScript.CraftScript.FlightData.CraftForward)); targetCraft = null; } 
-            if (PartScript.Data.Activated^fired)
+                targetCraft = null;//if target exceeds locking angle limits before launching
+
+            if (PartScript.Data.Activated^fired)//first frame after part activation
                 GetComponentInChildren<ParticleSystem>().Play();
             if (burnTime > 0 && PartScript.Data.Activated)
-            {
+            {//adds thrust
                 fired = true;
                 PartScript.BodyScript.RigidBody.AddRelativeForce(Vector3.forward * Data.missileImpulse / Data.burnTime,ForceMode.Acceleration);
                 burnTime -= (float)frame.DeltaTime;
@@ -48,7 +45,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
             else GetComponentInChildren<ParticleSystem>().Stop();
         }
 
-
+        //Returns the closest target inside the acquisition range and angle. Uses data in the list Crafts.
         ModApi.Craft.ICraftNode ConeAcquireTarget(float range, float angle)
         {
             float shortest = range;
@@ -64,11 +61,14 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
             }
             return target;
         }
-        void ApplyAreoEffect()
+        //Adds force and torque from aerodynamics
+        void ApplyAreoEffect()//Yes, naming it Aero Effect is deliberate.
         {
-            ModApi.Craft.IBodyScript body = PartScript.BodyScript;
+            ModApi.Craft.IBodyScript body = PartScript.BodyScript;//save the reference to reduce a little bit of code
             Vector3 force = Vector3.right * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.right) + Vector3.forward * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.forward);
+            //lift is proportional to cosine of AoA and velocity^2
             body.RigidBody.AddForceAtPosition(PartScript.Transform.TransformVector(force) * Data.wingArea * -body.SurfaceVelocity.magnitude * PartScript.BodyScript.FluidDensity, PartScript.Transform.TransformVector(Vector3.up * Data.centerOfDrag) + PartScript.Transform.position, ForceMode.Force);
+            //steering torque is proportional to velocity^2 and wing area
             body.RigidBody.AddTorque(steering * Data.torque * Data.wingArea * body.SurfaceVelocity.sqrMagnitude * PartScript.BodyScript.FluidDensity,ForceMode.Force);
         }
         void ComputeSteering()
@@ -82,6 +82,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
             }
             else steering = Vector3.zero;
         }
+        //Converts INode list to ICraftNode list. Could use a better alternative but I don't want to waste more time on trial and error.
         List<ModApi.Craft.ICraftNode> FilterCraft(List<ModApi.Flight.Sim.INode> nodes)
         {
             ModApi.Craft.ICraftNode craft;
