@@ -23,12 +23,14 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         public float targetRange;
         [DesignerPropertySlider(Label = "Target Acquire Angle", MinValue = 0, MaxValue = 30)]
         public float targetAngle;
-        [DesignerPropertySlider(Label = "Wing Area", MinValue = 0, MaxValue = 20)]
+        [DesignerPropertySlider(Label = "Wing Area", MinValue = 0, MaxValue = 0.5f)]
         public float wingArea;
-        [DesignerPropertySlider(Label = "Turning Torque", MinValue = 0, MaxValue = 20)]
+        [DesignerPropertySlider(Label = "Turning Torque", MinValue = 0, MaxValue = 1)]
         public float torque;
         [DesignerPropertySlider(Label = "CoD Offset", MinValue = -1, MaxValue = 0)]
         public float centerOfDrag;
+        [DesignerPropertySpinner("Pure Pursuit", "Proportional", Label = "Guidance Method")]
+        public string guidanceMethod = "Pure Pursuit";
     }
 =======
 namespace Assets.Scripts.Craft.Parts.Modifiers
