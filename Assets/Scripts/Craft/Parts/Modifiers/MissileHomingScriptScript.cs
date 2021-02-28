@@ -70,6 +70,8 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
             body.RigidBody.AddForceAtPosition(PartScript.Transform.TransformVector(force) * Data.wingArea * -body.SurfaceVelocity.magnitude * PartScript.BodyScript.FluidDensity, PartScript.Transform.TransformVector(Vector3.up * Data.centerOfDrag) + PartScript.Transform.position, ForceMode.Force);
             //steering torque is proportional to velocity^2 and wing area
             body.RigidBody.AddTorque(steering * Data.torque * Data.wingArea * body.SurfaceVelocity.sqrMagnitude * PartScript.BodyScript.FluidDensity,ForceMode.Force);
+            //conter-roll torque
+            body.RigidBody.AddTorque(-0.1f * PartScript.Transform.up * Vector3.Dot(PartScript.Transform.up, body.RigidBody.angularVelocity),ForceMode.Force);
         }
         void ComputeSteering()
         {
