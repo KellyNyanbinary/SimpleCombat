@@ -9991,6 +9991,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PartType
       objectReference: {fileID: 0}
+    - target: {fileID: 7533301008828794049, guid: cc5a204154e780848acf3e8571eab53f,
+        type: 3}
+      propertyPath: Data._staticPriceAndMass
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc5a204154e780848acf3e8571eab53f, type: 3}
 --- !u!4 &1233097965398176343 stripped
