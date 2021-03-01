@@ -10,9 +10,9 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
     using UnityEngine;
 
     [Serializable]
-    [DesignerPartModifier("MissileHomingScript")]
-    [PartModifierTypeId("SimpleCombat.MissileHomingScript")]
-    public class MissileHomingScriptData : PartModifierData<MissileHomingScriptScript>
+    [DesignerPartModifier("MissileHoming")]
+    [PartModifierTypeId("SimpleCombat.MissileHoming")]
+    public class MissileHomingData : PartModifierData<MissileHomingScript>
     {
         [DesignerPropertySlider(Label = "Missile Impulse", MinValue = 0, MaxValue = 2000)]
         public float missileImpulse;

@@ -7,7 +7,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers.EditorScripts
     /// <summary>
     /// An editor only class used to associated part modifiers with game objects when defining parts.
     /// </summary>
-    public sealed class MissileHomingScriptEditorScript : PartModifierEditorScript<MissileHomingScriptData>
+    public sealed class MissileHomingEditorScript : PartModifierEditorScript<MissileHomingData>
     {
     }
 }

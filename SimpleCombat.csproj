@@ -55,9 +55,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\MissileHomingScriptEditorScript.cs" />
-     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingScriptData.cs" />
-     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingScriptScript.cs" />
+     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\MissileHomingEditorScript.cs" />
+     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingData.cs" />
+     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingScript.cs" />
      <Compile Include="Assets\Scripts\Mod.cs" />
      <Compile Include="Assets\Scripts\ModSettings.cs" />
      <None Include="Assets\ModTools\UI\Xml\Mods\RequiredModsDialog.xml" />

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6887664859027795918}
   - component: {fileID: 1468970398195626143}
   - component: {fileID: 2509468280928256784}
-  - component: {fileID: 1071265993636734223}
   - component: {fileID: 7322397225265142020}
+  - component: {fileID: 7533301008828794049}
   m_Layer: 0
   m_Name: Missile MRAAM Type A
   m_TagString: Untagged
@@ -145,7 +145,28 @@ MonoBehaviour:
     _supportsActivation: 1
     _supportsTransparency: 1
     _thermalMassRatio: 1
---- !u!114 &1071265993636734223
+--- !u!114 &7322397225265142020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035631855200478458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1454529484, guid: 55a7c5278766598448d9083b0de0861d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    _id: 
+    _inputId: 
+    _inspectorEnabled: 1
+    _partPropertiesEnabled: 1
+    _staticPriceAndMass: 0
+    _detachOnActivated: 1
+    _force: 1
+    _targetAttachPoints: AttachPoint1
+--- !u!114 &7533301008828794049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,24 +192,3 @@ MonoBehaviour:
     torque: 0.2
     centerOfDrag: -1
     guidanceMethod: Proportional
---- !u!114 &7322397225265142020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6035631855200478458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1454529484, guid: 55a7c5278766598448d9083b0de0861d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data:
-    _id: 
-    _inputId: 
-    _inspectorEnabled: 1
-    _partPropertiesEnabled: 1
-    _staticPriceAndMass: 0
-    _detachOnActivated: 1
-    _force: 1
-    _targetAttachPoints: AttachPoint1

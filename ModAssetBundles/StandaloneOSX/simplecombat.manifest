@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4050741986
+CRC: 2312143354
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 482dd2a2002a663be4e2d4dd25a97017
+    Hash: 8da47d2719c2f89a9714a044c7856baa
   TypeTreeHash:
     serializedVersion: 2
     Hash: e8d2b9d390f0b4668c9850a1e2f48c4c
@@ -45,12 +45,12 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Craft/Parts/Prefabs/Missile MRAAM Type B.prefab
-- Assets/_ModAssets_/ModManifest.xml.bytes
 - Assets/Resources/Craft/Parts/Prefabs/Missile SRAAM Type A.prefab
+- Assets/_ModAssets_/SimpleCombat.dll.bytes
 - Assets/Resources/Craft/Parts/Definitions/Missile MRAAM Type B.xml
 - Assets/Resources/Craft/Parts/Prefabs/Missile MRAAM Type A.prefab
 - Assets/Resources/Craft/Parts/Definitions/Missile SRAAM Type A.xml
 - Assets/Resources/Craft/Parts/Definitions/Missile MRAAM Type A.xml
+- Assets/_ModAssets_/ModManifest.xml.bytes
 - Assets/Content/Craft/Parts/Categories/Weapons.asset
-- Assets/_ModAssets_/SimpleCombat.dll.bytes
 Dependencies: []
