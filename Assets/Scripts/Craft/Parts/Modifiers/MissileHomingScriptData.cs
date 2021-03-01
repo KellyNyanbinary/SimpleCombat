@@ -20,11 +20,11 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         public float burnTime;
         [DesignerPropertySlider(Label = "Target Acquire Range", MinValue = 0, MaxValue = 10000)]
         public float targetRange;
-        [DesignerPropertySlider(Label = "Target Acquire Angle", MinValue = 0, MaxValue = 30)]
+        [DesignerPropertySlider(Label = "Target Acquire Angle", MinValue = 0, MaxValue = 90)]
         public float targetAngle;
-        [DesignerPropertySlider(Label = "Wing Area", MinValue = 0, MaxValue = 0.5f)]
+        [DesignerPropertySlider(Label = "Wing Area", MinValue = 0, MaxValue = 0.1f)]
         public float wingArea;
-        [DesignerPropertySlider(Label = "Turning Torque", MinValue = 0, MaxValue = 1)]
+        [DesignerPropertySlider(Label = "Turning Torque", MinValue = 0, MaxValue = 0.5f)]
         public float torque;
         [DesignerPropertySlider(Label = "CoD Offset", MinValue = -1, MaxValue = 0)]
         public float centerOfDrag;

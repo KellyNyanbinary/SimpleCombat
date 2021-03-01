@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4018925682
+CRC: 1569319022
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c02a9fb27c96b5acd53da7c0eca3a8f4
+    Hash: 3fc32b09684222fb3f154b0ad3fde993
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b1f70e2e6e21156b4f994fa75b5f1d34
+    Hash: e8d2b9d390f0b4668c9850a1e2f48c4c
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -28,11 +28,11 @@ ClassTypes:
 - Class: 49
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 212942404, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
+- Class: 114
   Script: {fileID: 2121057919, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
 - Class: 114
   Script: {fileID: -468989955, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
-- Class: 114
-  Script: {fileID: 212942404, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -45,12 +45,12 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Craft/Parts/Prefabs/Missile MRAAM Type B.prefab
-- Assets/Resources/Craft/Parts/Prefabs/Missile SRAAM Type A.prefab
 - Assets/_ModAssets_/ModManifest.xml.bytes
+- Assets/Resources/Craft/Parts/Prefabs/Missile SRAAM Type A.prefab
 - Assets/Resources/Craft/Parts/Definitions/Missile MRAAM Type B.xml
 - Assets/Resources/Craft/Parts/Prefabs/Missile MRAAM Type A.prefab
 - Assets/Resources/Craft/Parts/Definitions/Missile SRAAM Type A.xml
 - Assets/Resources/Craft/Parts/Definitions/Missile MRAAM Type A.xml
-- Assets/_ModAssets_/SimpleCombat.dll.bytes
 - Assets/Content/Craft/Parts/Categories/Weapons.asset
+- Assets/_ModAssets_/SimpleCombat.dll.bytes
 Dependencies: []

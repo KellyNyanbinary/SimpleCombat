@@ -58,10 +58,6 @@
      <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\MissileHomingScriptEditorScript.cs" />
      <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingScriptData.cs" />
      <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingScriptScript.cs" />
-     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileScriptData.cs" />
-     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileScriptScript.cs" />
-     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\Missile_HomingData.cs" />
-     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\Missile_HomingScript.cs" />
      <Compile Include="Assets\Scripts\Mod.cs" />
      <Compile Include="Assets\Scripts\ModSettings.cs" />
      <None Include="Assets\ModTools\UI\Xml\Mods\RequiredModsDialog.xml" />

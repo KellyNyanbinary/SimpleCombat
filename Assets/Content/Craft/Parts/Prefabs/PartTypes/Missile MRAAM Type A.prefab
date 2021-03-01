@@ -170,7 +170,7 @@ MonoBehaviour:
     wingArea: 0.05
     torque: 0.2
     centerOfDrag: -1
-    guidanceMethod: Pure Pursuit
+    guidanceMethod: Proportional
 --- !u!114 &7322397225265142020
 MonoBehaviour:
   m_ObjectHideFlags: 0
