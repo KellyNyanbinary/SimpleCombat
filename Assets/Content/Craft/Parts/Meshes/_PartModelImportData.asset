@@ -13,6 +13,54 @@ MonoBehaviour:
   m_Name: _PartModelImportData
   m_EditorClassIdentifier: 
   _models:
+  - _id: Missile LRAAM Type A
+    _meshes:
+    - _id: Missile Front Fins
+      _initialized: 1
+      _isCollider: 0
+      _antiDistortion: 0
+      _mesh: {fileID: 4816838818533813566, guid: a8c48d9ce98429a4b81800d1bb696f2b,
+        type: 3}
+      _sortOrderOverride: 
+      _submeshMap: 01000000
+      _subpartId: 0
+    - _id: Missile Fusealge Ring
+      _initialized: 1
+      _isCollider: 0
+      _antiDistortion: 0
+      _mesh: {fileID: 5966678146617188031, guid: a8c48d9ce98429a4b81800d1bb696f2b,
+        type: 3}
+      _sortOrderOverride: 
+      _submeshMap: 04000000
+      _subpartId: 0
+    - _id: Missile Fuselage
+      _initialized: 1
+      _isCollider: 0
+      _antiDistortion: 0
+      _mesh: {fileID: -1930094268734105137, guid: a8c48d9ce98429a4b81800d1bb696f2b,
+        type: 3}
+      _sortOrderOverride: 
+      _submeshMap: 00000000
+      _subpartId: 0
+    - _id: Missile Rear Fins
+      _initialized: 1
+      _isCollider: 0
+      _antiDistortion: 0
+      _mesh: {fileID: -2227813422406229287, guid: a8c48d9ce98429a4b81800d1bb696f2b,
+        type: 3}
+      _sortOrderOverride: 
+      _submeshMap: 02000000
+      _subpartId: 0
+    - _id: Missile Warhead
+      _initialized: 1
+      _isCollider: 0
+      _antiDistortion: 0
+      _mesh: {fileID: 7115890302560292119, guid: a8c48d9ce98429a4b81800d1bb696f2b,
+        type: 3}
+      _sortOrderOverride: 
+      _submeshMap: 03000000
+      _subpartId: 0
+    _model: {fileID: 919132149155446097, guid: a8c48d9ce98429a4b81800d1bb696f2b, type: 3}
   - _id: Missile MRAAM Type A 1
     _meshes:
     - _id: Missile
@@ -121,6 +169,54 @@ MonoBehaviour:
       _submeshMap: 03000000
       _subpartId: 0
     _model: {fileID: 919132149155446097, guid: 1beb1ed9c9f89db4db90261c0a5ad7da, type: 3}
+  - _id: Missile MRAAM Type C
+    _meshes:
+    - _id: Missile Front Fins
+      _initialized: 1
+      _isCollider: 0
+      _antiDistortion: 0
+      _mesh: {fileID: 4816838818533813566, guid: 9d62fce1ed964374e9dd58c7da110fcb,
+        type: 3}
+      _sortOrderOverride: 
+      _submeshMap: 01000000
+      _subpartId: 0
+    - _id: Missile Fuselage
+      _initialized: 1
+      _isCollider: 0
+      _antiDistortion: 0
+      _mesh: {fileID: -1930094268734105137, guid: 9d62fce1ed964374e9dd58c7da110fcb,
+        type: 3}
+      _sortOrderOverride: 
+      _submeshMap: 00000000
+      _subpartId: 0
+    - _id: Missile Mid Fins
+      _initialized: 1
+      _isCollider: 0
+      _antiDistortion: 0
+      _mesh: {fileID: 4583643511400323542, guid: 9d62fce1ed964374e9dd58c7da110fcb,
+        type: 3}
+      _sortOrderOverride: 
+      _submeshMap: 01000000
+      _subpartId: 0
+    - _id: Missile Rear Fins
+      _initialized: 1
+      _isCollider: 0
+      _antiDistortion: 0
+      _mesh: {fileID: -2227813422406229287, guid: 9d62fce1ed964374e9dd58c7da110fcb,
+        type: 3}
+      _sortOrderOverride: 
+      _submeshMap: 02000000
+      _subpartId: 0
+    - _id: Missile Warhead
+      _initialized: 1
+      _isCollider: 0
+      _antiDistortion: 0
+      _mesh: {fileID: 7115890302560292119, guid: 9d62fce1ed964374e9dd58c7da110fcb,
+        type: 3}
+      _sortOrderOverride: 
+      _submeshMap: 03000000
+      _subpartId: 0
+    _model: {fileID: 919132149155446097, guid: 9d62fce1ed964374e9dd58c7da110fcb, type: 3}
   - _id: Missile SRAAM Type A
     _meshes:
     - _id: Missile Front Fins

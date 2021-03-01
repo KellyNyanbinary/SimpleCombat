@@ -3,11 +3,11 @@
   <PartType id="Missile MRAAM Type A" includeInBodyDrag="true" name="Missile MRAAM Type A" prefabPath="Assets/Resources/Craft/Parts/Prefabs/Missile MRAAM Type A.prefab" mass="150" price="1000000" partCollisions="Default" defaultMaterials="0,1,1,3,3" subpartsSharePartStyle="false" stylesShareHeader="false">
     <Modifiers>
       <Config autoActivateIfNoStageOrActivationGroup="false" buoyancyBaseScale="1" buoyancyUserScale="1" centerOfMass="0,0,0" collisionDisconnectImpulse="1000" collisionDisconnectVelocity="15" collisionExplodeImpulse="2000" collisionExplodeVelocity="30" collisionPreventExternalDisconnections="false" collisionVelocityMode="NormalOnly" dragScale="1" dragScaleActive="1" fuelLine="false" heatShield="0" includeInDrag="true" inertiaTensorBaseScale="1" inertiaTensorMin="0.05" inertiaTensorUserScale="1" massScale="1" maxDamage="100" maxDrag="0" maxDragActive="0" maxTemperature="1500" occlusion="Auto" partCollisionHandling="Default" partCollisionResponse="Default" partScale="1,1,1" preventDebris="true" raiseWaterEventsEvenIfNotBuoyant="false" renderQueue="Default" stageActivationType="None" supportsActivation="true" supportsTransparency="true" thermalMassRatio="1" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="true" />
-      <Detacher detachOnActivated="true" force="1" targetAttachPoints="AttachPoint1" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="false" />
-      <SimpleCombat.MissileHoming missileImpulse="400" burnTime="2" targetRange="3000" targetAngle="180" wingArea="0.05" torque="0.2" centerOfDrag="-1" guidanceMethod="Proportional" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="false" />
+      <SimpleCombat.MissileHoming missileImpulse="400" burnTime="2" targetRange="5000" targetAngle="60" wingArea="0.05" torque="0.2" centerOfDrag="-1" guidanceMethod="Proportional" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="true" />
+      <Detacher detachOnActivated="true" force="1" targetAttachPoints="AttachPoint1" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="true" />
     </Modifiers>
     <AttachPoints>
-      <AttachPoint name="AttachPoint1" displayName="AttachPoint1" position="0,0,0.1" rotation="0,0,0" allowRotation="true" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" jointType="Rigid" />
+      <AttachPoint name="AttachPoint1" displayName="Attachment Point" position="0,0,0.1" rotation="0,0,0" allowRotation="true" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" jointType="Rigid" />
     </AttachPoints>
     <SubpartTypes>
       <SubpartType index="0" xmlName="" displayName="Part" />
@@ -19,8 +19,8 @@
         <Parts>
           <Part id="1" partType="Missile MRAAM Type A" position="0,0,0" rotation="0,0,0">
             <Config />
-            <Detacher force="0" />
             <SimpleCombat.MissileHoming />
+            <Detacher force="0" />
           </Part>
         </Parts>
       </Assembly>

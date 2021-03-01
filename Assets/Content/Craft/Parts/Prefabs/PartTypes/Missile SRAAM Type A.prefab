@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4982046747861452450}
   - component: {fileID: 6951197816675455850}
   - component: {fileID: 673590552631217558}
+  - component: {fileID: 4316425212565750633}
+  - component: {fileID: 1920339974944239549}
   m_Layer: 0
   m_Name: Missile SRAAM Type A
   m_TagString: Untagged
@@ -140,6 +142,53 @@ MonoBehaviour:
     _raiseWaterEventsEvenIfNotBuoyant: 0
     _renderQueue: 0
     _stageActivationType: 0
-    _supportsActivation: 0
+    _supportsActivation: 1
     _supportsTransparency: 1
     _thermalMassRatio: 1
+--- !u!114 &4316425212565750633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981332817329424656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4250440d8bde04246a66198e495b550e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    _id: 
+    _inputId: 
+    _inspectorEnabled: 1
+    _partPropertiesEnabled: 1
+    _staticPriceAndMass: 0
+    missileImpulse: 200
+    burnTime: 2
+    targetRange: 2000
+    targetAngle: 90
+    wingArea: 0.05
+    torque: 0.2
+    centerOfDrag: -1
+    guidanceMethod: Proportional
+--- !u!114 &1920339974944239549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981332817329424656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1454529484, guid: 55a7c5278766598448d9083b0de0861d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    _id: 
+    _inputId: 
+    _inspectorEnabled: 1
+    _partPropertiesEnabled: 1
+    _staticPriceAndMass: 1
+    _detachOnActivated: 1
+    _force: 1
+    _targetAttachPoints: AttachPoint1

@@ -20,7 +20,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         public float burnTime;
         [DesignerPropertySlider(Label = "Target Acquire Range", MinValue = 0, MaxValue = 10000)]
         public float targetRange;
-        [DesignerPropertySlider(Label = "Target Acquire Angle", MinValue = 0, MaxValue = 90)]
+        [DesignerPropertySlider(Label = "Target Acquire Angle", MinValue = 0, MaxValue = 100)]
         public float targetAngle;
         [DesignerPropertySlider(Label = "Wing Area", MinValue = 0, MaxValue = 0.1f)]
         public float wingArea;

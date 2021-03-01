@@ -91,12 +91,14 @@
      <None Include="Assets\ModTools\Parts\PrefabData\Gauges\Indicator5.prefab.xml" />
      <None Include="Assets\ModTools\Parts\PrefabData\LandingGear\Bay-Curved.prefab.xml" />
      <None Include="Assets\ModTools\UI\Xml\Design\StagingEditorPanel.xml" />
+     <None Include="Assets\Resources\Craft\Parts\Definitions\Missile LRAAM Type A.xml" />
      <None Include="Assets\ModTools\Parts\PrefabData\Wheels\RetroRim.prefab.xml" />
      <None Include="Assets\ModTools\Parts\PrefabData\Wheels\LandingGearRim.prefab.xml" />
      <None Include="Assets\ModTools\Parts\PrefabData\Fuselage\Solid-1.prefab.xml" />
      <None Include="Assets\ModTools\UI\Xml\Design\RotatePartPanel.xml" />
      <None Include="Assets\ModTools\UI\Xml\PlanetStudio\InspectorModelFlyout.xml" />
      <None Include="Assets\ModTools\Parts\PrefabData\LandingGear\Wheel-Straddled.prefab.xml" />
+     <None Include="Assets\Resources\Craft\Parts\Definitions\Missile MRAAM Type C.xml" />
      <None Include="Assets\ModTools\UI\Xml\Flight\EvaPanel.xml" />
      <None Include="Assets\ModTools\Parts\PrefabData\LandingGear1.prefab.xml" />
      <None Include="Assets\ModTools\Parts\PrefabData\SolarPanelArray.prefab.xml" />
