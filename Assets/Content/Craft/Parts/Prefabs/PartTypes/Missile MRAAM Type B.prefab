@@ -108,8 +108,8 @@ MonoBehaviour:
     _inputId: 
     _inspectorEnabled: 1
     _partPropertiesEnabled: 1
-    _staticPriceAndMass: 0
-    _autoActivateIfNoStageOrActivationGroup: 1
+    _staticPriceAndMass: 1
+    _autoActivateIfNoStageOrActivationGroup: 0
     _buoyancyBaseScale: 1
     _buoyancyUserScale: 1
     _centerOfMass: {x: 0, y: 0, z: 0}
