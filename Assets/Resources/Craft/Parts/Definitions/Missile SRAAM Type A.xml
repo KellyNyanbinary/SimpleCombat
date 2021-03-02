@@ -4,7 +4,8 @@
     <Modifiers>
       <Config autoActivateIfNoStageOrActivationGroup="false" buoyancyBaseScale="1" buoyancyUserScale="1" centerOfMass="0,0,0" collisionDisconnectImpulse="1000" collisionDisconnectVelocity="15" collisionExplodeImpulse="2000" collisionExplodeVelocity="30" collisionPreventExternalDisconnections="false" collisionVelocityMode="NormalOnly" dragScale="1" dragScaleActive="1" fuelLine="false" heatShield="0" includeInDrag="true" inertiaTensorBaseScale="1" inertiaTensorMin="0.05" inertiaTensorUserScale="1" massScale="1" maxDamage="100" maxDrag="0" maxDragActive="0" maxTemperature="1500" occlusion="Auto" partCollisionHandling="Default" partCollisionResponse="Default" partScale="1,1,1" preventDebris="true" raiseWaterEventsEvenIfNotBuoyant="false" renderQueue="Default" stageActivationType="None" supportsActivation="true" supportsTransparency="true" thermalMassRatio="1" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="true" />
       <SimpleCombat.MissileHoming missileImpulse="200" burnTime="2" targetRange="2000" targetAngle="90" wingArea="0.05" torque="0.2" centerOfDrag="-1" guidanceMethod="Proportional" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="false" />
-      <Detacher detachOnActivated="true" force="1" targetAttachPoints="AttachPoint1" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="true" />
+      <Detacher detachOnActivated="true" force="0" targetAttachPoints="AttachPoint1" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="true" />
+      <SimpleCombat.ExplosiveDamage explosivePower="100" explosionRadius="10" explosionDamage="1" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="false" />
     </Modifiers>
     <AttachPoints>
       <AttachPoint name="AttachPoint1" displayName="Attachment Point" position="0,0,0.075" rotation="0,0,0" allowRotation="true" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" jointType="Rigid" />
@@ -21,6 +22,7 @@
             <Config />
             <SimpleCombat.MissileHoming />
             <Detacher />
+            <SimpleCombat.ExplosiveDamage />
           </Part>
         </Parts>
       </Assembly>

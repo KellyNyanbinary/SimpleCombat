@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 673590552631217558}
   - component: {fileID: 4316425212565750633}
   - component: {fileID: 1920339974944239549}
+  - component: {fileID: 5813241334354958683}
   m_Layer: 0
   m_Name: Missile SRAAM Type A
   m_TagString: Untagged
@@ -190,5 +191,26 @@ MonoBehaviour:
     _partPropertiesEnabled: 1
     _staticPriceAndMass: 1
     _detachOnActivated: 1
-    _force: 1
+    _force: 0
     _targetAttachPoints: AttachPoint1
+--- !u!114 &5813241334354958683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981332817329424656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ad5b3d6a814b446950d5376b679e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    _id: 
+    _inputId: 
+    _inspectorEnabled: 1
+    _partPropertiesEnabled: 1
+    _staticPriceAndMass: 0
+    explosivePower: 100
+    explosionRadius: 10
+    explosionDamage: 1
