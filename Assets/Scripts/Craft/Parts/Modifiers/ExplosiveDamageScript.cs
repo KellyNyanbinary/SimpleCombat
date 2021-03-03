@@ -12,6 +12,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
     public class ExplosiveDamageScript : PartModifierScript<ExplosiveDamageData>,IFlightUpdate
     {
         Vector3 position;
+        ParticleSystem bullets;
         public void FlightUpdate(in FlightFrameData frame)
         {
             position = PartScript.Transform.position;
@@ -19,22 +20,18 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
 
         public override void OnPartDestroyed()
         {
-            Debug.Log("destroy!");
-            Collider[] colliders = Physics.OverlapSphere(position, Data.explosionRadius);
-            Debug.Log("Got Hit!");
+            Collider[] colliders = Physics.OverlapSphere(position, Data.explosionRadius);//gets colliders in explosion range
             foreach (Collider collider in colliders)
             {
-                try
+                try//Bad practice. Don't use exception handling for flow control. Will change to null testing in the future
                 {
-                    Debug.Log("Iterating");
-                    if (collider.GetComponent<ModApi.Craft.Parts.PartColliderScript>().IsPrimary)
+                    if (collider.GetComponent<ModApi.Craft.Parts.PartColliderScript>().IsPrimary)//Only adding force to primary colliders to avoid adding multiple forces to the same part. Could be replaced with weighing collider size in the future
                     {
-                        collider.GetComponentInParent<PartScript>().TakeDamage(Data.explosionDamage, false);
-                        collider.attachedRigidbody.AddForceAtPosition((collider.transform.position - position).normalized * Data.explosivePower, collider.transform.position, ForceMode.Impulse);
-                        Debug.Log(collider.gameObject.name);
-                    }
+                        collider.GetComponentInParent<PartScript>().TakeDamage(Data.explosionDamage, false);//adds damage
+                        collider.attachedRigidbody.AddExplosionForce(Data.explosivePower, position, Data.explosionRadius,0 , ForceMode.Impulse);//adds impulse
+                    }//still need to add attenuation
                 }
-                catch (Exception) { Debug.Log("except"); }
+                catch (Exception) { }
             }
         }
     }

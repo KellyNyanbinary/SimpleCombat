@@ -36,6 +36,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: bf626299dee34ec4fb0c34c1f004dce4, type: 3}
   - {fileID: 4900000, guid: 129286921e21dfe44b7e4efc6b9f4e93, type: 3}
   - {fileID: 4900000, guid: 6dbb922aa904000408d28b56a2005f22, type: 3}
+  - {fileID: 4900000, guid: cf5636a5d6cd1a1499736b97bab7403d, type: 3}
   _partStyleExtensions: []
   _partTextureStyles: []
   _persistentObjects: []

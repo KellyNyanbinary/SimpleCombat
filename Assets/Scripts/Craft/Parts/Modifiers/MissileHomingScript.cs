@@ -57,7 +57,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
                     shortest = (float)Vector3d.Distance(craft.Position, PartScript.CraftScript.FlightData.Position);
                     target = craft;
                 }
-                Debug.Log(Vector3d.Distance(craft.Position, PartScript.CraftScript.FlightData.Position));
             }
             return target;
         }

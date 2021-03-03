@@ -64,9 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\ExplosiveDamageEditorScript.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\GunEditorScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\MissileHomingEditorScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\ExplosiveDamageData.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\ExplosiveDamageScript.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\GunData.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\GunScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingData.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingScript.cs" />
     <Compile Include="Assets\Scripts\Mod.cs" />
@@ -351,6 +354,7 @@
     <None Include="Assets\ModTools\Parts\PrefabData\Fuselage\Solid-2.prefab.xml" />
     <None Include="Assets\Resources\Craft\Parts\Definitions\Missile MRAAM Type B.xml" />
     <None Include="Assets\ModTools\Parts\PrefabData\LandingGear\Bay-None.prefab.xml" />
+    <None Include="Assets\Resources\Craft\Parts\Definitions\Gun.xml" />
     <None Include="Assets\ModTools\Parts\PrefabData\Fuselage\Inlet-2.prefab.xml" />
     <None Include="Assets\ModTools\Parts\PrefabData\Gauges\Trim2.prefab.xml" />
     <None Include="Assets\ModTools\UI\Xml\Settings\AxisCalibratorDialog.xml" />

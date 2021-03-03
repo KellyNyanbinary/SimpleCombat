@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 409504192
+CRC: 1769434451
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1ff501ccf1ef1d0940bbec8499564fce
+    Hash: d86267936eb69858b66d8361525b261f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e8d2b9d390f0b4668c9850a1e2f48c4c
+    Hash: 76cf720e6cfd28dc7aa01a3331e989d6
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -26,6 +26,8 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 - Class: 49
+  Script: {instanceID: 0}
+- Class: 65
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 212942404, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
@@ -47,6 +49,8 @@ Assets:
 - Assets/Resources/Craft/Parts/Prefabs/Missile MRAAM Type B.prefab
 - Assets/Resources/Craft/Parts/Definitions/Missile MRAAM Type C.xml
 - Assets/Resources/Craft/Parts/Prefabs/Missile SRAAM Type A.prefab
+- Assets/Resources/Craft/Parts/Prefabs/Gun.prefab
+- Assets/Resources/Craft/Parts/Definitions/Gun.xml
 - Assets/Resources/Craft/Parts/Definitions/Missile MRAAM Type B.xml
 - Assets/Resources/Craft/Parts/Prefabs/Missile MRAAM Type A.prefab
 - Assets/Resources/Craft/Parts/Definitions/Missile SRAAM Type A.xml
