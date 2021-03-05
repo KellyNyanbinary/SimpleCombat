@@ -162,3 +162,7 @@ MonoBehaviour:
     _inspectorEnabled: 1
     _partPropertiesEnabled: 1
     _staticPriceAndMass: 0
+    damage: 5
+    mass: 0.01
+    velocity: 200
+    rateOfFire: 100

@@ -39,7 +39,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
             if (burnTime > 0 && PartScript.Data.Activated)
             {//adds thrust
                 fired = true;
-                PartScript.BodyScript.RigidBody.AddRelativeForce(Vector3.forward * Data.missileImpulse / Data.burnTime,ForceMode.Acceleration);
+                PartScript.BodyScript.RigidBody.AddForce(PartScript.Transform.up * Data.missileImpulse / Data.burnTime,ForceMode.Acceleration);
                 burnTime -= (float)frame.DeltaTime;
             }
             else GetComponentInChildren<ParticleSystem>().Stop();
@@ -91,7 +91,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
             foreach (ModApi.Flight.Sim.INode node in nodes)
             {
                 try { craft = (ModApi.Craft.ICraftNode)node;crafts.Add(craft);}
-                catch (Exception) { craft = null; }
+                catch (Exception) { craft = null;Debug.Log("Node conversion failed"); }
             }
             return crafts;
         }
