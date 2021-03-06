@@ -15,17 +15,27 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         ParticleSystem.Particle[] bullets;
         Collider gunCollider;
         bool firing;
+        float reloadProgress = 0;
+        ParticleSystem.EmissionModule gunEmission;
 
         public void FlightStart(in FlightFrameData frame)
         {
             gun = GetComponentInChildren<ParticleSystem>();
             gunCollider = PartScript.Colliders[0].Collider;
             ParticleSystem.MainModule particleMain = gun.main;
-            particleMain.startSpeed = Data.velocity;
+            particleMain.startSpeed = Data.muzzleVelocity;
+            ParticleSystem.ShapeModule particleShape = gun.shape;
+            particleShape.angle = Data.bulletDispersion;
+            gunEmission = gun.emission;
         }
 
         public void FlightFixedUpdate(in FlightFrameData frame)
         {
+            if (PartScript.Data.Activated)
+                gunEmission.rateOverTime = Data.rateOfFire;
+            else gunEmission.rateOverTime = 0;
+
+            Debug.Log(gunEmission.rateOverTime.constant + "," + gun.isPlaying);
             bullets = new ParticleSystem.Particle[gun.particleCount];
             gun.GetParticles(bullets);
             for (int i = 0; i < bullets.Length; i++)
@@ -55,8 +65,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
 
         public void FlightUpdate(in FlightFrameData frame)
         {
-            if (PartScript.Data.Activated && !firing)
-                StartCoroutine("FireGun");
             bullets = new ParticleSystem.Particle[gun.particleCount];
             gun.GetParticles(bullets);
             for (int i = 0; i < bullets.Length; i++)
@@ -66,7 +74,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
             gun.SetParticles(bullets);
         }
 
-        System.Collections.IEnumerator FireGun()
+        System.Collections.IEnumerator FireGun()//unused
         {
             firing = true;
             while (PartScript.Data.Activated)

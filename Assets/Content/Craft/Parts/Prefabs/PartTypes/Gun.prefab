@@ -164,5 +164,6 @@ MonoBehaviour:
     _staticPriceAndMass: 0
     damage: 5
     mass: 0.01
-    velocity: 200
+    muzzleVelocity: 200
     rateOfFire: 100
+    bulletDispersion: 0.1

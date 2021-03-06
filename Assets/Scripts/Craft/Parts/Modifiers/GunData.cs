@@ -19,8 +19,10 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         [DesignerPropertySlider(Label = "Bullet Mass", MinValue = 0.01f, MaxValue = 0.2f)]
         public float mass = 0.01f;
         [DesignerPropertySlider(Label = "Muzzle Velocity", MinValue = 200, MaxValue = 1000)]
-        public float velocity = 200;
-        [DesignerPropertySlider(Label = "Rate of Fire", MinValue = 1, MaxValue = 100)]
+        public float muzzleVelocity = 200;
+        [DesignerPropertySlider(Label = "Rate of Fire", MinValue = 20, MaxValue = 1000)]
         public float rateOfFire = 1;
+        [DesignerPropertySlider(Label = "Bullet Dispersion", MinValue = 0, MaxValue = 1)]
+        public float bulletDispersion = 0.1f;
     }
 }
