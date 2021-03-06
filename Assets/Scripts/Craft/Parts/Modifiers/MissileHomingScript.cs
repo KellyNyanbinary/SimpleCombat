@@ -24,7 +24,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         public void FlightFixedUpdate(in FlightFrameData frame)//Called every physics update in flight scene
         {
             ApplyAreoEffect();//aerodynamics
-            if (targetCraft == null)
+            if (targetCraft==null && Data.guidanceMethod!="Unguided" && Data.targetAngle*Data.targetRange!=0)
             {//try to acquire a target
                 Crafts = FilterCraft((List<ModApi.Flight.Sim.INode>)PartScript.CraftScript.CraftNode.Parent.DynamicNodes);
                 targetCraft = ConeAcquireTarget(Data.targetRange, Data.targetAngle);
@@ -81,7 +81,14 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
                 steering = (Vector3)Vector3d.Cross(PartScript.CraftScript.CraftNode.Velocity - targetCraft.Velocity, (targetCraft.Position - PartScript.BodyScript.CraftScript.CraftNode.Position) / (targetCraft.Position - PartScript.BodyScript.CraftScript.CraftNode.Position).sqrMagnitude);
                 steering -= PartScript.Transform.up * Vector3.Dot(PartScript.Transform.up, steering);
             }
-            else steering = Vector3.zero;
+            else
+            {
+                return;
+            }
+            steering *= Data.guidanceConstant;
+            //limits vector magnitude to below 1
+            if (steering.magnitude > 1)
+                steering = steering.normalized;
         }
         //Converts INode list to ICraftNode list. Could use a better alternative but I don't want to waste more time on trial and error.
         List<ModApi.Craft.ICraftNode> FilterCraft(List<ModApi.Flight.Sim.INode> nodes)

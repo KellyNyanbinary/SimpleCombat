@@ -26,9 +26,11 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         public float wingArea;
         [DesignerPropertySlider(Label = "Turning Torque", MinValue = 0, MaxValue = 0.5f)]
         public float torque;
-        [DesignerPropertySlider(Label = "CoD Offset", MinValue = -1, MaxValue = 0)]
+        [DesignerPropertySlider(Label = "Center of Drag Offset", MinValue = -1, MaxValue = 0)]
         public float centerOfDrag;
         [DesignerPropertySpinner("Pure Pursuit", "Proportional", "Unguided", Label = "Guidance Method")]
         public string guidanceMethod = "Pure Pursuit";
+        [DesignerPropertySlider(Label = "Guidance Constant", MinValue = 0, MaxValue = 4, Tooltip = "Maps guidance input (angle is in radians) to turning effect output (maximum is 1)")]
+        public float guidanceConstant = 1;
     }
 }
