@@ -13,13 +13,17 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
     {
         Vector3 position;
         ParticleSystem bullets;
+        bool armed = false;
         public void FlightUpdate(in FlightFrameData frame)
         {
             position = PartScript.Transform.position;
+            armed = true;
         }
 
         public override void OnPartDestroyed()
         {
+            if (!armed)
+                return;
             Collider[] colliders = Physics.OverlapSphere(position, Data.explosionRadius);//gets colliders in explosion range
             foreach (Collider collider in colliders)
             {
