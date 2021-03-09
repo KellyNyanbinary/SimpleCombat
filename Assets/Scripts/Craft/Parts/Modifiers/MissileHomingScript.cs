@@ -23,7 +23,9 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         }
         public void FlightFixedUpdate(in FlightFrameData frame)//Called every physics update in flight scene
         {
-            ApplyAreoEffect();//aerodynamics
+            if (PartScript.Data.Activated)
+                ApplyAreoEffect();//aerodynamics 
+
             if (targetCraft==null && Data.guidanceMethod!="Unguided" && Data.targetAngle*Data.targetRange!=0)
             {//try to acquire a target
                 Crafts = FilterCraft((List<ModApi.Flight.Sim.INode>)PartScript.CraftScript.CraftNode.Parent.DynamicNodes);
