@@ -168,8 +168,8 @@ MonoBehaviour:
     burnTime: 2
     targetRange: 2000
     targetAngle: 90
-    wingArea: 0.05
-    torque: 0.2
+    wingArea: 0.03
+    torque: 0.3
     centerOfDrag: -1
     guidanceMethod: Proportional
     guidanceConstant: 1

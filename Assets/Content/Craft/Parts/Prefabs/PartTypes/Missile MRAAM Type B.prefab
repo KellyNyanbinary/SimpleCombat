@@ -167,10 +167,11 @@ MonoBehaviour:
     burnTime: 2
     targetRange: 7500
     targetAngle: 45
-    wingArea: 0.05
+    wingArea: 0.02
     torque: 0.2
     centerOfDrag: -1
     guidanceMethod: Proportional
+    guidanceConstant: 1
 --- !u!114 &8483809503004347431
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -62,7 +62,7 @@ MonoBehaviour:
       _rotationOffsetEuler: {x: 0, y: 0, z: 0}
     _name: Missile LRAAM Type A
     _partCollisionHandling: 0
-    _price: 1200000
+    _price: 3000000
     _unscaledMass: 450
     _usePreferredNodeName: 1
 --- !u!114 &4267840148472188129
@@ -167,10 +167,11 @@ MonoBehaviour:
     burnTime: 8
     targetRange: 10000
     targetAngle: 30
-    wingArea: 0.1
-    torque: 0.2
+    wingArea: 0.03
+    torque: 0.1
     centerOfDrag: -1
     guidanceMethod: Proportional
+    guidanceConstant: 1
 --- !u!114 &5641811985384085482
 MonoBehaviour:
   m_ObjectHideFlags: 0
