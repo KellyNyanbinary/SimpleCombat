@@ -18,7 +18,8 @@ MonoBehaviour:
   _description: 
   _loadPriority: 1000
   _name: SimpleCombat
-  _otherAssets: []
+  _otherAssets:
+  - {fileID: 11400000, guid: b65ed00e77ef968468eb435d68f09283, type: 2}
   _prefabs: []
   _steamDescription: 
   _steamLanguage: English

@@ -24,6 +24,8 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         public float targetAngle;
         [DesignerPropertySlider(Label = "Wing Area", MinValue = 0, MaxValue = 0.1f)]
         public float wingArea;
+        [DesignerPropertyToggleButton(Label = "Use Lift Curve")]
+        public bool useLiftCurve = false;
         [DesignerPropertySlider(Label = "Turning Torque", MinValue = 0, MaxValue = 0.5f)]
         public float torque;
         [DesignerPropertySlider(Label = "Center of Drag Offset", MinValue = -1, MaxValue = 0)]

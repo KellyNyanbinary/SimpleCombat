@@ -9573,6 +9573,21 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0.4, z: 0}
+--- !u!114 &81583289485600951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515175445611404116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -468989955, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ignoreDesignerCollisions: 1
+  _ignoreFirstPersonCollisions: 0
+  _isPrimary: 1
 --- !u!1 &5607786585956930993
 GameObject:
   m_ObjectHideFlags: 0
@@ -10045,6 +10060,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446803076750557588, guid: 49f38671159a29844a49742047b11043,
+        type: 3}
+      propertyPath: Data._inspectorEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446803076750557588, guid: 49f38671159a29844a49742047b11043,
+        type: 3}
+      propertyPath: Data._partPropertiesEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446803076750557588, guid: 49f38671159a29844a49742047b11043,
+        type: 3}
+      propertyPath: Data._keyframes
+      value: 0,0|5,0.33|10,0.662|15,0.822|20,0.786|25,0.759|30,0.732|35,0.715|40,0.707|45,0.705|50,0.714|55,0.727|60,0.745|65,0.764|70,0.783|75,0.801|80,0.815|85,0.822|90,0.825|95,0.827|100,0.830
       objectReference: {fileID: 0}
     - target: {fileID: 8927157939363084507, guid: 49f38671159a29844a49742047b11043,
         type: 3}

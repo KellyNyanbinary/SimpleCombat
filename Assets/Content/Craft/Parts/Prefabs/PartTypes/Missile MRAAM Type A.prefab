@@ -163,11 +163,13 @@ MonoBehaviour:
     _inspectorEnabled: 1
     _partPropertiesEnabled: 1
     _staticPriceAndMass: 1
+    normalLiftCurve: {fileID: 0}
     missileImpulse: 400
     burnTime: 2
     targetRange: 5000
     targetAngle: 60
     wingArea: 0.02
+    useLiftCurve: 0
     torque: 0.2
     centerOfDrag: -1
     guidanceMethod: Proportional

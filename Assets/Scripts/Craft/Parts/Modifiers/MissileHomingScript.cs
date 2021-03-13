@@ -13,13 +13,16 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
     {
         ModApi.Craft.ICraftNode targetCraft;
         List<ModApi.Craft.ICraftNode> Crafts;
+        Input.CurveInputScript normalLiftCurve;
         Vector3 steering = Vector3.zero;
         float burnTime;
         bool fired = false;
+
         public void FlightStart(in FlightFrameData frame)//Called on the first frame in flight scene
         {
             burnTime = Data.burnTime;
             targetCraft = null;
+            normalLiftCurve = PartScript.GameObject.GetComponentInChildren<Input.CurveInputScript>();
         }
         public void FlightFixedUpdate(in FlightFrameData frame)//Called every physics update in flight scene
         {
@@ -66,13 +69,28 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         void ApplyAreoEffect()//Yes, naming it Aero Effect is deliberate.
         {
             ModApi.Craft.IBodyScript body = PartScript.BodyScript;//save the reference to reduce a little bit of code
-            Vector3 force = Vector3.right * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.right) + Vector3.forward * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.forward);
-            //lift is proportional to cosine of AoA and velocity^2
-            body.RigidBody.AddForceAtPosition(PartScript.Transform.TransformVector(force) * Data.wingArea * -body.SurfaceVelocity.magnitude * PartScript.BodyScript.FluidDensity, PartScript.Transform.TransformVector(Vector3.up * Data.centerOfDrag) + PartScript.Transform.position, ForceMode.Force);
-            //steering torque is proportional to velocity^2 and wing area
-            body.RigidBody.AddTorque(steering * Data.torque * Data.wingArea * body.SurfaceVelocity.sqrMagnitude * PartScript.BodyScript.FluidDensity,ForceMode.Force);
+            if (Data.useLiftCurve)
+            {
+                Vector3 force = Vector3.right * CalculateLift(PartScript.BodyScript.FluidDensity,body.SurfaceVelocity.magnitude,90 - Vector3.Angle(body.SurfaceVelocity, -PartScript.Transform.right)) + Vector3.forward * CalculateLift(PartScript.BodyScript.FluidDensity, body.SurfaceVelocity.magnitude, 90 - Vector3.Angle(body.SurfaceVelocity, -PartScript.Transform.forward));
+                //lift is determined by curve
+                body.RigidBody.AddForceAtPosition(PartScript.Transform.TransformVector(force), PartScript.Transform.TransformVector(Vector3.up * Data.centerOfDrag) + PartScript.Transform.position, ForceMode.Force);
+                //steering torque is proportional to velocity^2 and wing area
+                body.RigidBody.AddTorque(steering * Data.torque * Data.wingArea * Mathf.Min(body.SurfaceVelocity.sqrMagnitude,122500) * PartScript.BodyScript.FluidDensity, ForceMode.Force);
+            }
+            else
+            {
+                Vector3 force = Vector3.right * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.right) + Vector3.forward * Vector3.Dot(body.SurfaceVelocity, PartScript.Transform.forward);
+                //lift is proportional to cosine of AoA and velocity^2
+                body.RigidBody.AddForceAtPosition(PartScript.Transform.TransformVector(force) * Data.wingArea * -body.SurfaceVelocity.magnitude * PartScript.BodyScript.FluidDensity, PartScript.Transform.TransformVector(Vector3.up * Data.centerOfDrag) + PartScript.Transform.position, ForceMode.Force);
+                //steering torque is proportional to velocity^2 and wing area
+                body.RigidBody.AddTorque(steering * Data.torque * Data.wingArea * body.SurfaceVelocity.sqrMagnitude * PartScript.BodyScript.FluidDensity, ForceMode.Force);
+            }
             //conter-roll torque
             body.RigidBody.AddTorque(-0.1f * PartScript.Transform.up * Vector3.Dot(PartScript.Transform.up, body.RigidBody.angularVelocity),ForceMode.Force);
+        }
+        float CalculateLift(float density, float speed, float aoa)
+        {
+            return Data.wingArea * density * normalLiftCurve.Data.Curve.Curve.Evaluate(aoa)*Mathf.Sign(aoa)*Mathf.Pow(Mathf.Min(349,speed),2);
         }
         void ComputeSteering()
         {
