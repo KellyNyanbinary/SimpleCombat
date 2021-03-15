@@ -13,7 +13,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
     {
         ModApi.Craft.ICraftNode targetCraft;
         List<ModApi.Craft.ICraftNode> Crafts;
-        Input.CurveInputScript normalLiftCurve;
+        //Input.CurveInputScript normalLiftCurve;
         Vector3 steering = Vector3.zero;
         float burnTime;
         bool fired = false;
@@ -22,7 +22,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         {
             burnTime = Data.burnTime;
             targetCraft = null;
-            normalLiftCurve = PartScript.GameObject.GetComponentInChildren<Input.CurveInputScript>();
+            //normalLiftCurve = PartScript.GameObject.GetComponentInChildren<Input.CurveInputScript>();
         }
         public void FlightFixedUpdate(in FlightFrameData frame)//Called every physics update in flight scene
         {
@@ -90,7 +90,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         }
         float CalculateLift(float density, float speed, float aoa)
         {
-            return Data.wingArea * density * normalLiftCurve.Data.Curve.Curve.Evaluate(aoa)*Mathf.Sign(aoa)*Mathf.Pow(Mathf.Min(349,speed),2);
+            return Data.wingArea * density * Data.LiftCurve.Evaluate(aoa)*Mathf.Sign(aoa)*Mathf.Pow(Mathf.Min(349,speed),2);
         }
         void ComputeSteering()
         {

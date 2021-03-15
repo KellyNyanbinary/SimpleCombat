@@ -34,5 +34,26 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         public string guidanceMethod = "Pure Pursuit";
         [DesignerPropertySlider(Label = "Guidance Constant", MinValue = 0, MaxValue = 4, Tooltip = "Maps guidance input (angle is in radians) to turning effect output (maximum is 1)")]
         public float guidanceConstant = 1;
+
+        private AnimationCurve liftCurve = new AnimationCurve();
+        public AnimationCurve LiftCurve
+        {
+            get
+            {
+                if (liftCurve.length <= 2)
+                {
+                    liftCurve = new AnimationCurve(KeysFromPoints(5,new float[] { 0,0.33f,0.662f,0.822f,0.786f,0.759f,0.732f,0.715f,0.707f,0.705f,0.714f,0.727f,0.745f,0.764f,0.783f,0.801f,0.815f,0.822f,0.825f,0.827f,0.830f,0.835f,0.84f}));
+                    liftCurve.preWrapMode = WrapMode.PingPong;
+                }
+                return liftCurve;
+            }
+        }
+        Keyframe[] KeysFromPoints(float interval, float[] values)
+        {
+            List<Keyframe> keyframes = new List<Keyframe>();
+            for (int i = 0; i < values.Length; i++)
+                keyframes.Add(new Keyframe(i * interval, values[i]));
+            return keyframes.ToArray();
+        }
     }
 }

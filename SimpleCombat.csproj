@@ -107,7 +107,6 @@
     <None Include="Assets\ModTools\UI\Xml\Design\StagingEditorPanel.xml" />
     <None Include="Assets\Resources\Craft\Parts\Definitions\Missile LRAAM Type A.xml" />
     <None Include="Assets\ModTools\Parts\PrefabData\Wheels\RetroRim.prefab.xml" />
-    <None Include="Assets\Resources\Craft\Parts\Definitions\InputCurve.txt" />
     <None Include="Assets\ModTools\Parts\PrefabData\Wheels\LandingGearRim.prefab.xml" />
     <None Include="Assets\ModTools\Parts\PrefabData\Fuselage\Solid-1.prefab.xml" />
     <None Include="Assets\ModTools\UI\Xml\Design\RotatePartPanel.xml" />
