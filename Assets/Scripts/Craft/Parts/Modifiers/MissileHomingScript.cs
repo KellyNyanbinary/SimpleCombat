@@ -71,7 +71,10 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
             ModApi.Craft.IBodyScript body = PartScript.BodyScript;//save the reference to reduce a little bit of code
             if (Data.useLiftCurve)
             {
-                Vector3 force = Vector3.right * CalculateLift(PartScript.BodyScript.FluidDensity,body.SurfaceVelocity.magnitude,90 - Vector3.Angle(body.SurfaceVelocity, -PartScript.Transform.right)) + Vector3.forward * CalculateLift(PartScript.BodyScript.FluidDensity, body.SurfaceVelocity.magnitude, 90 - Vector3.Angle(body.SurfaceVelocity, -PartScript.Transform.forward));
+                Vector3 force = Vector3.right * CalculateLift(PartScript.BodyScript.FluidDensity,body.SurfaceVelocity.magnitude,90 - Vector3.Angle(body.SurfaceVelocity, -PartScript.Transform.right)) 
+                    + Vector3.forward * CalculateLift(PartScript.BodyScript.FluidDensity, body.SurfaceVelocity.magnitude, 90 - Vector3.Angle(body.SurfaceVelocity, -PartScript.Transform.forward)) 
+                    + Vector3.down * CalculateDrag(PartScript.BodyScript.FluidDensity, body.SurfaceVelocity.magnitude, Vector3.Angle(body.SurfaceVelocity, -PartScript.Transform.up));
+
                 //lift is determined by curve
                 body.RigidBody.AddForceAtPosition(PartScript.Transform.TransformVector(force), PartScript.Transform.TransformVector(Vector3.up * Data.centerOfDrag) + PartScript.Transform.position, ForceMode.Force);
                 //steering torque is proportional to velocity^2 and wing area
@@ -91,6 +94,10 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         float CalculateLift(float density, float speed, float aoa)
         {
             return Data.wingArea * density * Data.LiftCurve.Evaluate(aoa)*Mathf.Sign(aoa)*Mathf.Pow(Mathf.Min(349,speed),2);
+        }
+        float CalculateDrag(float density, float speed, float aoa)
+        {
+            return Data.wingArea * density * Data.DragCurve.Evaluate(aoa) * Mathf.Sign(aoa) * Mathf.Pow(Mathf.Min(349, speed), 2);
         }
         void ComputeSteering()
         {
@@ -113,14 +120,19 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         //Converts INode list to ICraftNode list. Could use a better alternative but I don't want to waste more time on trial and error.
         List<ModApi.Craft.ICraftNode> FilterCraft(List<ModApi.Flight.Sim.INode> nodes)
         {
-            ModApi.Craft.ICraftNode craft;
             List<ModApi.Craft.ICraftNode> crafts = new List<ModApi.Craft.ICraftNode>();
-            foreach (ModApi.Flight.Sim.INode node in nodes)
+            foreach (ModApi.Craft.ICraftNode craft in nodes.OfType<ModApi.Craft.ICraftNode>())
             {
-                try { craft = (ModApi.Craft.ICraftNode)node;crafts.Add(craft);}
-                catch (Exception) { craft = null;Debug.Log("Node conversion failed"); }
+                try { crafts.Add(craft);}
+                catch (Exception) { Debug.Log("Node conversion failed"); }
             }
             return crafts;
+        }
+        public override bool OnCollision(IPartFlightCollision partCollision)
+        {
+            if (fired&&partCollision.NormalVelocity>=15)
+                PartScript.BodyScript.ExplodePart(PartScript, 1, 1);
+            return false;
         }
     }
 }

@@ -65,13 +65,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\ExplosiveDamageEditorScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\GunEditorScript.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\MissileAerodynamicsEditorScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\MissileHomingEditorScript.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\TargetTrackingEditorScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\ExplosiveDamageData.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\ExplosiveDamageScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\GunData.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\GunScript.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileAerodynamicsData.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileAerodynamicsScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingData.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingScript.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\TargetTrackingData.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\TargetTrackingScript.cs" />
     <Compile Include="Assets\Scripts\Mod.cs" />
     <Compile Include="Assets\Scripts\ModSettings.cs" />
     <None Include="Assets\ModTools\UI\Xml\Mods\RequiredModsDialog.xml" />
