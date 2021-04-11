@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2476473607
+CRC: 4255217353
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: eb66654a565dc14bc2bf2c3b38cdb199
+    Hash: ebcfe4799e7b1a900b6131f4ca68a1e5
   TypeTreeHash:
     serializedVersion: 2
     Hash: 76cf720e6cfd28dc7aa01a3331e989d6
@@ -46,19 +46,21 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
+- Assets/_ModAssets_/SimpleCombat.dll.bytes
 - Assets/Resources/Craft/Parts/Prefabs/Missile MRAAM Type B.prefab
+- Assets/Resources/Craft/Parts/Definitions/RotaryGun.xml
 - Assets/Resources/Craft/Parts/Definitions/Missile MRAAM Type C.xml
+- Assets/_ModAssets_/ModManifest.xml.bytes
 - Assets/Resources/Craft/Parts/Prefabs/Missile SRAAM Type A.prefab
 - Assets/Resources/Craft/Parts/Prefabs/Gun.prefab
 - Assets/Resources/Craft/Parts/Definitions/Gun.xml
-- Assets/_ModAssets_/SimpleCombat.dll.bytes
 - Assets/Resources/Craft/Parts/Definitions/Missile MRAAM Type B.xml
 - Assets/Resources/Craft/Parts/Prefabs/Missile MRAAM Type A.prefab
 - Assets/Resources/Craft/Parts/Definitions/Missile SRAAM Type A.xml
+- Assets/Resources/Craft/Parts/Prefabs/RotaryGun.prefab
 - Assets/Resources/Craft/Parts/Prefabs/Missile MRAAM Type C.prefab
 - Assets/Resources/Craft/Parts/Definitions/Missile MRAAM Type A.xml
 - Assets/Resources/Craft/Parts/Definitions/Missile LRAAM Type A.xml
-- Assets/_ModAssets_/ModManifest.xml.bytes
 - Assets/Resources/Craft/Parts/Prefabs/Missile LRAAM Type A.prefab
 - Assets/Content/Craft/Parts/Categories/Weapons.asset
 Dependencies: []

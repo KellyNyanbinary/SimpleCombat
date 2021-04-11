@@ -14,7 +14,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         ParticleSystem gun;
         ParticleSystem.Particle[] bullets;
         Collider gunCollider;
-        ParticleSystem.EmissionModule gunEmission;
+        ParticleSystem.EmissionModule gunEmission,smokeEmission;
 
         public void FlightStart(in FlightFrameData frame)
         {
@@ -25,13 +25,21 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
             ParticleSystem.ShapeModule particleShape = gun.shape;
             particleShape.angle = Data.bulletDispersion;
             gunEmission = gun.emission;
+            smokeEmission = gun.transform.Find("Smoke").GetComponent<ParticleSystem>().emission;
         }
 
         public void FlightFixedUpdate(in FlightFrameData frame)
         {
             if (PartScript.Data.Activated)//control firing and rate of fire by changing the rate the particle system creates particles
+            {
                 gunEmission.rateOverTime = Data.rateOfFire;
-            else gunEmission.rateOverTime = 0;
+                smokeEmission.rateOverTime = Data.rateOfFire;
+            }
+            else
+            {
+                gunEmission.rateOverTime = 0;
+                smokeEmission.rateOverTime = 0;
+            }
 
             PartScript.BodyScript.RigidBody.AddForceAtPosition(-PartScript.Transform.forward * Data.rateOfFire * Data.bulletMass * Data.muzzleVelocity * Data.recoil, PartScript.Transform.position);//apply recoil
 

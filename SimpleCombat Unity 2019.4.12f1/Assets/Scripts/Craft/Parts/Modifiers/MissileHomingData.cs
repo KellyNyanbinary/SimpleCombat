@@ -32,7 +32,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         public float centerOfDrag;
         [DesignerPropertySpinner("Pure Pursuit", "Proportional", "Unguided", Label = "Guidance Method")]
         public string guidanceMethod = "Pure Pursuit";
-        [DesignerPropertySlider(Label = "Guidance Constant", MinValue = 0, MaxValue = 4, Tooltip = "Maps guidance input (angle is in radians) to turning effect output (maximum is 1)")]
+        [DesignerPropertySlider(Label = "Guidance Constant", MinValue = 0, MaxValue = 4, Tooltip = "Maps guidance input (angle is in radians) to turning effect output")]
         public float guidanceConstant = 1;
 
         private AnimationCurve liftCurve = new AnimationCurve();

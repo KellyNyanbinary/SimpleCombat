@@ -22,7 +22,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         {
             burnTime = Data.burnTime;
             targetCraft = null;
-            //normalLiftCurve = PartScript.GameObject.GetComponentInChildren<Input.CurveInputScript>();
         }
         public void FlightFixedUpdate(in FlightFrameData frame)//Called every physics update in flight scene
         {

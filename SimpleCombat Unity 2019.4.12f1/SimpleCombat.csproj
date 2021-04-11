@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{78F64AFD-2A3C-2BED-D449-0587642E3430}</ProjectGuid>
+    <ProjectGuid>{BD01B7F2-2B10-4DA7-8D2E-20A2CB5A1621}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>SimpleCombat</AssemblyName>
@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\GunEditorScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\MissileAerodynamicsEditorScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\MissileHomingEditorScript.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\RotaryGunEditorScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\EditorScripts\TargetTrackingEditorScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\ExplosiveDamageData.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\ExplosiveDamageScript.cs" />
@@ -76,6 +77,8 @@
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileAerodynamicsScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingData.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\MissileHomingScript.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\RotaryGunData.cs" />
+    <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\RotaryGunScript.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\TargetTrackingData.cs" />
     <Compile Include="Assets\Scripts\Craft\Parts\Modifiers\TargetTrackingScript.cs" />
     <Compile Include="Assets\Scripts\Mod.cs" />
@@ -292,6 +295,7 @@
     <None Include="Assets\ModTools\UI\Xml\Vizzy\CreateCustomNodeDialog.xml" />
     <None Include="Assets\ModTools\Parts\PrefabData\Wheels\LunarRim.prefab.xml" />
     <None Include="Assets\ModTools\UI\Xml\Design\DesignerUi.xml" />
+    <None Include="Assets\Resources\Craft\Parts\Definitions\RotaryGun.xml" />
     <None Include="Assets\ModTools\Parts\PrefabData\RCSNozzle2.prefab.xml" />
     <None Include="Assets\ModTools\Parts\PrefabData\CommandPod2.prefab.xml" />
     <None Include="Assets\ModTools\Parts\PrefabData\Rotator1.prefab.xml" />
@@ -564,91 +568,91 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/DOTween.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTween43">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/DOTween43.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/DOTween43.dll</HintPath>
     </Reference>
     <Reference Include="DOTween46">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/DOTween46.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/DOTween46.dll</HintPath>
     </Reference>
     <Reference Include="DOTween50">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/DOTween50.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="Mystery Squiggle UI">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/Mystery Squiggle UI.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/Mystery Squiggle UI.dll</HintPath>
     </Reference>
     <Reference Include="Mystery Squiggle">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/Mystery Squiggle.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/Mystery Squiggle.dll</HintPath>
     </Reference>
     <Reference Include="Ookii.Dialogs">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/Ookii.Dialogs.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/Ookii.Dialogs.dll</HintPath>
     </Reference>
     <Reference Include="Rewired_Core">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/Rewired_Core.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/Rewired_Core.dll</HintPath>
     </Reference>
     <Reference Include="Rewired_OSX">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/Rewired_OSX.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/Rewired_OSX.dll</HintPath>
     </Reference>
     <Reference Include="Rewired_Windows">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/Rewired_Windows.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/Rewired_Windows.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/System.Windows.Forms.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/System.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="Unity.IO.Compression">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/Unity.IO.Compression.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/Unity.IO.Compression.dll</HintPath>
     </Reference>
     <Reference Include="Web.Client">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/Web.Client.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/Web.Client.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/DOTweenEditor.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="Jundroo.ModTools.Core">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.Core.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.Core.dll</HintPath>
     </Reference>
     <Reference Include="Jundroo.ModTools">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.dll</HintPath>
     </Reference>
     <Reference Include="Jundroo.ModTools.Editor">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.Editor.dll</HintPath>
     </Reference>
     <Reference Include="ModApi.Core">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.Core.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.Core.dll</HintPath>
     </Reference>
     <Reference Include="ModApi">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.dll</HintPath>
     </Reference>
     <Reference Include="ModApi.Editor">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Mystery Node Set">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/Mystery Node Set.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/Mystery Node Set.dll</HintPath>
     </Reference>
     <Reference Include="Mystery Squiggle Editor">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/Mystery Squiggle Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/Mystery Squiggle Editor.dll</HintPath>
     </Reference>
     <Reference Include="Packages">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/Packages.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/Packages.dll</HintPath>
     </Reference>
     <Reference Include="SimpleRockets2">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/SimpleRockets2.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/SimpleRockets2.dll</HintPath>
     </Reference>
     <Reference Include="ThirdParty">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/ThirdParty.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/ThirdParty.dll</HintPath>
     </Reference>
     <Reference Include="ThirdParty.Editor">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/ThirdParty.Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/ThirdParty.Editor.dll</HintPath>
     </Reference>
     <Reference Include="XmlLayout">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/XmlLayout.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/XmlLayout.dll</HintPath>
     </Reference>
     <Reference Include="XmlLayout.Editor">
-      <HintPath>D:/Unity Projects/SimpleCombat/Assets/ModTools/Assemblies/EditorAssemblies/XmlLayout.Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Assets/ModTools/Assemblies/EditorAssemblies/XmlLayout.Editor.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/Unity/2019.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -1005,16 +1009,16 @@
       <HintPath>D:/Unity/2019.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Unity Projects/SimpleCombat/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Unity Projects/SimpleCombat/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>D:/Unity Projects/SimpleCombat/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Unity Projects/SimpleCombat/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Unity Projects/SimpleCombat/SimpleCombat Unity 2019.4.12f1/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>

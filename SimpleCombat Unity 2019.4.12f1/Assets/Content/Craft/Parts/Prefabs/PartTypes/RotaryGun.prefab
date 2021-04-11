@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &123404844864493355
+--- !u!1 &5582644205524265027
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 323807643838304064}
-  - component: {fileID: 1219658666219309217}
-  - component: {fileID: 4366521613555215193}
-  - component: {fileID: 2944172837209585570}
-  - component: {fileID: 1611731227916721505}
+  - component: {fileID: 3311400566680992565}
+  - component: {fileID: 6322512600012313010}
+  - component: {fileID: 2700567544310793686}
+  - component: {fileID: 3863129228543420240}
+  - component: {fileID: 279754486189406690}
+  - component: {fileID: 8955781686496929470}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: RotaryGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &323807643838304064
+--- !u!4 &3311400566680992565
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123404844864493355}
+  m_GameObject: {fileID: 5582644205524265027}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,13 +35,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1219658666219309217
+--- !u!114 &6322512600012313010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123404844864493355}
+  m_GameObject: {fileID: 5582644205524265027}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1298369543, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
@@ -54,23 +55,23 @@ MonoBehaviour:
     _defaultColorIndexTrim2: 2
     _defaultColorIndexTrim3: 3
     _defaultColorIndexTrim4: 4
-    _id: Gun
+    _id: RotaryGun
     _includeInBodyDrag: 1
     _mirrorConfig:
       _hasRotationOffset: 0
       _rotationOffsetEuler: {x: 0, y: 0, z: 0}
-    _name: Gun
+    _name: RotaryGun
     _partCollisionHandling: 0
     _price: 0
     _unscaledMass: 0
     _usePreferredNodeName: 1
---- !u!114 &4366521613555215193
+--- !u!114 &2700567544310793686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123404844864493355}
+  m_GameObject: {fileID: 5582644205524265027}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -631517893, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
@@ -83,7 +84,7 @@ MonoBehaviour:
     _displayOrder: 0
     _iconPath: 
     _iconType: 0
-    _name: Gun
+    _name: RotaryGun
     _partTypeOverrides: []
     _position: {x: 0, y: 0, z: 0}
     _rotation: {x: 0, y: 0, z: 0}
@@ -92,13 +93,13 @@ MonoBehaviour:
     _snapshotPartOffset: {x: 0, y: 0, z: 0}
     _snapshotPartRotation: {x: 0, y: 0, z: 0}
     _snapshotRotation: {x: 30, y: 30, z: 0}
---- !u!114 &2944172837209585570
+--- !u!114 &3863129228543420240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123404844864493355}
+  m_GameObject: {fileID: 5582644205524265027}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -841283480, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
@@ -144,13 +145,33 @@ MonoBehaviour:
     _supportsActivation: 1
     _supportsTransparency: 1
     _thermalMassRatio: 1
---- !u!114 &1611731227916721505
+--- !u!114 &279754486189406690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123404844864493355}
+  m_GameObject: {fileID: 5582644205524265027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d900f998e6f15b1439fc97fd6b985bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    _id: 
+    _inputId: 
+    _inspectorEnabled: 1
+    _partPropertiesEnabled: 1
+    _staticPriceAndMass: 0
+    numberOfBarrels: 3
+    barrelSeperation: 0.1
+--- !u!114 &8955781686496929470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582644205524265027}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2b417908e0f5654990dd29b76f2f7be, type: 3}
@@ -162,9 +183,9 @@ MonoBehaviour:
     _inspectorEnabled: 1
     _partPropertiesEnabled: 1
     _staticPriceAndMass: 0
-    damage: 5
+    damage: 1
     bulletMass: 0.01
-    muzzleVelocity: 200
-    rateOfFire: 100
+    muzzleVelocity: 800
+    rateOfFire: 300
     bulletDispersion: 0.1
     recoil: 0
