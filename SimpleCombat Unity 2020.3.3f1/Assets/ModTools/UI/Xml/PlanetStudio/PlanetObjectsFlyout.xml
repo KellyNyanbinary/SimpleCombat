@@ -6,22 +6,21 @@
     <Panel class="list-item-hover" color="Button" />
     <Panel class="list-item-press" color="ButtonHover" />
     <Panel class="selected" color="Primary" />
-    <Image class="icon-location" sprite="Ui/Sprites/PlanetStudio/IconAddLaunchLocation" />
-    <Image class="icon-structure" sprite="Ui/Sprites/PlanetStudio/IconAddStructure" />
-    <Image class="icon-sub-structure" sprite="Ui/Sprites/PlanetStudio/IconAddSubStructure" />
-    <Image class="header-arrow" color="LabelText" pivot="0.5 0.5" offsetXY="10 0" sprite="Ui/Sprites/Common/IconTriangleRight" width="12" height="12" rectAlignment="MiddleLeft" rotation="0 0 -90" />
-    <Image class="collapsed:header-arrow" rotation="0 0 0" />
+    <Image class="icon" active="false" />
+    <Image class="icon-location" sprite="Ui/Sprites/PlanetStudio/IconAddLaunchLocation" active="true" />
+    <Image class="icon-structure" sprite="Ui/Sprites/PlanetStudio/IconAddStructure" active="true" />
+    <Image class="header-arrow" color="LabelText" pivot="0.5 0.5" offsetXY="10 0" sprite="Ui/Sprites/Common/IconTriangleRight" width="12" height="12" rectAlignment="MiddleLeft" />
     <ContentButton class="object-button" width="40" height="35" preferredWidth="40" preferredHeight="35" navigation="None" tooltipPosition="Below" rectAlignment="MiddleLeft" />
   </Defaults>
   <Panel class="no-image" offsetMax="0 -40">
     <VerticalScrollView id="scroll-view" class="no-image" rectAlignment="UpperCenter" pivot="0 1">
       <VerticalLayout class="no-image" childForceExpandHeight="false" padding="0" spacing="0" contentSizeFitter="vertical" pivot="0 1" childAlignment="UpperCenter" rectAlignment="UpperLeft">
-        <Panel id="row-template" class="list-item audio-btn-click" preferredHeight="32" raycastTarget="true" active="false">
+        <Panel id="row-template" class="list-item" preferredHeight="32" raycastTarget="true" active="false">
           <Panel internalId="inner-panel">
             <Image internalId="arrow" class="header-arrow" raycastTarget="true" active="false" />
             <TextMeshPro text="" internalId="name" alignment="Left" color="ValueText" offsetXY="25 0" />
           </Panel>
-          <Image internalId="icon" class="icon-location" rectAlignment="MiddleRight" width="20" height="20" color="LabelText" />
+          <Image internalId="icon" class="icon" rectAlignment="MiddleRight" width="20" height="20" color="LabelText" />
           <Image class="border" height="1" rectAlignment="LowerCenter" />
         </Panel>
         <Panel name="insert-indicator" id="insert-indicator" raycastTarget="false" preferredHeight="0" active="false">

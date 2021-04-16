@@ -32,7 +32,7 @@
     <Style id="log" color="Instruction" format="log (0)" tooltip="Logs the message to the output log, which can be viewed by clicking View Log in the part's inspector panel during flight." />
     <Style id="break" color="Event" format="break" tooltip="Breaks out of a while or repeat loop." />
     <Style id="comment" color="Instruction" textColor="Comment" format="# (0)" tooltip="This instruction does not execute and can be used to place comments in your program to help explain how it works." />
-    <Style id="comment-text" color="Constant" textColor="Comment" />
+    <Style id="comment-text" color="Constant" textColor="Comment" tooltip="Empty instruction that does not execute so you can place comments in your program." />
     <Style id="play-beep" color="Instruction" format="beep (0:ZeroOrMore) Hz at (1:ZeroToOne) volume for (2:ZeroOrMore) seconds" tooltip="Plays a beep sound with the specified parameters." />
     <Style id="note-frequency" color="Instruction" format="frequency of (0) octave (1:ZeroOrMore)" tooltip="Gets the frequency of the note at the octave." />
     <Style id="op-add" color="Operator" format="(0:Number) + (1:Number)" tooltip="Adds the left and right numbers together and returns the result." />
@@ -59,6 +59,7 @@
     <Style id="vec-op-1" color="Operator" format="(0) [op]" tooltip="Access information from a vector." />
     <Style id="vec-op-2" color="Operator" format="(0) [op] (1)" tooltip="Returns the result of the operation between the two vectors." />
     <Style id="vec-op-color" color="Operator" format="hex color (0)" tooltip="Converts a hexadecimal color (ie #FF0000) into a color vector (ie 1,0,0)." />
+    <Style id="evaluate-expression" color="Operator" richText="true" format="&lt;color=#0f0&gt;f&lt;color=#f0f&gt;U&lt;color=#ff0&gt;N&lt;color=#f00&gt;k (0)" tooltip="Evaluates an input expression in this part's context. Time-based functions may be inaccurate if the input is evaluated at different intervals - for better results you can create an InputController and reference it's value from Vizzy." />
     <Style id="join" color="Operator" format="join " dynamicExpressionsSlots="true" tooltip="Returns the result of joining the two or more strings of text together." />
     <Style id="letter" color="Operator" format="letter (0:OneOrMore) of (1)" tooltip="Returns the letter at the specified location." />
     <Style id="substring" color="Operator" format="letters (0:ZeroOrMore) to (1:ZeroOrMore) of (2)" tooltip="Returns the letters of the text between the start and end locations. If 0 is specified for start/end then the start/end of the text will be used." />
@@ -123,13 +124,13 @@
     <Style id="part-transform" color="CraftInstruction" format="part (0) [x] (1)" tooltip="Converts the vector between local and PCI coordinates." />
     <Style id="craft" color="CraftInstruction" format="craft (0:ZeroOrMore) [x]" tooltip="Gets a property of the craft with the specified ID." />
     <Style id="craft-id" color="CraftInstruction" format="craft ID of (0)" tooltip="The ID of the first craft found with the specified name or -1 if none are found. If no name is provided, then the ID of the craft running the program is returned." />
-    <Style id="true" color="Operator" format="true" tooltip="" />
-    <Style id="false" color="Operator" format="false" tooltip="" />
+    <Style id="true" color="Operator" format="true" tooltip="Constant value for true." />
+    <Style id="false" color="Operator" format="false" tooltip="Constant value for false." />
     <Style id="flight-start" color="Event" format="on start" tooltip="Event called when the craft enters the flight scene for the first time." />
     <Style id="part-collision" color="Event" format="on |part| collide with |other| at |velocity| and |impulse|" tooltip="Event called when a part in the craft has collided with something else." />
     <Style id="part-explode" color="Event" format="on |part| exploded" tooltip="Event called when a part in the craft explodes." />
     <Style id="craft-docked" color="Event" format="on |craftA| and |craftB| docked" tooltip="Event called when this craft docks with another craft. NOTE: Part IDs may change after docking with another craft." />
-    <Style id="change-soi" color="Event" format="on enter |planet| SOI" />
+    <Style id="change-soi" color="Event" format="on enter |planet| SOI" tooltip="Event called when the craft enters a planet's sphere of influence." />
     <Style id="receive-msg" color="Event" format="receive (0) with |data|" tooltip="Called when the flight program receives a message, with its data set to the value that was broadcasted." />
     <Style id="broadcast-msg" color="Instruction" format="broadcast (0) with data (1)" tooltip="Sends a message with the specified data to all matching receive message events in this program." />
     <Style id="broadcast-msg-craft" color="Instruction" format="broadcast (0) with data (1) to craft" tooltip="Sends a message with the specified data to all matching receive message events in this craft." />
@@ -318,6 +319,9 @@
         <Constant vector="0,0,0" />
         <Constant vector="0,0,0" />
       </VectorOp>
+      <EvaluateExpression style="evaluate-expression">
+        <Constant text="" />
+      </EvaluateExpression>
       <Constant style="true" bool="true" />
       <Constant style="false" bool="false" />
     </Category>

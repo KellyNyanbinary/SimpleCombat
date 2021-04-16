@@ -8290,6 +8290,13 @@
             </summary>
             <param name="xml">The XML to upgrade.</param>
         </member>
+        <member name="M:ModApi.Craft.AssemblyXmlVersionUpdater.UpgradeToVersion13(System.Xml.Linq.XElement)">
+            <summary>
+            Upgrades the XML to version 13. Prevents players from downloading
+            crafts that support the new FUNK expression in Vizzy.
+            </summary>
+            <param name="xml">The XML to upgrade.</param>
+        </member>
         <member name="M:ModApi.Craft.AssemblyXmlVersionUpdater.UpgradeToVersion2(System.Xml.Linq.XElement)">
             <summary>
             Upgrades the XML to version 2.
@@ -13189,6 +13196,22 @@
             An interface for a interacting with a mesh renderer for a craft part.
             </summary>
         </member>
+        <member name="P:ModApi.Craft.Parts.IRendererMaterialMap.CombinedMeshVertexCount">
+            <summary>
+            Gets or sets the combined mesh vertex count.
+            </summary>
+            <value>
+            The combined mesh vertex count.
+            </value>
+        </member>
+        <member name="P:ModApi.Craft.Parts.IRendererMaterialMap.CombinedMeshVertexOffset">
+            <summary>
+            Gets or sets the combined mesh vertex offset.
+            </summary>
+            <value>
+            The combined mesh vertex offset.
+            </value>
+        </member>
         <member name="P:ModApi.Craft.Parts.IRendererMaterialMap.DecalTexture">
             <summary>
             Gets or sets the decal texture.
@@ -13315,6 +13338,14 @@
             </summary>
             <value>
               <c>true</c> if this mesh is used when overriding the emissive-ness of the part material; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:ModApi.Craft.Parts.IRendererMaterialMap.WasMeshCombined">
+            <summary>
+            Gets or sets a value indicating whether [was mesh combined].
+            </summary>
+            <value>
+              <c>true</c> if [was mesh combined]; otherwise, <c>false</c>.
             </value>
         </member>
         <member name="M:ModApi.Craft.Parts.IRendererMaterialMap.ApplyDecalTexture">
@@ -21755,7 +21786,7 @@
             <param name="volume">The volume.</param>
             <param name="duration">The duration in seconds.</param>
         </member>
-        <member name="M:ModApi.Craft.Program.Craft.ICraftService.ReleaseInputExpression(System.Func{System.Double})">
+        <member name="M:ModApi.Craft.Program.Craft.ICraftService.ReleaseInputExpression(System.Delegate)">
             <summary>
             Releases the input expression.
             </summary>
@@ -22867,9 +22898,24 @@
             The result
             </summary>
         </member>
-        <member name="F:ModApi.Craft.Program.Expressions.EvaluationExpression._compiledFunction">
+        <member name="F:ModApi.Craft.Program.Expressions.EvaluationExpression._compiledFunctionNumeric">
             <summary>
             The compiled function
+            </summary>
+        </member>
+        <member name="F:ModApi.Craft.Program.Expressions.EvaluationExpression._compiledFunctionVector">
+            <summary>
+            The compiled vector function
+            </summary>
+        </member>
+        <member name="F:ModApi.Craft.Program.Expressions.EvaluationExpression._compiledFunctionBoolean">
+            <summary>
+            The compiled function boolean
+            </summary>
+        </member>
+        <member name="F:ModApi.Craft.Program.Expressions.EvaluationExpression._compiledFunctionString">
+            <summary>
+            The compiled function string
             </summary>
         </member>
         <member name="F:ModApi.Craft.Program.Expressions.EvaluationExpression._compiledText">
@@ -31282,6 +31328,11 @@
             Radians to degrees constant.
             </summary>
         </member>
+        <member name="F:ModApi.Expressions.Context._defaultContext">
+            <summary>
+            The default context.
+            </summary>
+        </member>
         <member name="F:ModApi.Expressions.Context._variableResolveDelegates">
             <summary>
             The variable resolve delegates, which are queried when a variable can't be resolved.
@@ -31423,6 +31474,11 @@
             The method, instance, and arguments to call to get the value of the property.
             </returns>
         </member>
+        <member name="M:ModApi.Expressions.Context.GetDefaults">
+            <summary>
+            Gets the defaults.
+            </summary>
+        </member>
         <member name="T:ModApi.Expressions.Converters">
             <summary>
             Class for functions to convert delegates.
@@ -31490,6 +31546,20 @@
             </summary>
             <param name="func">The function.</param>
             <returns>The new delegate.</returns>
+        </member>
+        <member name="M:ModApi.Expressions.Converters.VectorToString(System.Func{System.Double[],UnityEngine.Vector3d})">
+            <summary>
+            Vector to string.
+            </summary>
+            <param name="func">The function.</param>
+            <returns>The string.</returns>
+        </member>
+        <member name="M:ModApi.Expressions.Converters.VectorToDouble(System.Func{System.Double[],UnityEngine.Vector3d})">
+            <summary>
+            Vector to double.
+            </summary>
+            <param name="func">The function.</param>
+            <returns>The magnitude of the vector.</returns>
         </member>
         <member name="T:ModApi.Expressions.Exceptions.ExpressionCompileException">
             <summary>
@@ -31750,6 +31820,14 @@
             <returns>
             A function representing the compiled output of the input string.
             </returns>
+        </member>
+        <member name="M:ModApi.Expressions.Parser.ProcessAnyType(System.String,ModApi.Expressions.Context)">
+            <summary>
+            Processes a string and returns a delegate of whichever type it evaluates to.
+            </summary>
+            <param name="inputString">The input string.</param>
+            <param name="context">The context.</param>
+            <returns>The delegate.</returns>
         </member>
         <member name="M:ModApi.Expressions.Parser.Process``1(System.String,ModApi.Expressions.Context,System.Collections.Generic.List{System.Int32})">
             <summary>
@@ -32198,6 +32276,15 @@
             <param name="context">The context.</param>
             <returns>The function converted to the specified type.</returns>
         </member>
+        <member name="M:ModApi.Expressions.Tokens.GroupToken.GetFuncNoData(ModApi.Expressions.Context)">
+            <summary>
+            Gets the function as a non-generic delegate with no data parameter.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>
+            The delegate in it's default return type.
+            </returns>
+        </member>
         <member name="T:ModApi.Expressions.Tokens.InvocationToken">
             <summary>
             Static class for invocation token.
@@ -32438,6 +32525,15 @@
             </returns>
             <exception cref="T:System.NotImplementedException">Yes I will throw an error.</exception>
         </member>
+        <member name="M:ModApi.Expressions.Tokens.NameToken.GetFuncNoData(ModApi.Expressions.Context)">
+            <summary>
+            Gets the function as a non-generic delegate with no data parameter.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>
+            The delegate in it's default return type.
+            </returns>
+        </member>
         <member name="T:ModApi.Expressions.Tokens.Operator">
             <summary>
             Enumeration representing different operators.
@@ -32552,6 +32648,15 @@
             </returns>
             <exception cref="T:System.NotImplementedException">Yes.</exception>
         </member>
+        <member name="M:ModApi.Expressions.Tokens.OperatorToken.GetFuncNoData(ModApi.Expressions.Context)">
+            <summary>
+            Gets the function as a non-generic delegate with no data parameter.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>
+            The delegate in it's default return type.
+            </returns>
+        </member>
         <member name="M:ModApi.Expressions.Tokens.OperatorToken.ToString">
             <summary>
             Converts to string.
@@ -32585,6 +32690,15 @@
             <typeparam name="T">The type to convert to.</typeparam>
             <param name="context">The context.</param>
             <returns>The function converted to the specified type.</returns>
+        </member>
+        <member name="M:ModApi.Expressions.Tokens.SeperatorToken.GetFuncNoData(ModApi.Expressions.Context)">
+            <summary>
+            Gets the function as a non-generic delegate with no data parameter.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>
+            The delegate in it's default return type.
+            </returns>
         </member>
         <member name="T:ModApi.Expressions.Tokens.TernaryOperationToken">
             <summary>
@@ -32682,6 +32796,15 @@
             <param name="context">The context.</param>
             <returns>The function converted to the specified type.</returns>
         </member>
+        <member name="M:ModApi.Expressions.Tokens.Token`1.GetFuncNoData(ModApi.Expressions.Context)">
+            <summary>
+            Gets the function as a non-generic delegate with no data parameter.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>
+            The delegate in it's default return type.
+            </returns>
+        </member>
         <member name="T:ModApi.Expressions.Tokens.Token">
             <summary>
             Base class for a token.
@@ -32723,6 +32846,13 @@
             <typeparam name="T">The type of to.</typeparam>
             <param name="context">The context.</param>
             <returns>The function converted to the specified type.</returns>
+        </member>
+        <member name="M:ModApi.Expressions.Tokens.Token.GetFuncNoData(ModApi.Expressions.Context)">
+            <summary>
+            Gets the function as a non-generic delegate with no data parameter.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>The delegate in it's default return type.</returns>
         </member>
         <member name="T:ModApi.Expressions.Tokens.UnaryOperationToken">
             <summary>
@@ -59335,6 +59465,14 @@
             <param name="prefabPath">The prefab path.</param>
             <param name="structureNodeData">The structure node data.</param>
         </member>
+        <member name="P:ModApi.Planet.SubStructure.AngularVelocity">
+            <summary>
+            Gets or sets the angular velocity.
+            </summary>
+            <value>
+            The angular velocity.
+            </value>
+        </member>
         <member name="P:ModApi.Planet.SubStructure.Collapsed">
             <summary>
             Gets or sets a value indicating whether this instance is collapsed in the tree view.
@@ -59349,6 +59487,14 @@
             </summary>
             <value>
             The color.
+            </value>
+        </member>
+        <member name="P:ModApi.Planet.SubStructure.LevelOfDetail">
+            <summary>
+            Gets or sets the level of detail that this sub-structure should be loaded.
+            </summary>
+            <value>
+            The level of detail.
             </value>
         </member>
         <member name="P:ModApi.Planet.SubStructure.LoadedGameObject">
@@ -59381,6 +59527,15 @@
             </summary>
             <value>
             The local scale.
+            </value>
+        </member>
+        <member name="P:ModApi.Planet.SubStructure.Mass">
+            <summary>
+            Gets or sets the mass of this sub-structure in kg if it should be a rigid body,
+            or zero if it should not be a rigid body.
+            </summary>
+            <value>
+            The mass in kg.
             </value>
         </member>
         <member name="P:ModApi.Planet.SubStructure.Name">
@@ -59445,14 +59600,6 @@
             </summary>
             <value>
             The version.
-            </value>
-        </member>
-        <member name="P:ModApi.Planet.SubStructure.LevelOfDetail">
-            <summary>
-            Gets or sets the level of detail that this sub-structure should be loaded.
-            </summary>
-            <value>
-            The level of detail.
             </value>
         </member>
         <member name="M:ModApi.Planet.SubStructure.DeserializeSubStructures(System.Xml.Linq.XElement,ModApi.Planet.ISubStructureParent,System.Collections.Generic.List{ModApi.Planet.SubStructure})">
