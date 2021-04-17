@@ -47,6 +47,13 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
                 burnTime -= (float)frame.DeltaTime;
             }
             else GetComponentInChildren<ParticleSystem>().Stop();
+            //Proximity Fuse
+            if (fired&&Data.proximityFuse > 0)
+            {
+                if ((targetCraft.Position - PartScript.CraftScript.CraftNode.Position).magnitude <= Data.proximityFuse 
+                    && Vector3d.Dot(targetCraft.Velocity - PartScript.CraftScript.CraftNode.Velocity, targetCraft.Position - PartScript.CraftScript.CraftNode.Position) < 0)
+                    PartScript.BodyScript.ExplodePart(PartScript, 1, 1);
+            }
         }
 
         //Returns the closest target inside the acquisition range and angle. Uses data in the list Crafts.
@@ -129,7 +136,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         }
         public override bool OnCollision(IPartFlightCollision partCollision)
         {
-            if (fired&&partCollision.NormalVelocity>=15)
+            if (fired&&Data.contactFuse&&partCollision.NormalVelocity>=15)
                 PartScript.BodyScript.ExplodePart(PartScript, 1, 1);
             return false;
         }

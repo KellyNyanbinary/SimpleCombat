@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6322512600012313010}
   - component: {fileID: 2700567544310793686}
   - component: {fileID: 3863129228543420240}
-  - component: {fileID: 279754486189406690}
-  - component: {fileID: 8955781686496929470}
+  - component: {fileID: 2522190159254622031}
+  - component: {fileID: 2268993549575030005}
   m_Layer: 0
   m_Name: RotaryGun
   m_TagString: Untagged
@@ -145,7 +145,7 @@ MonoBehaviour:
     _supportsActivation: 1
     _supportsTransparency: 1
     _thermalMassRatio: 1
---- !u!114 &279754486189406690
+--- !u!114 &2522190159254622031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,27 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5582644205524265027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d900f998e6f15b1439fc97fd6b985bc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data:
-    _id: 
-    _inputId: 
-    _inspectorEnabled: 1
-    _partPropertiesEnabled: 1
-    _staticPriceAndMass: 0
-    numberOfBarrels: 3
-    barrelSeperation: 0.1
---- !u!114 &8955781686496929470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5582644205524265027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b417908e0f5654990dd29b76f2f7be, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ab26d2ae0ebd2d408e970825b8790e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
@@ -185,7 +165,27 @@ MonoBehaviour:
     _staticPriceAndMass: 0
     damage: 1
     bulletMass: 0.01
-    muzzleVelocity: 800
-    rateOfFire: 300
+    muzzleVelocity: 200
+    rateOfFire: 1
     bulletDispersion: 0.1
     recoil: 0
+--- !u!114 &2268993549575030005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582644205524265027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5be21696410b8f4ba293873dcee34e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    _id: 
+    _inputId: 
+    _inspectorEnabled: 1
+    _partPropertiesEnabled: 1
+    _staticPriceAndMass: 0
+    numberOfBarrels: 3
+    barrelSeperation: 0.1

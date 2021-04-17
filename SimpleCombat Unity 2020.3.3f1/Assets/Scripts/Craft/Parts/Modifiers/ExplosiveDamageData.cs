@@ -18,7 +18,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
         public float explosivePower;
         [DesignerPropertySlider(Label = "Explosion Radius", MinValue = 0, MaxValue = 100)]
         public float explosionRadius;
-        [DesignerPropertySlider(Label = "Explosion Damage", MinValue = 0, MaxValue = 100)]
+        [DesignerPropertySlider(Label = "Explosion Damage", MinValue = 0, MaxValue = 1000)]
         public float explosionDamage;
     }
 }

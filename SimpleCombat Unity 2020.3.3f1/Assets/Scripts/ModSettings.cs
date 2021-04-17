@@ -21,7 +21,7 @@ namespace Assets.Scripts
         /// <summary>
         /// Initializes a new instance of the <see cref="ModSettings"/> class.
         /// </summary>
-        public ModSettings() : base("Simple Combat")
+        public ModSettings() : base("SimpleCombat")
         {
         }
 

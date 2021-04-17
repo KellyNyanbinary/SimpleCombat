@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4982046747861452450}
   - component: {fileID: 6951197816675455850}
   - component: {fileID: 673590552631217558}
-  - component: {fileID: 4316425212565750633}
-  - component: {fileID: 5813241334354958683}
   - component: {fileID: 1920339974944239549}
+  - component: {fileID: 805235741887816678}
+  - component: {fileID: 6927910080884099911}
   m_Layer: 0
   m_Name: Missile SRAAM Type A
   m_TagString: Untagged
@@ -146,55 +146,6 @@ MonoBehaviour:
     _supportsActivation: 1
     _supportsTransparency: 1
     _thermalMassRatio: 1
---- !u!114 &4316425212565750633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3981332817329424656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4250440d8bde04246a66198e495b550e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data:
-    _id: 
-    _inputId: 
-    _inspectorEnabled: 1
-    _partPropertiesEnabled: 1
-    _staticPriceAndMass: 0
-    missileImpulse: 200
-    burnTime: 2
-    targetRange: 2000
-    targetAngle: 90
-    wingArea: 0.03
-    useLiftCurve: 0
-    torque: 0.3
-    centerOfDrag: -1
-    guidanceMethod: Proportional
-    guidanceConstant: 1
---- !u!114 &5813241334354958683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3981332817329424656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3ad5b3d6a814b446950d5376b679e2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data:
-    _id: 
-    _inputId: 
-    _inspectorEnabled: 1
-    _partPropertiesEnabled: 1
-    _staticPriceAndMass: 0
-    explosivePower: 100
-    explosionRadius: 10
-    explosionDamage: 1
 --- !u!114 &1920339974944239549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,3 +167,54 @@ MonoBehaviour:
     _detachOnActivated: 1
     _force: 0
     _targetAttachPoints: AttachPoint1
+--- !u!114 &805235741887816678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981332817329424656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada09c3b6f72ff0428ff16368c4a71d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    _id: 
+    _inputId: 
+    _inspectorEnabled: 1
+    _partPropertiesEnabled: 1
+    _staticPriceAndMass: 0
+    missileImpulse: 200
+    burnTime: 2
+    targetRange: 2000
+    targetAngle: 90
+    wingArea: 0.03
+    useLiftCurve: 1
+    torque: 0.2
+    centerOfDrag: -0.5
+    guidanceMethod: Proportional
+    guidanceConstant: 1
+    contactFuse: 1
+    proximityFuse: 0
+--- !u!114 &6927910080884099911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981332817329424656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcf1a51baea1674596c071667b25ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    _id: 
+    _inputId: 
+    _inspectorEnabled: 1
+    _partPropertiesEnabled: 1
+    _staticPriceAndMass: 0
+    explosivePower: 100
+    explosionRadius: 5
+    explosionDamage: 500

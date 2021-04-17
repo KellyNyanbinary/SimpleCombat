@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1219658666219309217}
   - component: {fileID: 4366521613555215193}
   - component: {fileID: 2944172837209585570}
-  - component: {fileID: 1611731227916721505}
+  - component: {fileID: 7899814545916097627}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     _activationGroup: 0
-    _category: {fileID: 0}
+    _category: {fileID: 11400000, guid: 286905ec79d9cbb47a46c93f69a11be6, type: 2}
     _description: 
     _displayOrder: 0
     _iconPath: 
@@ -144,7 +144,7 @@ MonoBehaviour:
     _supportsActivation: 1
     _supportsTransparency: 1
     _thermalMassRatio: 1
---- !u!114 &1611731227916721505
+--- !u!114 &7899814545916097627
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 123404844864493355}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b417908e0f5654990dd29b76f2f7be, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ab26d2ae0ebd2d408e970825b8790e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
@@ -162,9 +162,9 @@ MonoBehaviour:
     _inspectorEnabled: 1
     _partPropertiesEnabled: 1
     _staticPriceAndMass: 0
-    damage: 5
+    damage: 1
     bulletMass: 0.01
     muzzleVelocity: 200
-    rateOfFire: 100
+    rateOfFire: 1
     bulletDispersion: 0.1
     recoil: 0

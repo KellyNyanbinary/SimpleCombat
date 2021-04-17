@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 3068522032766807214}
   - component: {fileID: 4267840148472188129}
   - component: {fileID: 4747437427822866110}
-  - component: {fileID: 6740803117510686898}
   - component: {fileID: 5641811985384085482}
+  - component: {fileID: 6305612599138536173}
+  - component: {fileID: 2510647494360583537}
   m_Layer: 0
   m_Name: Missile LRAAM Type A
   m_TagString: Untagged
@@ -145,34 +146,6 @@ MonoBehaviour:
     _supportsActivation: 1
     _supportsTransparency: 1
     _thermalMassRatio: 1
---- !u!114 &6740803117510686898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8927157939363084507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4250440d8bde04246a66198e495b550e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data:
-    _id: 
-    _inputId: 
-    _inspectorEnabled: 1
-    _partPropertiesEnabled: 1
-    _staticPriceAndMass: 1
-    missileImpulse: 1600
-    burnTime: 8
-    targetRange: 10000
-    targetAngle: 30
-    wingArea: 0.03
-    useLiftCurve: 0
-    torque: 0.1
-    centerOfDrag: -1
-    guidanceMethod: Proportional
-    guidanceConstant: 1
 --- !u!114 &5641811985384085482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,3 +167,54 @@ MonoBehaviour:
     _detachOnActivated: 1
     _force: 0
     _targetAttachPoints: AttachPoint1
+--- !u!114 &6305612599138536173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927157939363084507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada09c3b6f72ff0428ff16368c4a71d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    _id: 
+    _inputId: 
+    _inspectorEnabled: 1
+    _partPropertiesEnabled: 1
+    _staticPriceAndMass: 0
+    missileImpulse: 1600
+    burnTime: 8
+    targetRange: 10000
+    targetAngle: 30
+    wingArea: 0.03
+    useLiftCurve: 1
+    torque: 0.1
+    centerOfDrag: -1
+    guidanceMethod: Pure Pursuit
+    guidanceConstant: 1
+    contactFuse: 0
+    proximityFuse: 20
+--- !u!114 &2510647494360583537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927157939363084507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcf1a51baea1674596c071667b25ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    _id: 
+    _inputId: 
+    _inspectorEnabled: 1
+    _partPropertiesEnabled: 1
+    _staticPriceAndMass: 0
+    explosivePower: 300
+    explosionRadius: 20
+    explosionDamage: 1500
