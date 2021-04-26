@@ -16,26 +16,37 @@ namespace Assets.Scripts.Craft.Parts.Modifiers
     {
         [DesignerPropertySlider(Label = "Missile Impulse", MinValue = 0, MaxValue = 2000)]
         public float missileImpulse;
-        [DesignerPropertySlider(Label = "Missile Burn Time", MinValue = 0, MaxValue = 20)]
+
+        [DesignerPropertySlider(Label = "Missile Burn Time", MinValue = 0, MaxValue = 20, NumberOfSteps = 41)]
         public float burnTime;
-        [DesignerPropertySlider(Label = "Target Acquire Range", MinValue = 0, MaxValue = 10000)]
+
+        [DesignerPropertySlider(Label = "Target Acquire Range", MinValue = 0, MaxValue = 100000, NumberOfSteps = 201)]
         public float targetRange;
-        [DesignerPropertySlider(Label = "Target Acquire Angle", MinValue = 0, MaxValue = 100)]
+
+        [DesignerPropertySlider(Label = "Target Acquire Angle", MinValue = 0, MaxValue = 90, NumberOfSteps = 19)]
         public float targetAngle;
-        [DesignerPropertySlider(Label = "Wing Area", MinValue = 0, MaxValue = 0.1f)]
+
+        [DesignerPropertySlider(Label = "Wing Area", MinValue = 0f, MaxValue = 0.1f)]
         public float wingArea;
+
         [DesignerPropertyToggleButton(Label = "Use Lift Curve")]
         public bool useLiftCurve = false;
-        [DesignerPropertySlider(Label = "Turning Torque", MinValue = 0, MaxValue = 0.5f)]
+
+        [DesignerPropertySlider(Label = "Turning Torque", MinValue = 0f, MaxValue = 0.5f)]
         public float torque;
+
         [DesignerPropertySlider(Label = "Center of Drag Offset", MinValue = -1, MaxValue = 0)]
         public float centerOfDrag;
+
         [DesignerPropertySpinner("Pure Pursuit", "Proportional", "Unguided", Label = "Guidance Method")]
         public string guidanceMethod = "Pure Pursuit";
+
         [DesignerPropertySlider(Label = "Guidance Constant", MinValue = 0, MaxValue = 4, Tooltip = "Maps guidance input (angle is in radians) to turning effect output")]
         public float guidanceConstant = 1;
+
         [DesignerPropertyToggleButton(Label = "Use Contact Fuse")]
         public bool contactFuse = true;
+
         [DesignerPropertySlider(Label = "Proximity fuse activation distance", MinValue = 0, MaxValue = 20, Tooltip = "0 to disable proximity fuse")]
         public float proximityFuse = 10;
 

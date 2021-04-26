@@ -165,8 +165,8 @@ MonoBehaviour:
     _staticPriceAndMass: 0
     damage: 1
     bulletMass: 0.01
-    muzzleVelocity: 200
-    rateOfFire: 1
+    muzzleVelocity: 1000
+    rateOfFire: 100
     bulletDispersion: 0.1
     recoil: 0
 --- !u!114 &2268993549575030005
@@ -187,5 +187,5 @@ MonoBehaviour:
     _inspectorEnabled: 1
     _partPropertiesEnabled: 1
     _staticPriceAndMass: 0
-    numberOfBarrels: 3
+    numberOfBarrels: 6
     barrelSeperation: 0.1

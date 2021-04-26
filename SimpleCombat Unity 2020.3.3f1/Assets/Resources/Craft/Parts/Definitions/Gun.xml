@@ -18,7 +18,7 @@
         <Parts>
           <Part id="1" partType="Gun" position="0,0,0" rotation="0,0,0">
             <Config />
-            <SimpleCombat.Gun />
+            <SimpleCombat.Gun muzzleVelocity="1000" rateOfFire="20" />
           </Part>
         </Parts>
       </Assembly>
