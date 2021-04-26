@@ -193,7 +193,7 @@ MonoBehaviour:
     useLiftCurve: 0
     torque: 0.3
     centerOfDrag: -1
-    guidanceMethod: Pure Pursuit
+    guidanceMethod: Proportional
     guidanceConstant: 1
     contactFuse: 1
     proximityFuse: 10

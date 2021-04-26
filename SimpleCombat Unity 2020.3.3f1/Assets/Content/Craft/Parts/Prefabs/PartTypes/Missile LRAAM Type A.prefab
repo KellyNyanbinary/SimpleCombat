@@ -191,9 +191,9 @@ MonoBehaviour:
     targetAngle: 30
     wingArea: 0.03
     useLiftCurve: 1
-    torque: 0.1
+    torque: 0.3
     centerOfDrag: -1
-    guidanceMethod: Pure Pursuit
+    guidanceMethod: Proportional
     guidanceConstant: 1
     contactFuse: 0
     proximityFuse: 20
