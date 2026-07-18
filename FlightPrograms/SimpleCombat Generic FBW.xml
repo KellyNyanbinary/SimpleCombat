@@ -15,74 +15,210 @@
     <Variable name="pitchInputDetectionThreshold" number="0" />
     <Variable name="gLimit" number="0" />
     <Variable name="gLimiterIntegralGain" number="0" />
-    <Variable name="gLimiterDerivativeGain" number="0" />
     <Variable name="gLimiterIntegralMin" number="0" />
     <Variable name="gLimiterIntegralMax" number="0" />
-    <Variable name="gLimiterDerivative" number="0" />
   </Variables>
   <Instructions>
     <Event event="FlightStart" id="0" style="flight-start" pos="-10,-20" />
     <Comment id="1" style="comment">
       <Constant style="comment-text" canReplace="false" text="SimpleCombat Generic FBW v0.1.2" />
     </Comment>
-    <SetVariable id="2" style="set-variable">
+    <Comment id="2" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Change log:" />
+    </Comment>
+    <Comment id="3" style="comment">
+      <Constant style="comment-text" canReplace="false" text="v0.1.2: reduce g limit to 6.8, optimize code by removing custom expression calls and changing to fUNK, change starting gLimiterIntegralGain, remove g limiter derivative, and increase pitch trim sensitivity" />
+    </Comment>
+    <SetVariable id="4" style="set-variable">
+      <Constant text="rad2deg" />
+      <EvaluateExpression style="evaluate-expression">
+        <Constant text="180 / 3.1415926535" />
+      </EvaluateExpression>
+    </SetVariable>
+    <SetVariable id="5" style="set-variable">
       <Variable list="false" local="false" variableName="g" />
       <Constant text="9.8" />
     </SetVariable>
-    <SetVariable id="3" style="set-variable">
-      <Variable list="false" local="false" variableName="gLimit" />
-      <Constant text="7" />
-    </SetVariable>
-    <SetVariable id="4" style="set-variable">
-      <Variable list="false" local="false" variableName="gLimiterIntegralGain" />
-      <Constant text="0.1" />
-    </SetVariable>
-    <SetVariable id="5" style="set-variable">
-      <Variable list="false" local="false" variableName="gLimiterDerivativeGain" />
-      <Constant text="-0.005" />
-    </SetVariable>
     <SetVariable id="6" style="set-variable">
+      <Variable list="false" local="false" variableName="gLimit" />
+      <Constant text="6.8" />
+    </SetVariable>
+    <SetVariable id="7" style="set-variable">
+      <Variable list="false" local="false" variableName="gLimiterIntegralGain" />
+      <Constant text="1" />
+    </SetVariable>
+    <SetVariable id="8" style="set-variable">
       <Variable list="false" local="false" variableName="gLimiterIntegralMin" />
       <Constant text="0.1" />
     </SetVariable>
-    <SetVariable id="7" style="set-variable">
+    <SetVariable id="9" style="set-variable">
       <Variable list="false" local="false" variableName="gLimiterIntegralMax" />
       <Constant text="2" />
     </SetVariable>
-    <SetVariable id="8" style="set-variable">
+    <SetVariable id="10" style="set-variable">
       <Variable list="false" local="false" variableName="pitchInputDetectionThreshold" />
       <Constant text="0.05" />
     </SetVariable>
-    <SetVariable id="9" style="set-variable">
-      <Variable list="false" local="false" variableName="pitchDampenerGain" />
-      <Constant text="0.01" />
-    </SetVariable>
-    <SetVariable id="10" style="set-variable">
-      <Variable list="false" local="false" variableName="trimPitchGain" />
-      <Constant text="0.1" />
-    </SetVariable>
     <SetVariable id="11" style="set-variable">
+      <Variable list="false" local="false" variableName="pitchDampenerGain" />
+      <Constant text="0.05" />
+    </SetVariable>
+    <SetVariable id="12" style="set-variable">
+      <Variable list="false" local="false" variableName="trimPitchGain" />
+      <Constant text="0.2" />
+    </SetVariable>
+    <SetVariable id="13" style="set-variable">
       <Variable list="false" local="false" variableName="trimDelay" />
       <Constant text="1" />
     </SetVariable>
-    <SetVariable id="12" style="set-variable">
+    <SetVariable id="14" style="set-variable">
       <Variable list="false" local="false" variableName="trimAoAThreshold" />
       <Constant text="15" />
     </SetVariable>
-    <SetVariable id="13" style="set-variable">
+    <SetVariable id="15" style="set-variable">
       <Variable list="false" local="false" variableName="lastPitchInputTime" />
       <CraftProperty property="Time.TotalTime" style="prop-time" />
     </SetVariable>
-    <While id="14" style="while">
+    <Comment id="16" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Optimized code." />
+    </Comment>
+    <While id="17" style="while">
       <Constant style="true" bool="true" />
       <Instructions>
-        <If id="15" style="if">
+        <If id="18" style="if">
           <Comparison op="g" style="op-gt">
             <CraftProperty property="Time.FrameDeltaTime" style="prop-time" />
             <Constant number="0" />
           </Comparison>
           <Instructions>
-            <SetInput input="slider1" id="16" style="set-input">
+            <SetVariable id="19" style="set-variable">
+              <Constant text="totalTime" />
+              <CraftProperty property="Time.TotalTime" style="prop-time" />
+            </SetVariable>
+            <SetVariable id="20" style="set-variable">
+              <Constant text="airDensity" />
+              <CraftProperty property="Atmosphere.AirDensity" style="prop-atmosphere" />
+            </SetVariable>
+            <SetVariable id="21" style="set-variable">
+              <Constant text="adjustedDynamicPressure" />
+              <EvaluateExpression style="evaluate-expression">
+                <Constant text="max(0.5 * airDensity * pow(FD.SurfaceVelocityMagnitude, 2) / 5000, 0.5)" />
+              </EvaluateExpression>
+            </SetVariable>
+            <SetInput input="slider1" id="22" style="set-input">
+              <EvaluateExpression style="evaluate-expression">
+                <Constant text="clamp01((100 - FD.SurfaceVelocityMagnitude) / 25)" />
+              </EvaluateExpression>
+            </SetInput>
+            <SetVariable id="23" style="set-variable">
+              <Constant text="OutputRearWingSynced" />
+              <EvaluateExpression style="evaluate-expression">
+                <Constant text="clamp((gLimiterIntegral * Pitch + pitchDampenerGain * rad2deg * x(FD.AngularVelocity)) / adjustedDynamicPressure, -1, 1)" />
+              </EvaluateExpression>
+            </SetVariable>
+            <SetVariable id="24" style="set-variable">
+              <Constant text="OutputRearWingOpposed" />
+              <EvaluateExpression style="evaluate-expression">
+                <Constant text="clamp(Roll / adjustedDynamicPressure, -1, 1)" />
+              </EvaluateExpression>
+            </SetVariable>
+            <SetVariable id="25" style="set-variable">
+              <Constant text="lastPitchInputTime" />
+              <EvaluateExpression style="evaluate-expression">
+                <Constant text="abs(Pitch) &gt; pitchInputDetectionThreshold ? totalTime : lastPitchInputTime" />
+              </EvaluateExpression>
+            </SetVariable>
+            <If id="26" style="if">
+              <EvaluateExpression style="evaluate-expression">
+                <Constant text="totalTime - lastPitchInputTime &gt; trimDelay &amp; angle(FD.CraftForward, FD.SurfaceVelocity) &lt; trimAoAThreshold" />
+              </EvaluateExpression>
+              <Instructions>
+                <SetInput input="slider2" id="27" style="set-input">
+                  <EvaluateExpression style="evaluate-expression">
+                    <Constant text="Slider2 + trimPitchGain * rad2deg * x(FD.AngularVelocity) * FD.TimeDelta" />
+                  </EvaluateExpression>
+                </SetInput>
+              </Instructions>
+            </If>
+            <SetVariable id="28" style="set-variable">
+              <Constant text="gLoadingVerticalOld" />
+              <EvaluateExpression style="evaluate-expression">
+                <Constant text="gLoadingVertical" />
+              </EvaluateExpression>
+            </SetVariable>
+            <SetVariable id="29" style="set-variable">
+              <Constant text="gLoadingVertical" />
+              <EvaluateExpression style="evaluate-expression">
+                <Constant text="magnitude(project(FD.Acceleration - FD.Gravity, FD.CraftUp)) / g" />
+              </EvaluateExpression>
+            </SetVariable>
+            <SetVariable id="30" style="set-variable">
+              <Constant text="gLoadingVertical" />
+              <EvaluateExpression style="evaluate-expression">
+                <Constant text="gLoadingVertical * (dot(FD.Acceleration - FD.Gravity, FD.CraftUp) &gt; 0 ? 1 : -1)" />
+              </EvaluateExpression>
+            </SetVariable>
+            <If id="31" style="if">
+              <EvaluateExpression style="evaluate-expression">
+                <Constant text="abs(Pitch) &gt; pitchInputDetectionThreshold" />
+              </EvaluateExpression>
+              <Instructions>
+                <SetVariable id="32" style="set-variable">
+                  <Constant text="gLimiterIntegral" />
+                  <EvaluateExpression style="evaluate-expression">
+                    <Constant text="clamp(gLimiterIntegral * (1 + gLimiterIntegralGain * (abs(Pitch) * (gLimit - abs(gLoadingVertical) / abs(Pitch)) * FD.TimeDelta)), gLimiterIntegralMin, gLimiterIntegralMax)" />
+                  </EvaluateExpression>
+                </SetVariable>
+              </Instructions>
+            </If>
+            <ElseIf id="33" style="else-if">
+              <EvaluateExpression style="evaluate-expression">
+                <Constant text="FD.Grounded" />
+              </EvaluateExpression>
+              <Instructions>
+                <SetVariable id="34" style="set-variable">
+                  <Constant text="gLimiterIntegral" />
+                  <Constant text="1" />
+                </SetVariable>
+              </Instructions>
+            </ElseIf>
+            <LogFlight id="35" style="flightlog">
+              <StringOp op="format" style="format">
+                <Constant text="[{0}]: g load vertical: {1,6:f2} g; g limiter integral: {2,4:f2}; adjusted dynamic pressure: {1:f2}" />
+                <CraftProperty property="Name.Craft" style="prop-name" />
+                <EvaluateExpression style="evaluate-expression">
+                  <Constant text="gLoadingVertical" />
+                </EvaluateExpression>
+                <EvaluateExpression style="evaluate-expression">
+                  <Constant text="gLimiterIntegral" />
+                </EvaluateExpression>
+                <EvaluateExpression style="evaluate-expression">
+                  <Constant text="adjustedDynamicPressure" />
+                </EvaluateExpression>
+                <Constant text="" />
+              </StringOp>
+              <Constant style="true" bool="true" />
+            </LogFlight>
+          </Instructions>
+        </If>
+        <WaitSeconds id="36" style="wait-seconds">
+          <Constant text="0" />
+        </WaitSeconds>
+      </Instructions>
+    </While>
+    <Comment id="37" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Un-optimized reference code." />
+    </Comment>
+    <While id="38" style="while">
+      <Constant style="true" bool="true" />
+      <Instructions>
+        <If id="39" style="if">
+          <Comparison op="g" style="op-gt">
+            <CraftProperty property="Time.FrameDeltaTime" style="prop-time" />
+            <Constant number="0" />
+          </Comparison>
+          <Instructions>
+            <SetInput input="slider1" id="40" style="set-input">
               <CallCustomExpression call="bound" style="call-custom-expression">
                 <BinaryOp op="/" style="op-div">
                   <BinaryOp op="-" style="op-sub">
@@ -97,16 +233,13 @@
                 <Constant number="0" />
               </CallCustomExpression>
             </SetInput>
-            <SetVariable id="17" style="set-variable">
+            <SetVariable id="41" style="set-variable">
               <Variable list="false" local="false" variableName="OutputRearWingSynced" />
               <CallCustomExpression call="bound" style="call-custom-expression">
                 <BinaryOp op="/" style="op-div">
                   <BinaryOp op="+" style="op-add">
                     <BinaryOp op="*" style="op-mul">
-                      <BinaryOp op="+" style="op-add">
-                        <Variable list="false" local="false" variableName="gLimiterIntegral" />
-                        <Variable list="false" local="false" variableName="gLimiterDerivative" />
-                      </BinaryOp>
+                      <Variable list="false" local="false" variableName="gLimiterIntegral" />
                       <CraftProperty property="Input.Pitch" style="prop-input" />
                     </BinaryOp>
                     <BinaryOp op="*" style="op-mul">
@@ -124,7 +257,7 @@
                 <Constant text="1" />
               </CallCustomExpression>
             </SetVariable>
-            <SetVariable id="18" style="set-variable">
+            <SetVariable id="42" style="set-variable">
               <Variable list="false" local="false" variableName="OutputRearWingOpposed" />
               <CallCustomExpression call="bound" style="call-custom-expression">
                 <BinaryOp op="/" style="op-div">
@@ -135,7 +268,7 @@
                 <Constant text="1" />
               </CallCustomExpression>
             </SetVariable>
-            <SetVariable id="19" style="set-variable">
+            <SetVariable id="43" style="set-variable">
               <Variable list="false" local="false" variableName="lastPitchInputTime" />
               <Conditional style="conditional">
                 <Comparison op="g" style="op-gt">
@@ -148,7 +281,7 @@
                 <Variable list="false" local="false" variableName="lastPitchInputTime" />
               </Conditional>
             </SetVariable>
-            <If id="20" style="if">
+            <If id="44" style="if">
               <BoolOp op="and" style="op-and">
                 <Comparison op="g" style="op-gt">
                   <BinaryOp op="-" style="op-sub">
@@ -166,7 +299,7 @@
                 </Comparison>
               </BoolOp>
               <Instructions>
-                <SetInput input="slider2" id="21" style="set-input">
+                <SetInput input="slider2" id="45" style="set-input">
                   <BinaryOp op="+" style="op-add">
                     <CraftProperty property="Input.Slider2" style="prop-input" />
                     <BinaryOp op="*" style="op-mul">
@@ -184,11 +317,11 @@
                 </SetInput>
               </Instructions>
             </If>
-            <SetVariable id="22" style="set-variable">
+            <SetVariable id="46" style="set-variable">
               <Variable list="false" local="false" variableName="gLoadingVerticalOld" />
               <Variable list="false" local="false" variableName="gLoadingVertical" />
             </SetVariable>
-            <SetVariable id="23" style="set-variable">
+            <SetVariable id="47" style="set-variable">
               <Variable list="false" local="false" variableName="gLoadingVertical" />
               <BinaryOp op="/" style="op-div">
                 <VectorOp op="length" style="vec-op-1">
@@ -203,7 +336,7 @@
                 <Variable list="false" local="false" variableName="g" />
               </BinaryOp>
             </SetVariable>
-            <SetVariable id="24" style="set-variable">
+            <SetVariable id="48" style="set-variable">
               <Variable list="false" local="false" variableName="gLoadingVertical" />
               <BinaryOp op="*" style="op-mul">
                 <Variable list="false" local="false" variableName="gLoadingVertical" />
@@ -223,7 +356,7 @@
                 </Conditional>
               </BinaryOp>
             </SetVariable>
-            <If id="25" style="if">
+            <If id="49" style="if">
               <Comparison op="g" style="op-gt">
                 <MathFunction function="abs" style="op-math">
                   <CraftProperty property="Input.Pitch" style="prop-input" />
@@ -231,7 +364,7 @@
                 <Variable list="false" local="false" variableName="pitchInputDetectionThreshold" />
               </Comparison>
               <Instructions>
-                <SetVariable id="26" style="set-variable">
+                <SetVariable id="50" style="set-variable">
                   <Variable list="false" local="false" variableName="gLimiterIntegral" />
                   <CallCustomExpression call="bound" style="call-custom-expression">
                     <BinaryOp op="*" style="op-mul">
@@ -268,43 +401,21 @@
                 </SetVariable>
               </Instructions>
             </If>
-            <ElseIf id="27" style="else-if">
+            <ElseIf id="51" style="else-if">
               <CraftProperty property="Misc.Grounded" style="prop-misc" />
               <Instructions>
-                <SetVariable id="28" style="set-variable">
+                <SetVariable id="52" style="set-variable">
                   <Variable list="false" local="false" variableName="gLimiterIntegral" />
                   <Constant text="1" />
                 </SetVariable>
               </Instructions>
             </ElseIf>
-            <SetVariable id="29" style="set-variable">
-              <Variable list="false" local="false" variableName="gLimiterDerivative" />
-              <BinaryOp op="*" style="op-mul">
-                <Variable list="false" local="false" variableName="gLimiterDerivativeGain" />
-                <BinaryOp op="/" style="op-div">
-                  <BinaryOp op="-" style="op-sub">
-                    <Variable list="false" local="false" variableName="gLoadingVertical" />
-                    <Variable list="false" local="false" variableName="gLoadingVerticalOld" />
-                  </BinaryOp>
-                  <CraftProperty property="Time.FrameDeltaTime" style="prop-time" />
-                </BinaryOp>
-              </BinaryOp>
-            </SetVariable>
-            <LogFlight id="30" style="flightlog">
+            <LogFlight id="53" style="flightlog">
               <StringOp op="format" style="format">
-                <Constant text="{0}: g load vertical: {1,6:f2} g; g limiter integral: {2,4:f2}; g limiter derivative: {3,7:f4}" />
+                <Constant text="{0}: g load vertical: {1,6:f2} g; g limiter integral: {2,4:f2}; adjusted dynamic pressure: {1:f2}" />
                 <CraftProperty property="Name.Craft" style="prop-name" />
                 <Variable list="false" local="false" variableName="gLoadingVertical" />
                 <Variable list="false" local="false" variableName="gLimiterIntegral" />
-                <Variable list="false" local="false" variableName="gLimiterDerivative" />
-                <Constant text="" />
-              </StringOp>
-              <Constant style="true" bool="true" />
-            </LogFlight>
-            <LogFlight id="31" style="flightlog">
-              <StringOp op="format" style="format">
-                <Constant text="{0}: adjusted dynamic pressure: {1:f2}" />
-                <CraftProperty property="Name.Craft" style="prop-name" />
                 <CallCustomExpression call="adjusted dynamic pressure" style="call-custom-expression" />
                 <Constant text="" />
               </StringOp>
@@ -312,7 +423,7 @@
             </LogFlight>
           </Instructions>
         </If>
-        <WaitSeconds id="32" style="wait-seconds">
+        <WaitSeconds id="54" style="wait-seconds">
           <Constant text="0" />
         </WaitSeconds>
       </Instructions>
