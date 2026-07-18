@@ -1969,22 +1969,16 @@
     <While id="256" style="while">
       <Constant style="true" bool="true" />
       <Instructions>
-        <LogFlight id="257" style="flightlog">
-          <EvaluateExpression style="evaluate-expression">
-            <Constant text="FD.SurfaceVelocityNormalized" />
-          </EvaluateExpression>
-          <Constant style="true" bool="true" />
-        </LogFlight>
-        <Comment id="258" style="comment">
+        <Comment id="257" style="comment" pos="2744.208,-1019.24">
           <Constant style="comment-text" canReplace="false" text="Variables" />
         </Comment>
-        <SetVariable id="259" style="set-variable">
+        <SetVariable id="258" style="set-variable">
           <Constant text="partID" />
           <CraftProperty property="Part.ThisID" style="part">
             <Constant number="0" />
           </CraftProperty>
         </SetVariable>
-        <SetVariable id="260" style="set-variable">
+        <SetVariable id="259" style="set-variable">
           <Constant text="partPos" />
           <CraftProperty property="Part.Position" style="part">
             <EvaluateExpression style="evaluate-expression">
@@ -1992,7 +1986,7 @@
             </EvaluateExpression>
           </CraftProperty>
         </SetVariable>
-        <SetVariable id="261" style="set-variable">
+        <SetVariable id="260" style="set-variable">
           <Constant text="cameraPos" />
           <CraftProperty property="Part.PciToLocal" style="part-transform">
             <EvaluateExpression style="evaluate-expression">
@@ -2006,82 +2000,82 @@
             </BinaryOp>
           </CraftProperty>
         </SetVariable>
-        <SetVariable id="262" style="set-variable">
+        <SetVariable id="261" style="set-variable">
           <Constant text="cameraDist" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="hudZOffset - z(v:cameraPos)" />
           </EvaluateExpression>
         </SetVariable>
-        <SetVariable id="263" style="set-variable">
+        <SetVariable id="262" style="set-variable">
           <Constant text="cameraDist2DVec" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="vec(cameraDist, cameraDist, 0)" />
           </EvaluateExpression>
         </SetVariable>
-        <SetCraftProperty property="Mfd.SetPosition" id="264" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="263" style="set-mfd-widget">
           <Constant text="Left readouts" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="mfdScale * (cameraDist * vec(tan(deg2rad * -12), tan(deg2rad * 2), 0) + v:cameraPos)" />
           </EvaluateExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetScale" id="265" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetScale" id="264" style="set-mfd-widget">
           <Constant text="Left readouts" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="v:cameraDist2DVec" />
           </EvaluateExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetPosition" id="266" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="265" style="set-mfd-widget">
           <Constant text="Right readouts" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="mfdScale * (cameraDist * vec(tan(deg2rad * 12), tan(deg2rad * 2), 0) + v:cameraPos)" />
           </EvaluateExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetScale" id="267" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetScale" id="266" style="set-mfd-widget">
           <Constant text="Right readouts" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="v:cameraDist2DVec" />
           </EvaluateExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetPosition" id="268" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="267" style="set-mfd-widget">
           <Constant text="Boresight" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="mfdScale * v:cameraPos" />
           </EvaluateExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetScale" id="269" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetScale" id="268" style="set-mfd-widget">
           <Constant text="Boresight" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="v:cameraDist2DVec" />
           </EvaluateExpression>
         </SetCraftProperty>
-        <Comment id="270" style="comment">
+        <Comment id="269" style="comment">
           <Constant style="comment-text" canReplace="false" text="Heading tape" />
         </Comment>
-        <SetCraftProperty property="Mfd.SetPosition" id="271" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="270" style="set-mfd-widget">
           <Constant text="Heading tape" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="mfdScale * (cameraDist * vec(0, tan(deg2rad * 11), 0) + v:cameraPos)" />
           </EvaluateExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetScale" id="272" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetScale" id="271" style="set-mfd-widget">
           <Constant text="Heading tape" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="v:cameraDist2DVec" />
           </EvaluateExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetPosition" id="273" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="272" style="set-mfd-widget">
           <Constant text="Heading ticks minor base" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="vec(headingTickMinorGap * (1 - (FD.Heading % headingTickMinorInterval) / headingTickMinorInterval), 0, 0)" />
           </EvaluateExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetPosition" id="274" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="273" style="set-mfd-widget">
           <Constant text="Heading ticks major base" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="vec(10 * headingTapeWidthPerDegree * (1 - (FD.Heading % 10) / 10), 0, 0)" />
           </EvaluateExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.Label.SetText" id="275" style="set-mfd-label">
+        <SetCraftProperty property="Mfd.Label.SetText" id="274" style="set-mfd-label">
           <Constant text="Heading readout" />
           <StringOp op="format" style="format">
             <Constant text="{0:000}" />
@@ -2091,7 +2085,7 @@
             <Constant text="" />
           </StringOp>
         </SetCraftProperty>
-        <For var="tickMarkMajor" id="276" style="for">
+        <For var="tickMarkMajor" id="275" style="for">
           <EvaluateExpression style="evaluate-expression">
             <Constant text="ceil(headingTickMajorNum / -2)" />
           </EvaluateExpression>
@@ -2100,13 +2094,13 @@
           </EvaluateExpression>
           <Constant text="1" />
           <Instructions>
-            <SetVariable id="277" style="set-variable">
+            <SetVariable id="276" style="set-variable">
               <Constant text="headingTapeLabelValue" />
               <EvaluateExpression style="evaluate-expression">
                 <Constant text="(ceil(FD.Heading / 10) + tickMarkMajor + 36) % 36" />
               </EvaluateExpression>
             </SetVariable>
-            <SetCraftProperty property="Mfd.Label.SetText" id="278" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="277" style="set-mfd-label">
               <StringOp op="join" style="join">
                 <Constant text="Heading ticks major label" />
                 <Variable list="false" local="true" variableName="tickMarkMajor" />
@@ -2122,10 +2116,10 @@
             </SetCraftProperty>
           </Instructions>
         </For>
-        <Comment id="279" style="comment">
+        <Comment id="278" style="comment">
           <Constant style="comment-text" canReplace="false" text="Variables for prograde" />
         </Comment>
-        <SetVariable id="280" style="set-variable">
+        <SetVariable id="279" style="set-variable">
           <Constant text="progradeLocal" />
           <CraftProperty property="Part.PciToLocal" style="part-transform">
             <EvaluateExpression style="evaluate-expression">
@@ -2136,25 +2130,25 @@
             </EvaluateExpression>
           </CraftProperty>
         </SetVariable>
-        <Comment id="281" style="comment">
+        <Comment id="280" style="comment">
           <Constant style="comment-text" canReplace="false" text="Prograde" />
         </Comment>
-        <If id="282" style="if">
+        <If id="281" style="if">
           <EvaluateExpression style="evaluate-expression">
             <Constant text="z(v:progradeLocal) &gt; 0 &amp; FD.SurfaceVelocityMagnitude &gt; progradeValidityThreshold" />
           </EvaluateExpression>
           <Instructions>
-            <SetCraftProperty property="Mfd.SetVisible" id="283" style="set-mfd-widget">
+            <SetCraftProperty property="Mfd.SetVisible" id="282" style="set-mfd-widget">
               <Constant text="Prograde" />
               <Constant style="true" bool="true" />
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.SetPosition" id="284" style="set-mfd-widget">
+            <SetCraftProperty property="Mfd.SetPosition" id="283" style="set-mfd-widget">
               <Constant text="Prograde" />
               <EvaluateExpression style="evaluate-expression">
                 <Constant text="mfdScale * (cameraDist * v:progradeLocal / z(v:progradeLocal) + v:cameraPos)" />
               </EvaluateExpression>
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.SetScale" id="285" style="set-mfd-widget">
+            <SetCraftProperty property="Mfd.SetScale" id="284" style="set-mfd-widget">
               <Constant text="Prograde" />
               <EvaluateExpression style="evaluate-expression">
                 <Constant text="v:cameraDist2DVec" />
@@ -2162,51 +2156,33 @@
             </SetCraftProperty>
           </Instructions>
         </If>
-        <ElseIf id="286" style="else">
+        <ElseIf id="285" style="else">
           <Constant bool="true" />
           <Instructions>
-            <SetCraftProperty property="Mfd.SetVisible" id="287" style="set-mfd-widget">
+            <SetCraftProperty property="Mfd.SetVisible" id="286" style="set-mfd-widget">
               <Constant text="Prograde" />
               <Constant style="false" bool="false" />
             </SetCraftProperty>
           </Instructions>
         </ElseIf>
-        <Comment id="288" style="comment">
+        <Comment id="287" style="comment">
           <Constant style="comment-text" canReplace="false" text="Pitch ladder" />
         </Comment>
-        <Comment id="289" style="comment">
-          <Constant style="comment-text" canReplace="false" text="Variable for overall pitch ladder" />
-        </Comment>
-        <SetVariable id="290" style="set-variable">
-          <Constant text="progradeWorld" />
-          <EvaluateExpression style="evaluate-expression">
-            <Constant text="normalize(FD.SurfaceVelocity)" />
-          </EvaluateExpression>
-        </SetVariable>
-        <SetVariable id="291" style="set-variable">
-          <Constant text="upWorld" />
-          <EvaluateExpression style="evaluate-expression">
-            <Constant text="FD.PositionNormalized" />
-          </EvaluateExpression>
-        </SetVariable>
-        <Comment id="292" style="comment">
-          <Constant style="comment-text" canReplace="false" text="Remove the vertical (upWorld) component to get the horizontal component" />
-        </Comment>
-        <If id="293" style="if">
+        <If id="288" style="if">
           <EvaluateExpression style="evaluate-expression">
             <Constant text="FD.SurfaceVelocityMagnitude &gt; progradeValidityThreshold &amp; angle(FD.SurfaceVelocity, FD.CraftForward) &lt; ladderUseProgradeAngleThreshold" />
           </EvaluateExpression>
           <Instructions>
-            <SetVariable id="294" style="set-variable">
+            <SetVariable id="289" style="set-variable">
               <Constant text="progradeWorldHorizontal" />
               <EvaluateExpression style="evaluate-expression">
-                <Constant text="projectOnPlane(v:progradeWorld, FD.PositionNormalized)" />
+                <Constant text="normalize(projectOnPlane(normalize(FD.SurfaceVelocity), FD.PositionNormalized))" />
               </EvaluateExpression>
             </SetVariable>
-            <Comment id="295" style="comment">
+            <Comment id="290" style="comment">
               <Constant style="comment-text" canReplace="false" text="Vertical cross prograde yields a leftward vector." />
             </Comment>
-            <SetVariable id="296" style="set-variable">
+            <SetVariable id="291" style="set-variable">
               <Constant text="sidewaysWorld" />
               <EvaluateExpression style="evaluate-expression">
                 <Constant text="normalize(cross(FD.PositionNormalized, normalize(FD.SurfaceVelocity)))" />
@@ -2214,19 +2190,19 @@
             </SetVariable>
           </Instructions>
         </If>
-        <ElseIf id="297" style="else">
+        <ElseIf id="292" style="else">
           <Constant bool="true" />
           <Instructions>
-            <SetVariable id="298" style="set-variable">
+            <SetVariable id="293" style="set-variable">
               <Constant text="progradeWorldHorizontal" />
               <EvaluateExpression style="evaluate-expression">
-                <Constant text="projectOnPlane(FD.CraftForward, FD.PositionNormalized)" />
+                <Constant text="normalize(projectOnPlane(FD.CraftForward, FD.PositionNormalized))" />
               </EvaluateExpression>
             </SetVariable>
-            <Comment id="299" style="comment">
+            <Comment id="294" style="comment">
               <Constant style="comment-text" canReplace="false" text="Vertical cross craft forward yields a leftward vector." />
             </Comment>
-            <SetVariable id="300" style="set-variable">
+            <SetVariable id="295" style="set-variable">
               <Constant text="sidewaysWorld" />
               <EvaluateExpression style="evaluate-expression">
                 <Constant text="normalize(cross(FD.PositionNormalized, FD.CraftForward))" />
@@ -2234,7 +2210,7 @@
             </SetVariable>
           </Instructions>
         </ElseIf>
-        <SetVariable id="301" style="set-variable">
+        <SetVariable id="296" style="set-variable">
           <Constant text="sidewaysLocal" />
           <CraftProperty property="Part.PciToLocal" style="part-transform">
             <EvaluateExpression style="evaluate-expression">
@@ -2245,18 +2221,18 @@
             </EvaluateExpression>
           </CraftProperty>
         </SetVariable>
-        <SetVariable id="302" style="set-variable">
+        <SetVariable id="297" style="set-variable">
           <Constant text="ladderRollAngle" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="rad2deg * (atan2(y(v:sidewaysLocal), x(v:sidewaysLocal)))" />
           </EvaluateExpression>
         </SetVariable>
-        <For var="angle" id="303" style="for">
+        <For var="angle" id="298" style="for">
           <Constant text="-85" />
           <Constant text="85" />
           <Variable list="false" local="false" variableName="ladderAngleGap" />
           <Instructions>
-            <SetVariable id="304" style="set-variable">
+            <SetVariable id="299" style="set-variable">
               <Variable list="false" local="false" variableName="ladderRungName" />
               <StringOp op="join" style="join">
                 <Constant text="Ladder rung parent" />
@@ -2264,10 +2240,10 @@
                 <Constant text="" />
               </StringOp>
             </SetVariable>
-            <Comment id="305" style="comment">
+            <Comment id="300" style="comment">
               <Constant style="comment-text" canReplace="false" text="Cull rungs that are off-of-HUD." />
             </Comment>
-            <If id="306" style="if">
+            <If id="301" style="if">
               <Comparison op="l" style="op-lt">
                 <MathFunction function="abs" style="op-math">
                   <BinaryOp op="-" style="op-sub">
@@ -2278,17 +2254,17 @@
                 <Constant text="30" />
               </Comparison>
               <Instructions>
-                <SetCraftProperty property="Mfd.SetVisible" id="307" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="302" style="set-mfd-widget">
                   <Variable list="false" local="false" variableName="ladderRungName" />
                   <Constant style="true" bool="true" />
                 </SetCraftProperty>
-                <SetVariable id="308" style="set-variable">
+                <SetVariable id="303" style="set-variable">
                   <Variable list="false" local="false" variableName="ladderRungCenterWorld" />
                   <EvaluateExpression style="evaluate-expression">
-                    <Constant text="v:progradeWorldHorizontal * cos(deg2rad * angle) + v:upWorld * sin(deg2rad * angle)" />
+                    <Constant text="v:progradeWorldHorizontal * cos(deg2rad * angle) + FD.PositionNormalized * sin(deg2rad * angle)" />
                   </EvaluateExpression>
                 </SetVariable>
-                <SetVariable id="309" style="set-variable">
+                <SetVariable id="304" style="set-variable">
                   <Variable list="false" local="false" variableName="ladderRungCenterLocal" />
                   <CraftProperty property="Part.PciToLocal" style="part-transform">
                     <EvaluateExpression style="evaluate-expression">
@@ -2297,19 +2273,19 @@
                     <Variable list="false" local="false" variableName="ladderRungCenterWorld" />
                   </CraftProperty>
                 </SetVariable>
-                <SetCraftProperty property="Mfd.SetPosition" id="310" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetPosition" id="305" style="set-mfd-widget">
                   <Variable list="false" local="false" variableName="ladderRungName" />
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="mfdScale * (cameraDist * v:ladderRungCenterLocal / z(v:ladderRungCenterLocal) + v:cameraPos)" />
                   </EvaluateExpression>
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetScale" id="311" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetScale" id="306" style="set-mfd-widget">
                   <Variable list="false" local="false" variableName="ladderRungName" />
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="v:cameraDist2DVec" />
                   </EvaluateExpression>
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetRotation" id="312" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetRotation" id="307" style="set-mfd-widget">
                   <Variable list="false" local="false" variableName="ladderRungName" />
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="ladderRollAngle" />
@@ -2317,10 +2293,10 @@
                 </SetCraftProperty>
               </Instructions>
             </If>
-            <ElseIf id="313" style="else">
+            <ElseIf id="308" style="else">
               <Constant bool="true" />
               <Instructions>
-                <SetCraftProperty property="Mfd.SetVisible" id="314" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="309" style="set-mfd-widget">
                   <Variable list="false" local="false" variableName="ladderRungName" />
                   <Constant style="false" bool="false" />
                 </SetCraftProperty>
@@ -2328,17 +2304,17 @@
             </ElseIf>
           </Instructions>
         </For>
-        <Comment id="315" style="comment">
+        <Comment id="310" style="comment">
           <Constant style="comment-text" canReplace="false" text="Render in-range runways." />
         </Comment>
-        <For var="runwayRendererID" id="316" style="for">
+        <For var="runwayRendererID" id="311" style="for">
           <Constant number="1" />
           <ListOp op="length" style="list-length">
             <Variable list="true" local="false" variableName="runwayRendererIDs" />
           </ListOp>
           <Constant number="1" />
           <Instructions>
-            <SetVariable id="317" style="set-variable">
+            <SetVariable id="312" style="set-variable">
               <Variable list="false" local="false" variableName="runwayRendererID" />
               <StringOp op="join" style="join">
                 <Constant text="Runway Renderer " />
@@ -2349,7 +2325,7 @@
                 <Constant text="" />
               </StringOp>
             </SetVariable>
-            <If id="318" style="if">
+            <If id="313" style="if">
               <Comparison op="le" style="op-lte">
                 <Variable list="false" local="true" variableName="runwayRendererID" />
                 <ListOp op="length" style="list-length">
@@ -2357,20 +2333,20 @@
                 </ListOp>
               </Comparison>
               <Instructions>
-                <SetVariable id="319" style="set-variable">
+                <SetVariable id="314" style="set-variable">
                   <Variable list="false" local="false" variableName="renderingRunwayStrip" />
                   <ListOp op="get" style="list-get">
                     <Variable list="true" local="false" variableName="runwayStripsToRender" />
                     <Variable list="false" local="true" variableName="runwayRendererID" />
                   </ListOp>
                 </SetVariable>
-                <SetVariable id="320" style="set-variable">
+                <SetVariable id="315" style="set-variable">
                   <Constant text="index" />
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="6 * (renderingRunwayStrip - 1) + 1" />
                   </EvaluateExpression>
                 </SetVariable>
-                <SetVariable id="321" style="set-variable">
+                <SetVariable id="316" style="set-variable">
                   <Constant text="runwayDisplacedThresholdStartLeft" />
                   <CraftProperty property="Part.PciToLocal" style="part-transform">
                     <EvaluateExpression style="evaluate-expression">
@@ -2388,7 +2364,7 @@
                     </BinaryOp>
                   </CraftProperty>
                 </SetVariable>
-                <SetVariable id="322" style="set-variable">
+                <SetVariable id="317" style="set-variable">
                   <Constant text="runwayDisplacedThresholdStartRight" />
                   <CraftProperty property="Part.PciToLocal" style="part-transform">
                     <EvaluateExpression style="evaluate-expression">
@@ -2406,7 +2382,7 @@
                     </BinaryOp>
                   </CraftProperty>
                 </SetVariable>
-                <SetVariable id="323" style="set-variable">
+                <SetVariable id="318" style="set-variable">
                   <Constant text="runwayDisplacedThresholdEndLeft" />
                   <CraftProperty property="Part.PciToLocal" style="part-transform">
                     <EvaluateExpression style="evaluate-expression">
@@ -2424,7 +2400,7 @@
                     </BinaryOp>
                   </CraftProperty>
                 </SetVariable>
-                <SetVariable id="324" style="set-variable">
+                <SetVariable id="319" style="set-variable">
                   <Constant text="runwayDisplacedThresholdEndRight" />
                   <CraftProperty property="Part.PciToLocal" style="part-transform">
                     <EvaluateExpression style="evaluate-expression">
@@ -2442,7 +2418,7 @@
                     </BinaryOp>
                   </CraftProperty>
                 </SetVariable>
-                <SetVariable id="325" style="set-variable">
+                <SetVariable id="320" style="set-variable">
                   <Constant text="runwayCenterlineStart" />
                   <CraftProperty property="Part.PciToLocal" style="part-transform">
                     <EvaluateExpression style="evaluate-expression">
@@ -2460,7 +2436,7 @@
                     </BinaryOp>
                   </CraftProperty>
                 </SetVariable>
-                <SetVariable id="326" style="set-variable">
+                <SetVariable id="321" style="set-variable">
                   <Constant text="runwayCenterlineEnd" />
                   <CraftProperty property="Part.PciToLocal" style="part-transform">
                     <EvaluateExpression style="evaluate-expression">
@@ -2478,7 +2454,7 @@
                     </BinaryOp>
                   </CraftProperty>
                 </SetVariable>
-                <CallCustomInstruction call="project line" id="327" style="call-custom-instruction">
+                <CallCustomInstruction call="project line" id="322" style="call-custom-instruction">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Displaced Threshold Start" />
@@ -2491,7 +2467,7 @@
                     <Constant text="v:runwayDisplacedThresholdStartRight" />
                   </EvaluateExpression>
                 </CallCustomInstruction>
-                <CallCustomInstruction call="project line" id="328" style="call-custom-instruction">
+                <CallCustomInstruction call="project line" id="323" style="call-custom-instruction">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Displaced Threshold End" />
@@ -2504,7 +2480,7 @@
                     <Constant text="v:runwayDisplacedThresholdEndRight" />
                   </EvaluateExpression>
                 </CallCustomInstruction>
-                <CallCustomInstruction call="project line" id="329" style="call-custom-instruction">
+                <CallCustomInstruction call="project line" id="324" style="call-custom-instruction">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Side Stripe Left" />
@@ -2517,7 +2493,7 @@
                     <Constant text="v:runwayDisplacedThresholdEndLeft" />
                   </EvaluateExpression>
                 </CallCustomInstruction>
-                <CallCustomInstruction call="project line" id="330" style="call-custom-instruction">
+                <CallCustomInstruction call="project line" id="325" style="call-custom-instruction">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Side Stripe Right" />
@@ -2530,7 +2506,7 @@
                     <Constant text="v:runwayDisplacedThresholdEndRight" />
                   </EvaluateExpression>
                 </CallCustomInstruction>
-                <CallCustomInstruction call="project line" id="331" style="call-custom-instruction">
+                <CallCustomInstruction call="project line" id="326" style="call-custom-instruction">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Centerline" />
@@ -2545,10 +2521,10 @@
                 </CallCustomInstruction>
               </Instructions>
             </If>
-            <ElseIf id="332" style="else">
+            <ElseIf id="327" style="else">
               <Constant bool="true" />
               <Instructions>
-                <SetCraftProperty property="Mfd.SetVisible" id="333" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="328" style="set-mfd-widget">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Displaced Threshold Start" />
@@ -2556,7 +2532,7 @@
                   </StringOp>
                   <Constant style="false" bool="false" />
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetVisible" id="334" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="329" style="set-mfd-widget">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Displaced Threshold End" />
@@ -2564,7 +2540,7 @@
                   </StringOp>
                   <Constant style="false" bool="false" />
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetVisible" id="335" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="330" style="set-mfd-widget">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Side Stripe Left" />
@@ -2572,7 +2548,7 @@
                   </StringOp>
                   <Constant style="false" bool="false" />
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetVisible" id="336" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="331" style="set-mfd-widget">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Side Stripe Right" />
@@ -2580,7 +2556,7 @@
                   </StringOp>
                   <Constant style="false" bool="false" />
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetVisible" id="337" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="332" style="set-mfd-widget">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Centerline" />
@@ -2592,15 +2568,15 @@
             </ElseIf>
           </Instructions>
         </For>
-        <WaitSeconds id="338" style="wait-seconds">
+        <WaitSeconds id="333" style="wait-seconds">
           <Constant text="0" />
         </WaitSeconds>
-        <Comment id="339" style="comment">
+        <Comment id="334" style="comment">
           <Constant style="comment-text" canReplace="false" text="Vertical (upWorld) cross prograde/roll axis yields a leftward vector." />
         </Comment>
       </Instructions>
     </While>
-    <LogFlight id="340" style="flightlog">
+    <LogFlight id="335" style="flightlog">
       <StringOp op="format" style="format">
         <Constant text="[{0}]: runway strip {1} centerline start is at {2}" />
         <CraftProperty property="Name.Craft" style="prop-name" />
@@ -2612,7 +2588,7 @@
       </StringOp>
       <Constant style="true" bool="true" />
     </LogFlight>
-    <LogFlight id="341" style="flightlog">
+    <LogFlight id="336" style="flightlog">
       <StringOp op="format" style="format">
         <Constant text="[{0}]: runway strip {1} centerline end is at {2}" />
         <CraftProperty property="Name.Craft" style="prop-name" />
@@ -2624,26 +2600,26 @@
       </StringOp>
       <Constant style="true" bool="true" />
     </LogFlight>
-    <Comment id="342" style="comment">
+    <Comment id="337" style="comment">
       <Constant style="comment-text" canReplace="false" text="Non-optimized reference code." />
     </Comment>
-    <WaitUntil id="343" style="wait-until">
+    <WaitUntil id="338" style="wait-until">
       <Variable list="false" local="false" variableName="isInitiated" />
     </WaitUntil>
-    <Comment id="344" style="comment">
+    <Comment id="339" style="comment">
       <Constant style="comment-text" canReplace="false" text="Move the widgets" />
     </Comment>
-    <While id="345" style="while">
+    <While id="340" style="while">
       <Constant style="true" bool="true" />
       <Instructions>
-        <Comment id="346" style="comment">
+        <Comment id="341" style="comment" pos="1688.253,-1167.438">
           <Constant style="comment-text" canReplace="false" text="Variables" />
         </Comment>
-        <SetVariable id="347" style="set-variable">
+        <SetVariable id="342" style="set-variable">
           <Variable list="false" local="false" variableName="cameraPos" />
           <CallCustomExpression call="local camera position" style="call-custom-expression" />
         </SetVariable>
-        <SetVariable id="348" style="set-variable">
+        <SetVariable id="343" style="set-variable">
           <Variable list="false" local="false" variableName="cameraDist" />
           <BinaryOp op="-" style="op-sub">
             <Variable list="false" local="false" variableName="hudZOffset" />
@@ -2652,7 +2628,7 @@
             </VectorOp>
           </BinaryOp>
         </SetVariable>
-        <SetVariable id="349" style="set-variable">
+        <SetVariable id="344" style="set-variable">
           <Variable list="false" local="false" variableName="cameraDist2DVec" />
           <Vector style="vec">
             <Variable list="false" local="false" variableName="cameraDist" />
@@ -2660,7 +2636,7 @@
             <Constant number="0" />
           </Vector>
         </SetVariable>
-        <SetCraftProperty property="Mfd.SetPosition" id="350" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="345" style="set-mfd-widget">
           <Constant text="Left readouts" />
           <CallCustomExpression call="offset" style="call-custom-expression">
             <Vector style="vec">
@@ -2677,11 +2653,11 @@
             <Variable list="false" local="false" variableName="cameraPos" />
           </CallCustomExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetScale" id="351" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetScale" id="346" style="set-mfd-widget">
           <Constant text="Left readouts" />
           <Variable list="false" local="false" variableName="cameraDist2DVec" />
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetPosition" id="352" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="347" style="set-mfd-widget">
           <Constant text="Right readouts" />
           <CallCustomExpression call="offset" style="call-custom-expression">
             <Vector style="vec">
@@ -2698,25 +2674,25 @@
             <Variable list="false" local="false" variableName="cameraPos" />
           </CallCustomExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetScale" id="353" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetScale" id="348" style="set-mfd-widget">
           <Constant text="Right readouts" />
           <Variable list="false" local="false" variableName="cameraDist2DVec" />
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetPosition" id="354" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="349" style="set-mfd-widget">
           <Constant text="Boresight" />
           <CallCustomExpression call="offset" style="call-custom-expression">
             <Constant text="0, 0" />
             <Variable list="false" local="false" variableName="cameraPos" />
           </CallCustomExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetScale" id="355" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetScale" id="350" style="set-mfd-widget">
           <Constant text="Boresight" />
           <Variable list="false" local="false" variableName="cameraDist2DVec" />
         </SetCraftProperty>
-        <Comment id="356" style="comment">
+        <Comment id="351" style="comment">
           <Constant style="comment-text" canReplace="false" text="Heading tape" />
         </Comment>
-        <SetCraftProperty property="Mfd.SetPosition" id="357" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="352" style="set-mfd-widget">
           <Constant text="Heading tape" />
           <CallCustomExpression call="offset" style="call-custom-expression">
             <Vector style="vec">
@@ -2733,11 +2709,11 @@
             <Variable list="false" local="false" variableName="cameraPos" />
           </CallCustomExpression>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetScale" id="358" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetScale" id="353" style="set-mfd-widget">
           <Constant text="Heading tape" />
           <Variable list="false" local="false" variableName="cameraDist2DVec" />
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetPosition" id="359" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="354" style="set-mfd-widget">
           <Constant text="Heading ticks minor base" />
           <Vector style="vec">
             <BinaryOp op="*" style="op-mul">
@@ -2757,7 +2733,7 @@
             <Constant number="0" />
           </Vector>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetPosition" id="360" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="355" style="set-mfd-widget">
           <Constant text="Heading ticks major base" />
           <Vector style="vec">
             <BinaryOp op="*" style="op-mul">
@@ -2780,7 +2756,7 @@
             <Constant number="0" />
           </Vector>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.Label.SetText" id="361" style="set-mfd-label">
+        <SetCraftProperty property="Mfd.Label.SetText" id="356" style="set-mfd-label">
           <Constant text="Heading readout" />
           <StringOp op="format" style="format">
             <Constant text="{0:000}" />
@@ -2790,7 +2766,7 @@
             <Constant text="" />
           </StringOp>
         </SetCraftProperty>
-        <For var="tickMarkMajor" id="362" style="for">
+        <For var="tickMarkMajor" id="357" style="for">
           <MathFunction function="ceiling" style="op-math">
             <BinaryOp op="/" style="op-div">
               <Variable list="false" local="false" variableName="headingTickMajorNum" />
@@ -2808,7 +2784,7 @@
           </BinaryOp>
           <Constant text="1" />
           <Instructions>
-            <SetVariable id="363" style="set-variable">
+            <SetVariable id="358" style="set-variable">
               <Variable list="false" local="false" variableName="headingTapeLabelValue" />
               <BinaryOp op="%" style="op-mod">
                 <BinaryOp op="+" style="op-add">
@@ -2826,7 +2802,7 @@
                 <Constant text="36" />
               </BinaryOp>
             </SetVariable>
-            <SetCraftProperty property="Mfd.Label.SetText" id="364" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="359" style="set-mfd-label">
               <StringOp op="join" style="join">
                 <Constant text="Heading ticks major label" />
                 <Variable list="false" local="true" variableName="tickMarkMajor" />
@@ -2840,10 +2816,10 @@
             </SetCraftProperty>
           </Instructions>
         </For>
-        <Comment id="365" style="comment">
+        <Comment id="360" style="comment">
           <Constant style="comment-text" canReplace="false" text="Variables for prograde" />
         </Comment>
-        <SetVariable id="366" style="set-variable">
+        <SetVariable id="361" style="set-variable">
           <Variable list="false" local="false" variableName="progradeLocal" />
           <CraftProperty property="Part.PciToLocal" style="part-transform">
             <CraftProperty property="Part.ThisID" style="part">
@@ -2854,10 +2830,10 @@
             </VectorOp>
           </CraftProperty>
         </SetVariable>
-        <Comment id="367" style="comment">
+        <Comment id="362" style="comment">
           <Constant style="comment-text" canReplace="false" text="Prograde" />
         </Comment>
-        <If id="368" style="if">
+        <If id="363" style="if">
           <BoolOp op="and" style="op-and">
             <Comparison op="g" style="op-gt">
               <VectorOp op="z" style="vec-op-1">
@@ -2873,45 +2849,45 @@
             </Comparison>
           </BoolOp>
           <Instructions>
-            <SetCraftProperty property="Mfd.SetVisible" id="369" style="set-mfd-widget">
+            <SetCraftProperty property="Mfd.SetVisible" id="364" style="set-mfd-widget">
               <Constant text="Prograde" />
               <Constant style="true" bool="true" />
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.SetPosition" id="370" style="set-mfd-widget">
+            <SetCraftProperty property="Mfd.SetPosition" id="365" style="set-mfd-widget">
               <Constant text="Prograde" />
               <CallCustomExpression call="project direction" style="call-custom-expression">
                 <Variable list="false" local="false" variableName="progradeLocal" />
                 <Variable list="false" local="false" variableName="cameraPos" />
               </CallCustomExpression>
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.SetScale" id="371" style="set-mfd-widget">
+            <SetCraftProperty property="Mfd.SetScale" id="366" style="set-mfd-widget">
               <Constant text="Prograde" />
               <Variable list="false" local="false" variableName="cameraDist2DVec" />
             </SetCraftProperty>
           </Instructions>
         </If>
-        <ElseIf id="372" style="else">
+        <ElseIf id="367" style="else">
           <Constant bool="true" />
           <Instructions>
-            <SetCraftProperty property="Mfd.SetVisible" id="373" style="set-mfd-widget">
+            <SetCraftProperty property="Mfd.SetVisible" id="368" style="set-mfd-widget">
               <Constant text="Prograde" />
               <Constant style="false" bool="false" />
             </SetCraftProperty>
           </Instructions>
         </ElseIf>
-        <Comment id="374" style="comment">
+        <Comment id="369" style="comment">
           <Constant style="comment-text" canReplace="false" text="Pitch ladder" />
         </Comment>
-        <Comment id="375" style="comment">
+        <Comment id="370" style="comment">
           <Constant style="comment-text" canReplace="false" text="Variable for overall pitch ladder" />
         </Comment>
-        <SetVariable id="376" style="set-variable">
+        <SetVariable id="371" style="set-variable">
           <Variable list="false" local="false" variableName="progradeWorld" />
           <VectorOp op="norm" style="vec-op-1">
             <CraftProperty property="Vel.SurfaceVelocity" style="prop-velocity" />
           </VectorOp>
         </SetVariable>
-        <SetVariable id="377" style="set-variable">
+        <SetVariable id="372" style="set-variable">
           <Variable list="false" local="false" variableName="progradeLocal" />
           <CraftProperty property="Part.PciToLocal" style="part-transform">
             <CraftProperty property="Part.ThisID" style="part">
@@ -2920,16 +2896,16 @@
             <Variable list="false" local="false" variableName="progradeWorld" />
           </CraftProperty>
         </SetVariable>
-        <SetVariable id="378" style="set-variable">
+        <SetVariable id="373" style="set-variable">
           <Variable list="false" local="false" variableName="upWorld" />
           <VectorOp op="norm" style="vec-op-1">
             <CraftProperty property="Nav.Position" style="prop-nav" />
           </VectorOp>
         </SetVariable>
-        <Comment id="379" style="comment">
+        <Comment id="374" style="comment">
           <Constant style="comment-text" canReplace="false" text="Remove the vertical (upWorld) component to get the horizontal component" />
         </Comment>
-        <If id="380" style="if">
+        <If id="375" style="if">
           <BoolOp op="and" style="op-and">
             <Comparison op="g" style="op-gt">
               <VectorOp op="length" style="vec-op-1">
@@ -2946,7 +2922,7 @@
             </Comparison>
           </BoolOp>
           <Instructions>
-            <SetVariable id="381" style="set-variable">
+            <SetVariable id="376" style="set-variable">
               <Variable list="false" local="false" variableName="progradeWorldHorizontal" />
               <VectorOp op="norm" style="vec-op-1">
                 <BinaryOp op="-" style="op-sub">
@@ -2961,10 +2937,10 @@
                 </BinaryOp>
               </VectorOp>
             </SetVariable>
-            <Comment id="382" style="comment">
+            <Comment id="377" style="comment">
               <Constant style="comment-text" canReplace="false" text="Vertical (upWorld) cross prograde yields a leftward vector." />
             </Comment>
-            <SetVariable id="383" style="set-variable">
+            <SetVariable id="378" style="set-variable">
               <Variable list="false" local="false" variableName="sidewaysWorld" />
               <VectorOp op="norm" style="vec-op-1">
                 <VectorOp op="cross" style="vec-op-2">
@@ -2975,10 +2951,10 @@
             </SetVariable>
           </Instructions>
         </If>
-        <ElseIf id="384" style="else">
+        <ElseIf id="379" style="else">
           <Constant bool="true" />
           <Instructions>
-            <SetVariable id="385" style="set-variable">
+            <SetVariable id="380" style="set-variable">
               <Variable list="false" local="false" variableName="progradeWorldHorizontal" />
               <VectorOp op="norm" style="vec-op-1">
                 <BinaryOp op="-" style="op-sub">
@@ -2993,10 +2969,10 @@
                 </BinaryOp>
               </VectorOp>
             </SetVariable>
-            <Comment id="386" style="comment">
+            <Comment id="381" style="comment">
               <Constant style="comment-text" canReplace="false" text="Vertical (upWorld) cross roll axis yields a leftward vector." />
             </Comment>
-            <SetVariable id="387" style="set-variable">
+            <SetVariable id="382" style="set-variable">
               <Variable list="false" local="false" variableName="sidewaysWorld" />
               <VectorOp op="norm" style="vec-op-1">
                 <VectorOp op="cross" style="vec-op-2">
@@ -3007,7 +2983,7 @@
             </SetVariable>
           </Instructions>
         </ElseIf>
-        <SetVariable id="388" style="set-variable">
+        <SetVariable id="383" style="set-variable">
           <Variable list="false" local="false" variableName="sidewaysLocal" />
           <CraftProperty property="Part.PciToLocal" style="part-transform">
             <CraftProperty property="Part.ThisID" style="part">
@@ -3016,7 +2992,7 @@
             <Variable list="false" local="false" variableName="sidewaysWorld" />
           </CraftProperty>
         </SetVariable>
-        <SetVariable id="389" style="set-variable">
+        <SetVariable id="384" style="set-variable">
           <Variable list="false" local="false" variableName="ladderRollAngle" />
           <MathFunction function="rad2deg" style="op-math">
             <BinaryOp op="atan2" style="op-atan-2">
@@ -3029,12 +3005,12 @@
             </BinaryOp>
           </MathFunction>
         </SetVariable>
-        <For var="angle" id="390" style="for">
+        <For var="angle" id="385" style="for">
           <Constant text="-85" />
           <Constant text="85" />
           <Variable list="false" local="false" variableName="ladderAngleGap" />
           <Instructions>
-            <SetVariable id="391" style="set-variable">
+            <SetVariable id="386" style="set-variable">
               <Variable list="false" local="false" variableName="ladderRungName" />
               <StringOp op="join" style="join">
                 <Constant text="Ladder rung parent" />
@@ -3042,10 +3018,10 @@
                 <Constant text="" />
               </StringOp>
             </SetVariable>
-            <Comment id="392" style="comment">
+            <Comment id="387" style="comment">
               <Constant style="comment-text" canReplace="false" text="Cull rungs that are off-of-HUD." />
             </Comment>
-            <If id="393" style="if">
+            <If id="388" style="if">
               <Comparison op="l" style="op-lt">
                 <MathFunction function="abs" style="op-math">
                   <BinaryOp op="-" style="op-sub">
@@ -3056,14 +3032,14 @@
                 <Constant text="30" />
               </Comparison>
               <Instructions>
-                <SetCraftProperty property="Mfd.SetVisible" id="394" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="389" style="set-mfd-widget">
                   <Variable list="false" local="false" variableName="ladderRungName" />
                   <Constant style="true" bool="true" />
                 </SetCraftProperty>
-                <Comment id="395" style="comment">
+                <Comment id="390" style="comment">
                   <Constant style="comment-text" canReplace="false" text="See unshortened version for code that makes more sense." />
                 </Comment>
-                <SetCraftProperty property="Mfd.SetPosition" id="396" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetPosition" id="391" style="set-mfd-widget">
                   <Variable list="false" local="false" variableName="ladderRungName" />
                   <CallCustomExpression call="project direction" style="call-custom-expression">
                     <CraftProperty property="Part.PciToLocal" style="part-transform">
@@ -3092,20 +3068,20 @@
                     <Variable list="false" local="false" variableName="cameraPos" />
                   </CallCustomExpression>
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetScale" id="397" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetScale" id="392" style="set-mfd-widget">
                   <Variable list="false" local="false" variableName="ladderRungName" />
                   <Variable list="false" local="false" variableName="cameraDist2DVec" />
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetRotation" id="398" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetRotation" id="393" style="set-mfd-widget">
                   <Variable list="false" local="false" variableName="ladderRungName" />
                   <Variable list="false" local="false" variableName="ladderRollAngle" />
                 </SetCraftProperty>
               </Instructions>
             </If>
-            <ElseIf id="399" style="else">
+            <ElseIf id="394" style="else">
               <Constant bool="true" />
               <Instructions>
-                <SetCraftProperty property="Mfd.SetVisible" id="400" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="395" style="set-mfd-widget">
                   <Variable list="false" local="false" variableName="ladderRungName" />
                   <Constant style="false" bool="false" />
                 </SetCraftProperty>
@@ -3113,17 +3089,17 @@
             </ElseIf>
           </Instructions>
         </For>
-        <Comment id="401" style="comment">
+        <Comment id="396" style="comment">
           <Constant style="comment-text" canReplace="false" text="Render in-range runways." />
         </Comment>
-        <For var="runwayRendererID" id="402" style="for">
+        <For var="runwayRendererID" id="397" style="for">
           <Constant number="1" />
           <ListOp op="length" style="list-length">
             <Variable list="true" local="false" variableName="runwayRendererIDs" />
           </ListOp>
           <Constant number="1" />
           <Instructions>
-            <SetVariable id="403" style="set-variable">
+            <SetVariable id="398" style="set-variable">
               <Variable list="false" local="false" variableName="runwayRendererID" />
               <StringOp op="join" style="join">
                 <Constant text="Runway Renderer " />
@@ -3134,7 +3110,7 @@
                 <Constant text="" />
               </StringOp>
             </SetVariable>
-            <If id="404" style="if">
+            <If id="399" style="if">
               <Comparison op="le" style="op-lte">
                 <Variable list="false" local="true" variableName="runwayRendererID" />
                 <ListOp op="length" style="list-length">
@@ -3142,14 +3118,14 @@
                 </ListOp>
               </Comparison>
               <Instructions>
-                <SetVariable id="405" style="set-variable">
+                <SetVariable id="400" style="set-variable">
                   <Variable list="false" local="false" variableName="renderingRunwayStrip" />
                   <ListOp op="get" style="list-get">
                     <Variable list="true" local="false" variableName="runwayStripsToRender" />
                     <Variable list="false" local="true" variableName="runwayRendererID" />
                   </ListOp>
                 </SetVariable>
-                <SetVariable id="406" style="set-variable">
+                <SetVariable id="401" style="set-variable">
                   <Variable list="false" local="false" variableName="renderingRunwayStripCoordListsID" />
                   <BinaryOp op="+" style="op-add">
                     <BinaryOp op="*" style="op-mul">
@@ -3162,7 +3138,7 @@
                     <Constant text="1" />
                   </BinaryOp>
                 </SetVariable>
-                <SetVariable id="407" style="set-variable">
+                <SetVariable id="402" style="set-variable">
                   <Constant text="runwayDisplacedThresholdStartLeft" />
                   <CallCustomExpression call="convert PCI" style="call-custom-expression">
                     <Planet op="toPositionOverSea" style="planet-to-position-asl">
@@ -3192,7 +3168,7 @@
                     </Planet>
                   </CallCustomExpression>
                 </SetVariable>
-                <SetVariable id="408" style="set-variable">
+                <SetVariable id="403" style="set-variable">
                   <Constant text="runwayDisplacedThresholdStartRight" />
                   <CallCustomExpression call="convert PCI" style="call-custom-expression">
                     <Planet op="toPositionOverSea" style="planet-to-position-asl">
@@ -3222,7 +3198,7 @@
                     </Planet>
                   </CallCustomExpression>
                 </SetVariable>
-                <SetVariable id="409" style="set-variable">
+                <SetVariable id="404" style="set-variable">
                   <Constant text="runwayDisplacedThresholdEndLeft" />
                   <CallCustomExpression call="convert PCI" style="call-custom-expression">
                     <Planet op="toPositionOverSea" style="planet-to-position-asl">
@@ -3252,7 +3228,7 @@
                     </Planet>
                   </CallCustomExpression>
                 </SetVariable>
-                <SetVariable id="410" style="set-variable">
+                <SetVariable id="405" style="set-variable">
                   <Constant text="runwayDisplacedThresholdEndRight" />
                   <CallCustomExpression call="convert PCI" style="call-custom-expression">
                     <Planet op="toPositionOverSea" style="planet-to-position-asl">
@@ -3282,7 +3258,7 @@
                     </Planet>
                   </CallCustomExpression>
                 </SetVariable>
-                <SetVariable id="411" style="set-variable">
+                <SetVariable id="406" style="set-variable">
                   <Constant text="runwayCenterlineStart" />
                   <CallCustomExpression call="convert PCI" style="call-custom-expression">
                     <Planet op="toPositionOverSea" style="planet-to-position-asl">
@@ -3312,7 +3288,7 @@
                     </Planet>
                   </CallCustomExpression>
                 </SetVariable>
-                <SetVariable id="412" style="set-variable">
+                <SetVariable id="407" style="set-variable">
                   <Constant text="runwayCenterlineEnd" />
                   <CallCustomExpression call="convert PCI" style="call-custom-expression">
                     <Planet op="toPositionOverSea" style="planet-to-position-asl">
@@ -3342,7 +3318,7 @@
                     </Planet>
                   </CallCustomExpression>
                 </SetVariable>
-                <CallCustomInstruction call="project line" id="413" style="call-custom-instruction">
+                <CallCustomInstruction call="project line" id="408" style="call-custom-instruction">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Displaced Threshold Start" />
@@ -3355,7 +3331,7 @@
                     <Constant text="v:runwayDisplacedThresholdStartRight" />
                   </EvaluateExpression>
                 </CallCustomInstruction>
-                <CallCustomInstruction call="project line" id="414" style="call-custom-instruction">
+                <CallCustomInstruction call="project line" id="409" style="call-custom-instruction">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Displaced Threshold End" />
@@ -3368,7 +3344,7 @@
                     <Constant text="v:runwayDisplacedThresholdEndRight" />
                   </EvaluateExpression>
                 </CallCustomInstruction>
-                <CallCustomInstruction call="project line" id="415" style="call-custom-instruction">
+                <CallCustomInstruction call="project line" id="410" style="call-custom-instruction">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Side Stripe Left" />
@@ -3381,7 +3357,7 @@
                     <Constant text="v:runwayDisplacedThresholdEndLeft" />
                   </EvaluateExpression>
                 </CallCustomInstruction>
-                <CallCustomInstruction call="project line" id="416" style="call-custom-instruction">
+                <CallCustomInstruction call="project line" id="411" style="call-custom-instruction">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Side Stripe Right" />
@@ -3394,7 +3370,7 @@
                     <Constant text="v:runwayDisplacedThresholdEndRight" />
                   </EvaluateExpression>
                 </CallCustomInstruction>
-                <CallCustomInstruction call="project line" id="417" style="call-custom-instruction">
+                <CallCustomInstruction call="project line" id="412" style="call-custom-instruction">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Centerline" />
@@ -3409,10 +3385,10 @@
                 </CallCustomInstruction>
               </Instructions>
             </If>
-            <ElseIf id="418" style="else">
+            <ElseIf id="413" style="else">
               <Constant bool="true" />
               <Instructions>
-                <SetCraftProperty property="Mfd.SetVisible" id="419" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="414" style="set-mfd-widget">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Displaced Threshold Start" />
@@ -3420,7 +3396,7 @@
                   </StringOp>
                   <Constant style="false" bool="false" />
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetVisible" id="420" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="415" style="set-mfd-widget">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Displaced Threshold End" />
@@ -3428,7 +3404,7 @@
                   </StringOp>
                   <Constant style="false" bool="false" />
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetVisible" id="421" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="416" style="set-mfd-widget">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Side Stripe Left" />
@@ -3436,7 +3412,7 @@
                   </StringOp>
                   <Constant style="false" bool="false" />
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetVisible" id="422" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="417" style="set-mfd-widget">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Side Stripe Right" />
@@ -3444,7 +3420,7 @@
                   </StringOp>
                   <Constant style="false" bool="false" />
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetVisible" id="423" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetVisible" id="418" style="set-mfd-widget">
                   <StringOp op="join" style="join">
                     <Variable list="false" local="false" variableName="runwayRendererID" />
                     <Constant text=" Centerline" />
@@ -3456,12 +3432,12 @@
             </ElseIf>
           </Instructions>
         </For>
-        <WaitSeconds id="424" style="wait-seconds">
+        <WaitSeconds id="419" style="wait-seconds">
           <Constant text="0" />
         </WaitSeconds>
       </Instructions>
     </While>
-    <LogFlight id="425" style="flightlog">
+    <LogFlight id="420" style="flightlog">
       <StringOp op="format" style="format">
         <Constant text="[{0}]: runway strip {1} centerline start is at {2}" />
         <CraftProperty property="Name.Craft" style="prop-name" />
@@ -3473,7 +3449,7 @@
       </StringOp>
       <Constant style="true" bool="true" />
     </LogFlight>
-    <LogFlight id="426" style="flightlog">
+    <LogFlight id="421" style="flightlog">
       <StringOp op="format" style="format">
         <Constant text="[{0}]: runway strip {1} centerline end is at {2}" />
         <CraftProperty property="Name.Craft" style="prop-name" />
@@ -3485,13 +3461,13 @@
       </StringOp>
       <Constant style="true" bool="true" />
     </LogFlight>
-    <Comment id="427" style="comment">
+    <Comment id="422" style="comment">
       <Constant style="comment-text" canReplace="false" text="Removed from main code loop for a shortened version to reduce instructions per frame" />
     </Comment>
-    <Comment id="428" style="comment">
+    <Comment id="423" style="comment">
       <Constant style="comment-text" canReplace="false" text="Variables for pitch ladder rungs" />
     </Comment>
-    <SetVariable id="429" style="set-variable">
+    <SetVariable id="424" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungCenterWorld" />
       <BinaryOp op="+" style="op-add">
         <BinaryOp op="*" style="op-mul">
@@ -3512,7 +3488,7 @@
         </BinaryOp>
       </BinaryOp>
     </SetVariable>
-    <SetVariable id="430" style="set-variable">
+    <SetVariable id="425" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungCenterLocal" />
       <CraftProperty property="Part.PciToLocal" style="part-transform">
         <CraftProperty property="Part.ThisID" style="part">
@@ -3521,20 +3497,20 @@
         <Variable list="false" local="false" variableName="ladderRungCenterWorld" />
       </CraftProperty>
     </SetVariable>
-    <SetVariable id="431" style="set-variable">
+    <SetVariable id="426" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungCenterMFD" />
       <CallCustomExpression call="project direction" style="call-custom-expression">
         <Variable list="false" local="false" variableName="ladderRungCenterLocal" />
         <Variable list="false" local="false" variableName="cameraPos" />
       </CallCustomExpression>
     </SetVariable>
-    <Comment id="432" style="comment">
+    <Comment id="427" style="comment">
       <Constant style="comment-text" canReplace="false" text="Various intermediate shortened versions to reduce instructions per frame" />
     </Comment>
-    <Comment id="433" style="comment">
+    <Comment id="428" style="comment">
       <Constant style="comment-text" canReplace="false" text="Variables for pitch ladder rungs" />
     </Comment>
-    <SetVariable id="434" style="set-variable">
+    <SetVariable id="429" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungCenterLocal" />
       <CraftProperty property="Part.PciToLocal" style="part-transform">
         <CraftProperty property="Part.ThisID" style="part">
@@ -3562,7 +3538,7 @@
         </BinaryOp>
       </CraftProperty>
     </SetVariable>
-    <SetVariable id="435" style="set-variable">
+    <SetVariable id="430" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungCenterMFD" />
       <CallCustomExpression call="project direction" style="call-custom-expression">
         <CraftProperty property="Part.PciToLocal" style="part-transform">
@@ -3593,13 +3569,13 @@
         <Variable list="false" local="false" variableName="cameraPos" />
       </CallCustomExpression>
     </SetVariable>
-    <Comment id="436" style="comment">
+    <Comment id="431" style="comment">
       <Constant style="comment-text" canReplace="false" text="Removed from main code loop for a shortened version to reduce instructions per frame" />
     </Comment>
-    <Comment id="437" style="comment">
+    <Comment id="432" style="comment">
       <Constant style="comment-text" canReplace="false" text="Variables for pitch ladder rungs" />
     </Comment>
-    <SetVariable id="438" style="set-variable">
+    <SetVariable id="433" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungCenterWorld" />
       <BinaryOp op="+" style="op-add">
         <BinaryOp op="*" style="op-mul">
@@ -3620,7 +3596,7 @@
         </BinaryOp>
       </BinaryOp>
     </SetVariable>
-    <SetVariable id="439" style="set-variable">
+    <SetVariable id="434" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungCenterLocal" />
       <CraftProperty property="Part.PciToLocal" style="part-transform">
         <CraftProperty property="Part.ThisID" style="part">
@@ -3629,20 +3605,20 @@
         <Variable list="false" local="false" variableName="ladderRungCenterWorld" />
       </CraftProperty>
     </SetVariable>
-    <SetVariable id="440" style="set-variable">
+    <SetVariable id="435" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungCenterMFD" />
       <CallCustomExpression call="project direction" style="call-custom-expression">
         <Variable list="false" local="false" variableName="ladderRungCenterLocal" />
         <Variable list="false" local="false" variableName="cameraPos" />
       </CallCustomExpression>
     </SetVariable>
-    <Comment id="441" style="comment">
+    <Comment id="436" style="comment">
       <Constant style="comment-text" canReplace="false" text="Various intermediate shortened versions to reduce instructions per frame" />
     </Comment>
-    <Comment id="442" style="comment">
+    <Comment id="437" style="comment">
       <Constant style="comment-text" canReplace="false" text="Variables for pitch ladder rungs" />
     </Comment>
-    <SetVariable id="443" style="set-variable">
+    <SetVariable id="438" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungCenterLocal" />
       <CraftProperty property="Part.PciToLocal" style="part-transform">
         <CraftProperty property="Part.ThisID" style="part">
@@ -3670,7 +3646,7 @@
         </BinaryOp>
       </CraftProperty>
     </SetVariable>
-    <SetVariable id="444" style="set-variable">
+    <SetVariable id="439" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungCenterMFD" />
       <CallCustomExpression call="project direction" style="call-custom-expression">
         <CraftProperty property="Part.PciToLocal" style="part-transform">
@@ -3703,27 +3679,27 @@
     </SetVariable>
   </Instructions>
   <Instructions>
-    <Event event="FlightStart" id="445" style="flight-start" pos="7887.613,-18.74571" />
-    <WaitUntil id="446" style="wait-until">
+    <Event event="FlightStart" id="440" style="flight-start" pos="7887.613,-18.74571" />
+    <WaitUntil id="441" style="wait-until">
       <Variable list="false" local="false" variableName="isInitiated" />
     </WaitUntil>
-    <Comment id="447" style="comment">
+    <Comment id="442" style="comment">
       <Constant style="comment-text" canReplace="false" text="Update the list of runways to render only once every 5 seconds." />
     </Comment>
-    <While id="448" style="while">
+    <While id="443" style="while">
       <Constant style="true" bool="true" />
       <Instructions>
-        <SetList op="clear" id="449" style="list-clear">
+        <SetList op="clear" id="444" style="list-clear">
           <Variable list="true" local="false" variableName="runwayStripsToRender" />
         </SetList>
-        <For var="runwayID" id="450" style="for">
+        <For var="runwayID" id="445" style="for">
           <Constant number="1" />
           <ListOp op="length" style="list-length">
             <Variable list="true" local="false" variableName="runwayStripCenterLatitudes" />
           </ListOp>
           <Constant number="1" />
           <Instructions>
-            <If id="451" style="if">
+            <If id="446" style="if">
               <Comparison op="l" style="op-lt">
                 <VectorOp op="dist" style="vec-op-2">
                   <Planet op="toPositionOverSea" style="planet-to-position-asl">
@@ -3744,7 +3720,7 @@
                 <Constant text="20000" />
               </Comparison>
               <Instructions>
-                <SetList op="add" id="452" style="list-add">
+                <SetList op="add" id="447" style="list-add">
                   <Variable list="true" local="false" variableName="runwayStripsToRender" />
                   <Variable list="false" local="true" variableName="runwayID" />
                 </SetList>
@@ -3752,7 +3728,7 @@
             </If>
           </Instructions>
         </For>
-        <If id="453" style="if">
+        <If id="448" style="if">
           <Comparison op="g" style="op-gt">
             <ListOp op="length" style="list-length">
               <Variable list="true" local="false" variableName="runwayStripsToRender" />
@@ -3762,7 +3738,7 @@
             </ListOp>
           </Comparison>
           <Instructions>
-            <LogFlight id="454" style="flightlog">
+            <LogFlight id="449" style="flightlog">
               <StringOp op="format" style="format">
                 <Constant text="[{0}]: Too many runways strips ({1}) to render for the given number of runway renderers ({2})!" />
                 <CraftProperty property="Name.Craft" style="prop-name" />
@@ -3778,12 +3754,12 @@
             </LogFlight>
           </Instructions>
         </If>
-        <WaitSeconds id="455" style="wait-seconds">
+        <WaitSeconds id="450" style="wait-seconds">
           <Constant text="5" />
         </WaitSeconds>
       </Instructions>
     </While>
-    <LogFlight id="456" style="flightlog">
+    <LogFlight id="451" style="flightlog">
       <StringOp op="format" style="format">
         <Constant text="[{0}]: runway {1} is {2,8:f0} m away from craft" />
         <CraftProperty property="Name.Craft" style="prop-name" />
@@ -3810,27 +3786,27 @@
     </LogFlight>
   </Instructions>
   <Instructions>
-    <Event event="FlightStart" id="457" style="flight-start" pos="5202.687,-16.67763" />
-    <WaitUntil id="458" style="wait-until">
+    <Event event="FlightStart" id="452" style="flight-start" pos="5202.687,-16.67763" />
+    <WaitUntil id="453" style="wait-until">
       <Variable list="false" local="false" variableName="isInitiated" />
     </WaitUntil>
-    <Comment id="459" style="comment">
+    <Comment id="454" style="comment">
       <Constant style="comment-text" canReplace="false" text="Update readouts" />
     </Comment>
-    <Comment id="460" style="comment">
+    <Comment id="455" style="comment">
       <Constant style="comment-text" canReplace="false" text="This is done less frequently to avoid crowding the instructions per frame budget." />
     </Comment>
-    <While id="461" style="while">
+    <While id="456" style="while">
       <Constant style="true" bool="true" />
       <Instructions>
-        <Comment id="462" style="comment">
+        <Comment id="457" style="comment">
           <Constant style="comment-text" canReplace="false" text="Left readouts" />
         </Comment>
-        <SetCraftProperty property="Mfd.Label.SetText" id="463" style="set-mfd-label">
+        <SetCraftProperty property="Mfd.Label.SetText" id="458" style="set-mfd-label">
           <Constant text="Readouts airspeed label" />
           <Variable list="false" local="false" variableName="airspeedMode" />
         </SetCraftProperty>
-        <If id="464" style="if">
+        <If id="459" style="if">
           <BoolOp op="and" style="op-and">
             <StringOp op="contains" style="contains">
               <Variable list="false" local="false" variableName="airspeedMode" />
@@ -3844,19 +3820,19 @@
             </Comparison>
           </BoolOp>
           <Instructions>
-            <Comment id="465" style="comment">
+            <Comment id="460" style="comment">
               <Constant style="comment-text" canReplace="false" text="IAS assumes isothermal atmosphere" />
             </Comment>
-            <If id="466" style="if">
+            <If id="461" style="if">
               <Comparison op="le" style="op-lte">
                 <CraftProperty property="Vel.MachNumber" style="prop-velocity" />
                 <Constant text="1" />
               </Comparison>
               <Instructions>
-                <Comment id="467" style="comment">
+                <Comment id="462" style="comment">
                   <Constant style="comment-text" canReplace="false" text="Isentropic formula from NACA Report 1135 equation 44 https://ntrs.nasa.gov/citations/19930091059" />
                 </Comment>
-                <SetVariable id="468" style="set-variable">
+                <SetVariable id="463" style="set-variable">
                   <Variable list="false" local="false" variableName="impactPressureRatio" />
                   <BinaryOp op="*" style="op-mul">
                     <BinaryOp op="/" style="op-div">
@@ -3885,13 +3861,13 @@
                 </SetVariable>
               </Instructions>
             </If>
-            <ElseIf id="469" style="else">
+            <ElseIf id="464" style="else">
               <Constant bool="true" />
               <Instructions>
-                <Comment id="470" style="comment">
+                <Comment id="465" style="comment">
                   <Constant style="comment-text" canReplace="false" text="Rayleigh formula from NACA Report 1135 equation 100 https://ntrs.nasa.gov/citations/19930091059" />
                 </Comment>
-                <SetVariable id="471" style="set-variable">
+                <SetVariable id="466" style="set-variable">
                   <Variable list="false" local="false" variableName="impactPressureRatio" />
                   <BinaryOp op="*" style="op-mul">
                     <BinaryOp op="/" style="op-div">
@@ -3929,7 +3905,7 @@
                 </SetVariable>
               </Instructions>
             </ElseIf>
-            <SetCraftProperty property="Mfd.Label.SetText" id="472" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="467" style="set-mfd-label">
               <Constant text="Readouts airspeed value" />
               <StringOp op="format" style="format">
                 <Constant text="{0,4:f0}" />
@@ -3967,10 +3943,10 @@
             </SetCraftProperty>
           </Instructions>
         </If>
-        <ElseIf id="473" style="else">
+        <ElseIf id="468" style="else">
           <Constant bool="true" />
           <Instructions>
-            <SetCraftProperty property="Mfd.Label.SetText" id="474" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="469" style="set-mfd-label">
               <Constant text="Readouts airspeed value" />
               <StringOp op="format" style="format">
                 <Constant text="{0,4:f0}" />
@@ -3985,14 +3961,14 @@
             </SetCraftProperty>
           </Instructions>
         </ElseIf>
-        <SetCraftProperty property="Mfd.Label.SetText" id="475" style="set-mfd-label">
+        <SetCraftProperty property="Mfd.Label.SetText" id="470" style="set-mfd-label">
           <Constant text="Readouts airspeed units" />
           <Variable list="false" local="false" variableName="airspeedUnits" />
         </SetCraftProperty>
-        <WaitSeconds id="476" style="wait-seconds">
+        <WaitSeconds id="471" style="wait-seconds">
           <Constant text="0" />
         </WaitSeconds>
-        <SetCraftProperty property="Mfd.Label.SetText" id="477" style="set-mfd-label">
+        <SetCraftProperty property="Mfd.Label.SetText" id="472" style="set-mfd-label">
           <Constant text="Readouts Mach value" />
           <StringOp op="format" style="format">
             <Constant text="{0,4:f2}" />
@@ -4000,10 +3976,10 @@
             <Constant text="" />
           </StringOp>
         </SetCraftProperty>
-        <Comment id="478" style="comment">
+        <Comment id="473" style="comment">
           <Constant style="comment-text" canReplace="false" text="Remove world gravity to get structural acceleration, not total acceleration." />
         </Comment>
-        <SetCraftProperty property="Mfd.Label.SetText" id="479" style="set-mfd-label">
+        <SetCraftProperty property="Mfd.Label.SetText" id="474" style="set-mfd-label">
           <Constant text="Readouts G value" />
           <StringOp op="format" style="format">
             <Constant text="{0,5:f2}" />
@@ -4019,7 +3995,7 @@
             <Constant text="" />
           </StringOp>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.Label.SetText" id="480" style="set-mfd-label">
+        <SetCraftProperty property="Mfd.Label.SetText" id="475" style="set-mfd-label">
           <Constant text="Readouts Alpha value" />
           <Conditional style="conditional">
             <Comparison op="g" style="op-gt">
@@ -4036,17 +4012,17 @@
             <Constant text="‒‒.‒" />
           </Conditional>
         </SetCraftProperty>
-        <WaitSeconds id="481" style="wait-seconds">
+        <WaitSeconds id="476" style="wait-seconds">
           <Constant text="0" />
         </WaitSeconds>
-        <Comment id="482" style="comment">
+        <Comment id="477" style="comment">
           <Constant style="comment-text" canReplace="false" text="Right readouts" />
         </Comment>
-        <SetCraftProperty property="Mfd.Label.SetText" id="483" style="set-mfd-label">
+        <SetCraftProperty property="Mfd.Label.SetText" id="478" style="set-mfd-label">
           <Constant text="Readouts altitude label" />
           <Variable list="false" local="false" variableName="altitudeMode" />
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.Label.SetText" id="484" style="set-mfd-label">
+        <SetCraftProperty property="Mfd.Label.SetText" id="479" style="set-mfd-label">
           <Constant text="Readouts altitude value" />
           <StringOp op="format" style="format">
             <Constant text="{0,5:f0} {1}" />
@@ -4065,7 +4041,7 @@
             <Constant text="" />
           </StringOp>
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.Label.SetText" id="485" style="set-mfd-label">
+        <SetCraftProperty property="Mfd.Label.SetText" id="480" style="set-mfd-label">
           <Constant text="Readouts vertical speed value" />
           <StringOp op="format" style="format">
             <Constant text="{0}{1:f0} {2}/{3}" />
@@ -4091,25 +4067,25 @@
             <Constant text="" />
           </StringOp>
         </SetCraftProperty>
-        <WaitSeconds id="486" style="wait-seconds">
+        <WaitSeconds id="481" style="wait-seconds">
           <Constant text="0.05" />
         </WaitSeconds>
       </Instructions>
     </While>
   </Instructions>
   <Instructions>
-    <CustomInstruction callFormat="project line (0) in 3D from local position (1) to (2) " format="project line |name| in 3D from local position |origin| to |destination| " name="project line" id="487" style="custom-instruction" pos="-3406.508,-1456.635" />
-    <SetCraftProperty property="Mfd.Line.SetThickness" id="488" style="set-mfd-line">
+    <CustomInstruction callFormat="project line (0) in 3D from local position (1) to (2) " format="project line |name| in 3D from local position |origin| to |destination| " name="project line" id="482" style="custom-instruction" pos="-3406.508,-1456.635" />
+    <SetCraftProperty property="Mfd.Line.SetThickness" id="483" style="set-mfd-line">
       <Variable list="false" local="true" variableName="name" />
       <BinaryOp op="*" style="op-mul">
         <Variable list="false" local="false" variableName="lineThickness" />
         <Variable list="false" local="false" variableName="cameraDist" />
       </BinaryOp>
     </SetCraftProperty>
-    <Comment id="489" style="comment">
+    <Comment id="484" style="comment">
       <Constant style="comment-text" canReplace="false" text="Frustum clipping against the near plane" />
     </Comment>
-    <If id="490" style="if">
+    <If id="485" style="if">
       <BoolOp op="and" style="op-and">
         <Comparison op="le" style="op-lte">
           <VectorOp op="z" style="vec-op-1">
@@ -4125,13 +4101,13 @@
         </Comparison>
       </BoolOp>
       <Instructions>
-        <SetCraftProperty property="Mfd.SetVisible" id="491" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetVisible" id="486" style="set-mfd-widget">
           <Variable list="false" local="true" variableName="name" />
           <Constant style="false" bool="false" />
         </SetCraftProperty>
       </Instructions>
     </If>
-    <ElseIf id="492" style="else-if">
+    <ElseIf id="487" style="else-if">
       <BoolOp op="or" style="op-or">
         <Comparison op="le" style="op-lte">
           <VectorOp op="z" style="vec-op-1">
@@ -4147,11 +4123,11 @@
         </Comparison>
       </BoolOp>
       <Instructions>
-        <SetCraftProperty property="Mfd.SetVisible" id="493" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetVisible" id="488" style="set-mfd-widget">
           <Variable list="false" local="true" variableName="name" />
           <Constant style="true" bool="true" />
         </SetCraftProperty>
-        <SetVariable id="494" style="set-variable">
+        <SetVariable id="489" style="set-variable">
           <Constant text="crossPlaneFraction" />
           <BinaryOp op="/" style="op-div">
             <VectorOp op="z" style="vec-op-1">
@@ -4167,13 +4143,13 @@
             </BinaryOp>
           </BinaryOp>
         </SetVariable>
-        <SetVariable id="495" style="set-variable">
+        <SetVariable id="490" style="set-variable">
           <Constant text="clipped" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="lerp3(v:origin, v:destination, crossPlaneFraction)" />
           </EvaluateExpression>
         </SetVariable>
-        <If id="496" style="if">
+        <If id="491" style="if">
           <Comparison op="le" style="op-lte">
             <VectorOp op="z" style="vec-op-1">
               <Variable list="false" local="true" variableName="origin" />
@@ -4181,7 +4157,7 @@
             <Constant number="0" />
           </Comparison>
           <Instructions>
-            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="497" style="set-mfd-line-points">
+            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="492" style="set-mfd-line-points">
               <Variable list="false" local="true" variableName="name" />
               <EvaluateExpression style="evaluate-expression">
                 <Constant text="mfdScale * (cameraDist * (v:clipped - v:cameraPos) / (z(v:clipped) - z(v:cameraPos)) + v:cameraPos)" />
@@ -4192,10 +4168,10 @@
             </SetCraftProperty>
           </Instructions>
         </If>
-        <ElseIf id="498" style="else">
+        <ElseIf id="493" style="else">
           <Constant bool="true" />
           <Instructions>
-            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="499" style="set-mfd-line-points">
+            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="494" style="set-mfd-line-points">
               <Variable list="false" local="true" variableName="name" />
               <EvaluateExpression style="evaluate-expression">
                 <Constant text="mfdScale * (cameraDist * (v:origin - v:cameraPos) / (z(v:origin) - z(v:cameraPos)) + v:cameraPos)" />
@@ -4208,14 +4184,14 @@
         </ElseIf>
       </Instructions>
     </ElseIf>
-    <ElseIf id="500" style="else">
+    <ElseIf id="495" style="else">
       <Constant bool="true" />
       <Instructions>
-        <SetCraftProperty property="Mfd.SetVisible" id="501" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetVisible" id="496" style="set-mfd-widget">
           <Variable list="false" local="true" variableName="name" />
           <Constant style="true" bool="true" />
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.Line.SetLinePoints" id="502" style="set-mfd-line-points">
+        <SetCraftProperty property="Mfd.Line.SetLinePoints" id="497" style="set-mfd-line-points">
           <Variable list="false" local="true" variableName="name" />
           <EvaluateExpression style="evaluate-expression">
             <Constant text="mfdScale * (cameraDist * (v:origin - v:cameraPos) / (z(v:origin) - z(v:cameraPos)) + v:cameraPos)" />
@@ -4228,77 +4204,77 @@
     </ElseIf>
   </Instructions>
   <Instructions>
-    <Event event="ReceiveMessage" id="503" style="receive-msg" pos="7888.631,-1905.275">
+    <Event event="ReceiveMessage" id="498" style="receive-msg" pos="7888.631,-1905.275">
       <Constant canReplace="false" text="Change airspeed units" />
     </Event>
-    <If id="504" style="if">
+    <If id="499" style="if">
       <StringOp op="contains" style="contains">
         <Variable list="false" local="false" variableName="airspeedUnits" />
         <Constant text="kt" />
       </StringOp>
       <Instructions>
-        <SetVariable id="505" style="set-variable">
+        <SetVariable id="500" style="set-variable">
           <Variable list="false" local="false" variableName="airspeedUnits" />
           <Constant text="m/s" />
         </SetVariable>
-        <SetVariable id="506" style="set-variable">
+        <SetVariable id="501" style="set-variable">
           <Variable list="false" local="false" variableName="airspeedConversionRatio" />
           <Constant text="1" />
         </SetVariable>
       </Instructions>
     </If>
-    <ElseIf id="507" style="else-if">
+    <ElseIf id="502" style="else-if">
       <StringOp op="contains" style="contains">
         <Variable list="false" local="false" variableName="airspeedUnits" />
         <Constant text="m/s" />
       </StringOp>
       <Instructions>
-        <SetVariable id="508" style="set-variable">
+        <SetVariable id="503" style="set-variable">
           <Variable list="false" local="false" variableName="airspeedUnits" />
           <Constant text="km/h" />
         </SetVariable>
-        <Comment id="509" style="comment">
+        <Comment id="504" style="comment">
           <Constant style="comment-text" canReplace="false" text="3.6 is m/s to km/h" />
         </Comment>
-        <SetVariable id="510" style="set-variable">
+        <SetVariable id="505" style="set-variable">
           <Variable list="false" local="false" variableName="airspeedConversionRatio" />
           <Constant text="3.6" />
         </SetVariable>
       </Instructions>
     </ElseIf>
-    <ElseIf id="511" style="else-if">
+    <ElseIf id="506" style="else-if">
       <StringOp op="contains" style="contains">
         <Variable list="false" local="false" variableName="airspeedUnits" />
         <Constant text="km/h" />
       </StringOp>
       <Instructions>
-        <SetVariable id="512" style="set-variable">
+        <SetVariable id="507" style="set-variable">
           <Variable list="false" local="false" variableName="airspeedUnits" />
           <Constant text="mph" />
         </SetVariable>
-        <Comment id="513" style="comment">
+        <Comment id="508" style="comment">
           <Constant style="comment-text" canReplace="false" text="2.23694 is m/s to mph" />
         </Comment>
-        <SetVariable id="514" style="set-variable">
+        <SetVariable id="509" style="set-variable">
           <Variable list="false" local="false" variableName="airspeedConversionRatio" />
           <Constant text="2.23694" />
         </SetVariable>
       </Instructions>
     </ElseIf>
-    <ElseIf id="515" style="else">
+    <ElseIf id="510" style="else">
       <Constant bool="true" />
       <Instructions>
-        <Comment id="516" style="comment">
+        <Comment id="511" style="comment">
           <Constant style="comment-text" canReplace="false" text="Default is knots" />
         </Comment>
-        <SetVariable id="517" style="set-variable">
+        <SetVariable id="512" style="set-variable">
           <Variable list="false" local="false" variableName="airspeedUnits" />
           <Constant text="kt" />
         </SetVariable>
-        <Comment id="518" style="comment">
+        <Comment id="513" style="comment">
           <Constant style="comment-text" canReplace="false" text="1.944 is m/s to knots" />
         </Comment>
-        <SetVariable id="519" style="set-variable">
+        <SetVariable id="514" style="set-variable">
           <Variable list="false" local="false" variableName="airspeedConversionRatio" />
           <Constant text="1.944" />
         </SetVariable>
@@ -4306,28 +4282,28 @@
     </ElseIf>
   </Instructions>
   <Instructions>
-    <Event event="ReceiveMessage" id="520" style="receive-msg" pos="7890.221,-1586.451">
+    <Event event="ReceiveMessage" id="515" style="receive-msg" pos="7890.221,-1586.451">
       <Constant canReplace="false" text="Change airspeed mode" />
     </Event>
-    <If id="521" style="if">
+    <If id="516" style="if">
       <StringOp op="contains" style="contains">
         <Variable list="false" local="false" variableName="airspeedMode" />
         <Constant text="IAS" />
       </StringOp>
       <Instructions>
-        <SetVariable id="522" style="set-variable">
+        <SetVariable id="517" style="set-variable">
           <Variable list="false" local="false" variableName="airspeedMode" />
           <Constant text="TAS" />
         </SetVariable>
       </Instructions>
     </If>
-    <ElseIf id="523" style="else">
+    <ElseIf id="518" style="else">
       <Constant bool="true" />
       <Instructions>
-        <Comment id="524" style="comment">
+        <Comment id="519" style="comment">
           <Constant style="comment-text" canReplace="false" text="Default is IAS" />
         </Comment>
-        <SetVariable id="525" style="set-variable">
+        <SetVariable id="520" style="set-variable">
           <Variable list="false" local="false" variableName="airspeedMode" />
           <Constant text="IAS" />
         </SetVariable>
@@ -4335,28 +4311,28 @@
     </ElseIf>
   </Instructions>
   <Instructions>
-    <Event event="ReceiveMessage" id="526" style="receive-msg" pos="7889,-2705.117">
+    <Event event="ReceiveMessage" id="521" style="receive-msg" pos="7889,-2705.117">
       <Constant canReplace="false" text="Change altitude mode" />
     </Event>
-    <If id="527" style="if">
+    <If id="522" style="if">
       <StringOp op="contains" style="contains">
         <Variable list="false" local="false" variableName="altitudeMode" />
         <Constant text="ASL" />
       </StringOp>
       <Instructions>
-        <SetVariable id="528" style="set-variable">
+        <SetVariable id="523" style="set-variable">
           <Variable list="false" local="false" variableName="altitudeMode" />
           <Constant text="AGL" />
         </SetVariable>
       </Instructions>
     </If>
-    <ElseIf id="529" style="else">
+    <ElseIf id="524" style="else">
       <Constant bool="true" />
       <Instructions>
-        <Comment id="530" style="comment">
+        <Comment id="525" style="comment">
           <Constant style="comment-text" canReplace="false" text="Default is ASL" />
         </Comment>
-        <SetVariable id="531" style="set-variable">
+        <SetVariable id="526" style="set-variable">
           <Variable list="false" local="false" variableName="altitudeMode" />
           <Constant text="ASL" />
         </SetVariable>
@@ -4364,39 +4340,39 @@
     </ElseIf>
   </Instructions>
   <Instructions>
-    <Event event="ReceiveMessage" id="532" style="receive-msg" pos="7889.361,-3024.819">
+    <Event event="ReceiveMessage" id="527" style="receive-msg" pos="7889.361,-3024.819">
       <Constant canReplace="false" text="Change altitude units" />
     </Event>
-    <If id="533" style="if">
+    <If id="528" style="if">
       <StringOp op="contains" style="contains">
         <Variable list="false" local="false" variableName="altitudeUnits" />
         <Constant text="ft" />
       </StringOp>
       <Instructions>
-        <SetVariable id="534" style="set-variable">
+        <SetVariable id="529" style="set-variable">
           <Variable list="false" local="false" variableName="altitudeUnits" />
           <Constant text="m" />
         </SetVariable>
-        <SetVariable id="535" style="set-variable">
+        <SetVariable id="530" style="set-variable">
           <Variable list="false" local="false" variableName="altitudeUnitsConversionRatio" />
           <Constant text="1" />
         </SetVariable>
       </Instructions>
     </If>
-    <ElseIf id="536" style="else">
+    <ElseIf id="531" style="else">
       <Constant bool="true" />
       <Instructions>
-        <Comment id="537" style="comment">
+        <Comment id="532" style="comment">
           <Constant style="comment-text" canReplace="false" text="Default is ft" />
         </Comment>
-        <SetVariable id="538" style="set-variable">
+        <SetVariable id="533" style="set-variable">
           <Variable list="false" local="false" variableName="altitudeUnits" />
           <Constant text="ft" />
         </SetVariable>
-        <Comment id="539" style="comment">
+        <Comment id="534" style="comment">
           <Constant style="comment-text" canReplace="false" text="3.281 is m to ft" />
         </Comment>
-        <SetVariable id="540" style="set-variable">
+        <SetVariable id="535" style="set-variable">
           <Variable list="false" local="false" variableName="altitudeUnitsConversionRatio" />
           <Constant text="3.281" />
         </SetVariable>
@@ -4404,42 +4380,42 @@
     </ElseIf>
   </Instructions>
   <Instructions>
-    <Event event="ReceiveMessage" id="541" style="receive-msg" pos="7888.794,-3471.627">
+    <Event event="ReceiveMessage" id="536" style="receive-msg" pos="7888.794,-3471.627">
       <Constant canReplace="false" text="Change vertical speed time interval" />
     </Event>
-    <If id="542" style="if">
+    <If id="537" style="if">
       <StringOp op="contains" style="contains">
         <Variable list="false" local="false" variableName="verticalSpeedTimeInterval" />
         <Constant text="min" />
       </StringOp>
       <Instructions>
-        <Comment id="543" style="comment">
+        <Comment id="538" style="comment">
           <Constant style="comment-text" canReplace="false" text="I'm trying to add blank space after the 's', but the game trims away trailing white spaces, so I'm adding an invisible '.' at the end." />
         </Comment>
-        <SetVariable id="544" style="set-variable">
+        <SetVariable id="539" style="set-variable">
           <Variable list="false" local="false" variableName="verticalSpeedTimeInterval" />
           <Constant text="s     &lt;size=0em&gt;." />
         </SetVariable>
-        <SetVariable id="545" style="set-variable">
+        <SetVariable id="540" style="set-variable">
           <Variable list="false" local="false" variableName="verticalSpeedTimeIntervalConverstionRatio" />
           <Constant text="1" />
         </SetVariable>
       </Instructions>
     </If>
-    <ElseIf id="546" style="else">
+    <ElseIf id="541" style="else">
       <Constant bool="true" />
       <Instructions>
-        <Comment id="547" style="comment">
+        <Comment id="542" style="comment">
           <Constant style="comment-text" canReplace="false" text="Default is min" />
         </Comment>
-        <SetVariable id="548" style="set-variable">
+        <SetVariable id="543" style="set-variable">
           <Variable list="false" local="false" variableName="verticalSpeedTimeInterval" />
           <Constant text="min" />
         </SetVariable>
-        <Comment id="549" style="comment">
+        <Comment id="544" style="comment">
           <Constant style="comment-text" canReplace="false" text="60 seconds per minute" />
         </Comment>
-        <SetVariable id="550" style="set-variable">
+        <SetVariable id="545" style="set-variable">
           <Variable list="false" local="false" variableName="verticalSpeedTimeIntervalConverstionRatio" />
           <Constant text="60" />
         </SetVariable>
