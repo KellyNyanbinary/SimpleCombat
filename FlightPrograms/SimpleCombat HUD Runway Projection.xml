@@ -166,7 +166,7 @@
   <Instructions>
     <Event event="FlightStart" id="23" style="flight-start" pos="-14.43981,-16.78071" />
     <Comment id="24" style="comment">
-      <Constant style="comment-text" canReplace="false" text="SimpleCombat HUD v0.2.0" />
+      <Constant style="comment-text" canReplace="false" text="SimpleCombat HUD v0.2.2" />
     </Comment>
     <Comment id="25" style="comment">
       <Constant style="comment-text" canReplace="false" text="Change log:" />
@@ -202,72 +202,78 @@
       <Constant style="comment-text" canReplace="false" text="             wrap main HUD moving loop inside if frame delta time &gt; 0 to stop it from running when time has not passed." />
     </Comment>
     <Comment id="36" style="comment">
+      <Constant style="comment-text" canReplace="false" text="v0.2.1: parent the prograde marker to boresight to reduce the amount of computation required, move boresight declaration earlier so later components can use it as parent directly" />
+    </Comment>
+    <Comment id="37" style="comment">
+      <Constant style="comment-text" canReplace="false" text="v0.2.2: add is-player check to aural warnings" />
+    </Comment>
+    <Comment id="38" style="comment">
       <Constant style="comment-text" canReplace="false" text="Modeled after VTOL VR's HUD." />
     </Comment>
-    <SetVariable id="37" style="set-variable">
+    <SetVariable id="39" style="set-variable">
       <Variable list="false" local="false" variableName="agLandingGear" />
       <Constant text="8" />
     </SetVariable>
-    <SetVariable id="38" style="set-variable">
+    <SetVariable id="40" style="set-variable">
       <Variable list="false" local="false" variableName="mfdScale" />
       <Constant text="256" />
     </SetVariable>
-    <Comment id="39" style="comment">
+    <Comment id="41" style="comment">
       <Constant style="comment-text" canReplace="false" text="The Z offset is kind of the thickness of the glass/the distance from the HUD's displayed content to the HUD's center (position)." />
     </Comment>
-    <SetVariable id="40" style="set-variable">
+    <SetVariable id="42" style="set-variable">
       <Variable list="false" local="false" variableName="hudZOffset" />
       <Constant text="-0.025" />
     </SetVariable>
-    <SetVariable id="41" style="set-variable">
+    <SetVariable id="43" style="set-variable">
       <Variable list="false" local="false" variableName="hudRenderDistance" />
       <Constant text="5" />
     </SetVariable>
-    <SetVariable id="42" style="set-variable">
+    <SetVariable id="44" style="set-variable">
       <Variable list="false" local="false" variableName="hudColor" />
       <VectorOp op="hex" style="vec-op-color">
         <Constant text="#00FF00" />
       </VectorOp>
     </SetVariable>
-    <SetVariable id="43" style="set-variable">
+    <SetVariable id="45" style="set-variable">
       <Variable list="false" local="false" variableName="hudColorSecondary" />
       <VectorOp op="hex" style="vec-op-color">
         <Constant text="#00AA00" />
       </VectorOp>
     </SetVariable>
-    <SetVariable id="44" style="set-variable">
+    <SetVariable id="46" style="set-variable">
       <Variable list="false" local="false" variableName="hudColorWarning" />
       <VectorOp op="hex" style="vec-op-color">
         <Constant text="#FF0000" />
       </VectorOp>
     </SetVariable>
-    <SetVariable id="45" style="set-variable">
+    <SetVariable id="47" style="set-variable">
       <Variable list="false" local="false" variableName="hudColorCaution" />
       <VectorOp op="hex" style="vec-op-color">
         <Constant text="#FFBF00" />
       </VectorOp>
     </SetVariable>
-    <SetVariable id="46" style="set-variable">
+    <SetVariable id="48" style="set-variable">
       <Variable list="false" local="false" variableName="hudOpacity" />
       <Constant text="0.75" />
     </SetVariable>
-    <SetVariable id="47" style="set-variable">
+    <SetVariable id="49" style="set-variable">
       <Variable list="false" local="false" variableName="lineThickness" />
       <Constant text="0.5" />
     </SetVariable>
-    <SetVariable id="48" style="set-variable">
+    <SetVariable id="50" style="set-variable">
       <Variable list="false" local="false" variableName="ladderAngleGap" />
       <Constant text="5" />
     </SetVariable>
-    <SetVariable id="49" style="set-variable">
+    <SetVariable id="51" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungTotalWidth" />
       <Constant text="45" />
     </SetVariable>
-    <SetVariable id="50" style="set-variable">
+    <SetVariable id="52" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungLongSegmentWidth" />
       <Constant text="15" />
     </SetVariable>
-    <SetVariable id="51" style="set-variable">
+    <SetVariable id="53" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungMiddleGapWidth" />
       <BinaryOp op="-" style="op-sub">
         <Variable list="false" local="false" variableName="ladderRungTotalWidth" />
@@ -277,14 +283,14 @@
         </BinaryOp>
       </BinaryOp>
     </SetVariable>
-    <Comment id="52" style="comment">
+    <Comment id="54" style="comment">
       <Constant style="comment-text" canReplace="false" text="Must be even" />
     </Comment>
-    <SetVariable id="53" style="set-variable">
+    <SetVariable id="55" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungShortSegmentNum" />
       <Constant text="10" />
     </SetVariable>
-    <SetVariable id="54" style="set-variable">
+    <SetVariable id="56" style="set-variable">
       <Variable list="false" local="false" variableName="ladderRungShortSegmentWidth" />
       <BinaryOp op="*" style="op-mul">
         <Constant text="0.5" />
@@ -297,39 +303,39 @@
         </BinaryOp>
       </BinaryOp>
     </SetVariable>
-    <SetVariable id="55" style="set-variable">
+    <SetVariable id="57" style="set-variable">
       <Variable list="false" local="false" variableName="headingTapeWidthDegrees" />
       <BinaryOp op="*" style="op-mul">
         <Constant text="1" />
         <Constant text="20" />
       </BinaryOp>
     </SetVariable>
-    <SetVariable id="56" style="set-variable">
+    <SetVariable id="58" style="set-variable">
       <Variable list="false" local="false" variableName="headingTapeWidthPerDegree" />
       <Constant text="4" />
     </SetVariable>
-    <Comment id="57" style="comment">
+    <Comment id="59" style="comment">
       <Constant style="comment-text" canReplace="false" text="The minor ticks must fit within a 10-degree window, as that's the interval for the major ticks." />
     </Comment>
-    <SetVariable id="58" style="set-variable">
+    <SetVariable id="60" style="set-variable">
       <Variable list="false" local="false" variableName="headingTickMinorInterval" />
       <BinaryOp op="/" style="op-div">
         <Constant text="10" />
         <Constant text="5" />
       </BinaryOp>
     </SetVariable>
-    <SetVariable id="59" style="set-variable">
+    <SetVariable id="61" style="set-variable">
       <Variable list="false" local="false" variableName="headingTickMinorHeight" />
       <Constant text="2" />
     </SetVariable>
-    <SetVariable id="60" style="set-variable">
+    <SetVariable id="62" style="set-variable">
       <Variable list="false" local="false" variableName="headingTapeWidth" />
       <BinaryOp op="*" style="op-mul">
         <Variable list="false" local="false" variableName="headingTapeWidthDegrees" />
         <Variable list="false" local="false" variableName="headingTapeWidthPerDegree" />
       </BinaryOp>
     </SetVariable>
-    <SetVariable id="61" style="set-variable">
+    <SetVariable id="63" style="set-variable">
       <Variable list="false" local="false" variableName="headingTickMinorNum" />
       <MathFunction function="floor" style="op-math">
         <BinaryOp op="/" style="op-div">
@@ -338,7 +344,7 @@
         </BinaryOp>
       </MathFunction>
     </SetVariable>
-    <SetVariable id="62" style="set-variable">
+    <SetVariable id="64" style="set-variable">
       <Variable list="false" local="false" variableName="headingTickMajorNum" />
       <MathFunction function="floor" style="op-math">
         <BinaryOp op="/" style="op-div">
@@ -347,123 +353,130 @@
         </BinaryOp>
       </MathFunction>
     </SetVariable>
-    <SetVariable id="63" style="set-variable">
+    <SetVariable id="65" style="set-variable">
       <Variable list="false" local="false" variableName="headingTickMinorGap" />
       <BinaryOp op="/" style="op-div">
         <Variable list="false" local="false" variableName="headingTapeWidth" />
         <Variable list="false" local="false" variableName="headingTickMinorNum" />
       </BinaryOp>
     </SetVariable>
-    <Comment id="64" style="comment">
+    <Comment id="66" style="comment">
       <Constant style="comment-text" canReplace="false" text="Prograde is unstable at low speeds" />
     </Comment>
-    <SetVariable id="65" style="set-variable">
+    <SetVariable id="67" style="set-variable">
       <Variable list="false" local="false" variableName="progradeValidityThreshold" />
       <Constant text="10" />
     </SetVariable>
-    <SetVariable id="66" style="set-variable">
+    <SetVariable id="68" style="set-variable">
       <Variable list="false" local="false" variableName="ladderUseProgradeAngleThreshold" />
       <Constant text="20" />
     </SetVariable>
-    <Comment id="67" style="comment">
+    <Comment id="69" style="comment">
       <Constant style="comment-text" canReplace="false" text="Available runway widgets to render actual runways with." />
     </Comment>
-    <SetVariable id="68" style="list-init">
+    <SetVariable id="70" style="list-init">
       <Variable list="true" local="false" variableName="runwayRendererIDs" />
       <ListOp op="create" style="list-create">
         <Constant text="A,B,C" />
       </ListOp>
     </SetVariable>
-    <Comment id="69" style="comment">
+    <Comment id="71" style="comment">
       <Constant style="comment-text" canReplace="false" text="Each runway strip has center its lat/lon coordinates here." />
     </Comment>
-    <SetVariable id="70" style="list-init">
+    <SetVariable id="72" style="list-init">
       <Variable list="true" local="false" variableName="runwayStripCenterLatitudes" />
       <ListOp op="create" style="list-create">
         <Constant text="0.0600,0.0645" />
       </ListOp>
     </SetVariable>
-    <SetVariable id="71" style="list-init">
+    <SetVariable id="73" style="list-init">
       <Variable list="true" local="false" variableName="runwayStripCenterLongitudes" />
       <ListOp op="create" style="list-create">
         <Constant text="-130.2752,-130.3338" />
       </ListOp>
     </SetVariable>
-    <Comment id="72" style="comment">
+    <Comment id="74" style="comment">
       <Constant style="comment-text" canReplace="false" text="For each strip, these values are from the perspective of the smaller number (01-18)." />
     </Comment>
-    <Comment id="73" style="comment">
+    <Comment id="75" style="comment">
       <Constant style="comment-text" canReplace="false" text="Runway strip lists are [Displaced Threshold Start Left, Displaced Threshold Start Right, Displaced Threshold End Left, Displaced Threshold End Right, Touchdown Point Start Center, Touchdown Point End Center]" />
     </Comment>
-    <Comment id="74" style="comment">
+    <Comment id="76" style="comment">
       <Constant style="comment-text" canReplace="false" text="Runway strip 09/27" />
     </Comment>
-    <SetList op="add" id="75" style="list-add">
+    <SetList op="add" id="77" style="list-add">
       <Variable list="true" local="false" variableName="runwayStripLatitudes" />
       <ListOp op="create" style="list-create">
         <Constant text="0.0614,0.0586,0.0614,0.0586,0.0600,0.0600" />
       </ListOp>
     </SetList>
-    <SetList op="add" id="76" style="list-add">
+    <SetList op="add" id="78" style="list-add">
       <Variable list="true" local="false" variableName="runwayStripLongitudes" />
       <ListOp op="create" style="list-create">
         <Constant text="-130.3447,-130.3447,-130.2058,-130.2058,-130.3365,-130.2131" />
       </ListOp>
     </SetList>
-    <SetList op="add" id="77" style="list-add">
+    <SetList op="add" id="79" style="list-add">
       <Variable list="true" local="false" variableName="runwayStripASLs" />
       <ListOp op="create" style="list-create">
         <Constant text="202,202,201,201,202,201" />
       </ListOp>
     </SetList>
-    <Comment id="78" style="comment">
+    <Comment id="80" style="comment">
       <Constant style="comment-text" canReplace="false" text="Runway strip 13/31" />
     </Comment>
-    <SetList op="add" id="79" style="list-add">
+    <SetList op="add" id="81" style="list-add">
       <Variable list="true" local="false" variableName="runwayStripLatitudes" />
       <ListOp op="create" style="list-create">
         <Constant text="0.0982,0.0968,0.0314,0.0301,0.0918,0.0365" />
       </ListOp>
     </SetList>
-    <SetList op="add" id="80" style="list-add">
+    <SetList op="add" id="82" style="list-add">
       <Variable list="true" local="false" variableName="runwayStripLongitudes" />
       <ListOp op="create" style="list-create">
         <Constant text="-130.3668,-130.3682,-130.3001,-130.3014,-130.3618,-130.3065" />
       </ListOp>
     </SetList>
-    <SetList op="add" id="81" style="list-add">
+    <SetList op="add" id="83" style="list-add">
       <Variable list="true" local="false" variableName="runwayStripASLs" />
       <ListOp op="create" style="list-create">
         <Constant text="203,203,201,201,203,201" />
       </ListOp>
     </SetList>
-    <Comment id="82" style="comment">
+    <Comment id="84" style="comment">
       <Constant style="comment-text" canReplace="false" text="A bunch of wait 0s are added to make this take longer for rule of cool." />
     </Comment>
-    <CallCustomInstruction call="create HUD label named" id="83" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="85" style="call-custom-instruction">
       <Constant text="Initializing" />
       <Constant text="" />
       <Constant text="30,10" />
       <Constant text="0,0" />
       <Constant text="Initializing" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.SetColor" id="84" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetColor" id="86" style="set-mfd-widget">
       <Constant text="Initializing" />
       <VectorOp op="hex" style="vec-op-color">
         <Constant text="#FFFFFF" />
       </VectorOp>
     </SetCraftProperty>
-    <Comment id="85" style="comment">
+    <SetCraftProperty property="Mfd.Create.Ellipse" id="87" style="create-mfd-widget">
+      <Constant text="Main" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetOpacity" id="88" style="set-mfd-widget">
+      <Constant text="Main" />
+      <Constant text="0" />
+    </SetCraftProperty>
+    <Comment id="89" style="comment">
       <Constant style="comment-text" canReplace="false" text="Create a bunch of runway renderers." />
     </Comment>
-    <For var="runwayRendererID" id="86" style="for">
+    <For var="runwayRendererID" id="90" style="for">
       <Constant number="1" />
       <ListOp op="length" style="list-length">
         <Variable list="true" local="false" variableName="runwayRendererIDs" />
       </ListOp>
       <Constant number="1" />
       <Instructions>
-        <SetVariable id="87" style="set-variable">
+        <SetVariable id="91" style="set-variable">
           <Variable list="false" local="false" variableName="runwayRendererID" />
           <StringOp op="join" style="join">
             <Constant text="Runway Renderer " />
@@ -474,57 +487,57 @@
             <Constant text="" />
           </StringOp>
         </SetVariable>
-        <CallCustomInstruction call="create HUD line named" id="88" style="call-custom-instruction">
-          <StringOp op="join" style="join">
-            <Variable list="false" local="false" variableName="runwayRendererID" />
-            <Constant text=" Displaced Threshold Start" />
-            <Constant text="" />
-          </StringOp>
-          <Constant text="" />
-          <Constant text="" />
-          <Constant text="" />
-        </CallCustomInstruction>
-        <CallCustomInstruction call="create HUD line named" id="89" style="call-custom-instruction">
-          <StringOp op="join" style="join">
-            <Variable list="false" local="false" variableName="runwayRendererID" />
-            <Constant text=" Displaced Threshold End" />
-            <Constant text="" />
-          </StringOp>
-          <Constant text="" />
-          <Constant text="" />
-          <Constant text="" />
-        </CallCustomInstruction>
-        <CallCustomInstruction call="create HUD line named" id="90" style="call-custom-instruction">
-          <StringOp op="join" style="join">
-            <Variable list="false" local="false" variableName="runwayRendererID" />
-            <Constant text=" Side Stripe Left" />
-            <Constant text="" />
-          </StringOp>
-          <Constant text="" />
-          <Constant text="" />
-          <Constant text="" />
-        </CallCustomInstruction>
-        <CallCustomInstruction call="create HUD line named" id="91" style="call-custom-instruction">
-          <StringOp op="join" style="join">
-            <Variable list="false" local="false" variableName="runwayRendererID" />
-            <Constant text=" Side Stripe Right" />
-            <Constant text="" />
-          </StringOp>
-          <Constant text="" />
-          <Constant text="" />
-          <Constant text="" />
-        </CallCustomInstruction>
         <CallCustomInstruction call="create HUD line named" id="92" style="call-custom-instruction">
           <StringOp op="join" style="join">
             <Variable list="false" local="false" variableName="runwayRendererID" />
-            <Constant text=" Centerline" />
+            <Constant text=" Displaced Threshold Start" />
             <Constant text="" />
           </StringOp>
-          <Constant text="" />
+          <Constant text="Main" />
           <Constant text="" />
           <Constant text="" />
         </CallCustomInstruction>
-        <SetCraftProperty property="Mfd.SetColor" id="93" style="set-mfd-widget">
+        <CallCustomInstruction call="create HUD line named" id="93" style="call-custom-instruction">
+          <StringOp op="join" style="join">
+            <Variable list="false" local="false" variableName="runwayRendererID" />
+            <Constant text=" Displaced Threshold End" />
+            <Constant text="" />
+          </StringOp>
+          <Constant text="Main" />
+          <Constant text="" />
+          <Constant text="" />
+        </CallCustomInstruction>
+        <CallCustomInstruction call="create HUD line named" id="94" style="call-custom-instruction">
+          <StringOp op="join" style="join">
+            <Variable list="false" local="false" variableName="runwayRendererID" />
+            <Constant text=" Side Stripe Left" />
+            <Constant text="" />
+          </StringOp>
+          <Constant text="Main" />
+          <Constant text="" />
+          <Constant text="" />
+        </CallCustomInstruction>
+        <CallCustomInstruction call="create HUD line named" id="95" style="call-custom-instruction">
+          <StringOp op="join" style="join">
+            <Variable list="false" local="false" variableName="runwayRendererID" />
+            <Constant text=" Side Stripe Right" />
+            <Constant text="" />
+          </StringOp>
+          <Constant text="Main" />
+          <Constant text="" />
+          <Constant text="" />
+        </CallCustomInstruction>
+        <CallCustomInstruction call="create HUD line named" id="96" style="call-custom-instruction">
+          <StringOp op="join" style="join">
+            <Variable list="false" local="false" variableName="runwayRendererID" />
+            <Constant text=" Centerline" />
+            <Constant text="" />
+          </StringOp>
+          <Constant text="Main" />
+          <Constant text="" />
+          <Constant text="" />
+        </CallCustomInstruction>
+        <SetCraftProperty property="Mfd.SetColor" id="97" style="set-mfd-widget">
           <StringOp op="join" style="join">
             <Variable list="false" local="false" variableName="runwayRendererID" />
             <Constant text=" Displaced Threshold Start" />
@@ -532,7 +545,7 @@
           </StringOp>
           <Variable list="false" local="false" variableName="hudColorSecondary" />
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetColor" id="94" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetColor" id="98" style="set-mfd-widget">
           <StringOp op="join" style="join">
             <Variable list="false" local="false" variableName="runwayRendererID" />
             <Constant text=" Displaced Threshold End" />
@@ -540,7 +553,7 @@
           </StringOp>
           <Variable list="false" local="false" variableName="hudColorSecondary" />
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetColor" id="95" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetColor" id="99" style="set-mfd-widget">
           <StringOp op="join" style="join">
             <Variable list="false" local="false" variableName="runwayRendererID" />
             <Constant text=" Side Stripe Left" />
@@ -548,7 +561,7 @@
           </StringOp>
           <Variable list="false" local="false" variableName="hudColorSecondary" />
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetColor" id="96" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetColor" id="100" style="set-mfd-widget">
           <StringOp op="join" style="join">
             <Variable list="false" local="false" variableName="runwayRendererID" />
             <Constant text=" Side Stripe Right" />
@@ -556,7 +569,7 @@
           </StringOp>
           <Variable list="false" local="false" variableName="hudColorSecondary" />
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetColor" id="97" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetColor" id="101" style="set-mfd-widget">
           <StringOp op="join" style="join">
             <Variable list="false" local="false" variableName="runwayRendererID" />
             <Constant text=" Centerline" />
@@ -564,23 +577,23 @@
           </StringOp>
           <Variable list="false" local="false" variableName="hudColorSecondary" />
         </SetCraftProperty>
-        <WaitSeconds id="98" style="wait-seconds">
+        <WaitSeconds id="102" style="wait-seconds">
           <Constant text="0.1" />
         </WaitSeconds>
       </Instructions>
     </For>
-    <Comment id="99" style="comment">
+    <Comment id="103" style="comment">
       <Constant style="comment-text" canReplace="false" text="Pitch ladder" />
     </Comment>
-    <For var="angle" id="100" style="for">
+    <For var="angle" id="104" style="for">
       <Constant text="-85" />
       <Constant text="85" />
       <Variable list="false" local="false" variableName="ladderAngleGap" />
       <Instructions>
-        <Comment id="101" style="comment">
+        <Comment id="105" style="comment">
           <Constant style="comment-text" canReplace="false" text="Invisible parent of everything for that ladder rung" />
         </Comment>
-        <SetVariable id="102" style="set-variable">
+        <SetVariable id="106" style="set-variable">
           <Variable list="false" local="false" variableName="ladderRungName" />
           <StringOp op="join" style="join">
             <Constant text="Ladder rung parent" />
@@ -588,14 +601,18 @@
             <Constant text="" />
           </StringOp>
         </SetVariable>
-        <SetCraftProperty property="Mfd.Create.Ellipse" id="103" style="create-mfd-widget">
+        <SetCraftProperty property="Mfd.Create.Ellipse" id="107" style="create-mfd-widget">
           <Variable list="false" local="false" variableName="ladderRungName" />
         </SetCraftProperty>
-        <SetCraftProperty property="Mfd.SetOpacity" id="104" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetParent" id="108" style="set-mfd-widget">
+          <Variable list="false" local="false" variableName="ladderRungName" />
+          <Constant text="Main" />
+        </SetCraftProperty>
+        <SetCraftProperty property="Mfd.SetOpacity" id="109" style="set-mfd-widget">
           <Variable list="false" local="false" variableName="ladderRungName" />
           <Constant text="0" />
         </SetCraftProperty>
-        <CallCustomInstruction call="create HUD label named" id="105" style="call-custom-instruction">
+        <CallCustomInstruction call="create HUD label named" id="110" style="call-custom-instruction">
           <StringOp op="join" style="join">
             <Variable list="false" local="false" variableName="ladderRungName" />
             <Constant text="label" />
@@ -606,10 +623,10 @@
           <Constant text="" />
           <Variable list="false" local="true" variableName="angle" />
         </CallCustomInstruction>
-        <Comment id="106" style="comment">
+        <Comment id="111" style="comment">
           <Constant style="comment-text" canReplace="false" text="Rung end caps |" />
         </Comment>
-        <CallCustomInstruction call="create HUD line named" id="107" style="call-custom-instruction">
+        <CallCustomInstruction call="create HUD line named" id="112" style="call-custom-instruction">
           <StringOp op="join" style="join">
             <Variable list="false" local="false" variableName="ladderRungName" />
             <Constant text="left |" />
@@ -619,7 +636,7 @@
           <Constant text="" />
           <Constant text="" />
         </CallCustomInstruction>
-        <CallCustomInstruction call="create HUD line named" id="108" style="call-custom-instruction">
+        <CallCustomInstruction call="create HUD line named" id="113" style="call-custom-instruction">
           <StringOp op="join" style="join">
             <Variable list="false" local="false" variableName="ladderRungName" />
             <Constant text="right |" />
@@ -629,29 +646,29 @@
           <Constant text="" />
           <Constant text="" />
         </CallCustomInstruction>
-        <Comment id="109" style="comment">
+        <Comment id="114" style="comment">
           <Constant style="comment-text" canReplace="false" text="Individual rungs" />
         </Comment>
-        <Comment id="110" style="comment">
+        <Comment id="115" style="comment">
           <Constant style="comment-text" canReplace="false" text="Positive rungs" />
         </Comment>
-        <If id="111" style="if">
+        <If id="116" style="if">
           <Comparison op="g" style="op-gt">
             <Variable list="false" local="true" variableName="angle" />
             <Constant number="0" />
           </Comparison>
           <Instructions>
-            <Comment id="112" style="comment">
+            <Comment id="117" style="comment">
               <Constant style="comment-text" canReplace="false" text="Rung label position on the right" />
             </Comment>
-            <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="113" style="set-mfd-alignment">
+            <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="118" style="set-mfd-alignment">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="label" />
                 <Constant text="" />
               </StringOp>
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.SetPosition" id="114" style="set-mfd-widget">
+            <SetCraftProperty property="Mfd.SetPosition" id="119" style="set-mfd-widget">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="label" />
@@ -672,10 +689,10 @@
                 <Constant number="0" />
               </Vector>
             </SetCraftProperty>
-            <Comment id="115" style="comment">
+            <Comment id="120" style="comment">
               <Constant style="comment-text" canReplace="false" text="Positive rungs are |---------- ----------|" />
             </Comment>
-            <CallCustomInstruction call="create HUD line named" id="116" style="call-custom-instruction">
+            <CallCustomInstruction call="create HUD line named" id="121" style="call-custom-instruction">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="left -" />
@@ -702,7 +719,7 @@
                 <Constant number="0" />
               </Vector>
             </CallCustomInstruction>
-            <CallCustomInstruction call="create HUD line named" id="117" style="call-custom-instruction">
+            <CallCustomInstruction call="create HUD line named" id="122" style="call-custom-instruction">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="right -" />
@@ -729,10 +746,10 @@
                 <Constant number="0" />
               </Vector>
             </CallCustomInstruction>
-            <Comment id="118" style="comment">
+            <Comment id="123" style="comment">
               <Constant style="comment-text" canReplace="false" text="Rung end caps | point down" />
             </Comment>
-            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="119" style="set-mfd-line-points">
+            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="124" style="set-mfd-line-points">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="left |" />
@@ -770,7 +787,7 @@
                 <Constant number="0" />
               </Vector>
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="120" style="set-mfd-line-points">
+            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="125" style="set-mfd-line-points">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="right |" />
@@ -810,26 +827,26 @@
             </SetCraftProperty>
           </Instructions>
         </If>
-        <Comment id="121" style="comment">
+        <Comment id="126" style="comment">
           <Constant style="comment-text" canReplace="false" text="Negative rungs" />
         </Comment>
-        <ElseIf id="122" style="else-if">
+        <ElseIf id="127" style="else-if">
           <Comparison op="l" style="op-lt">
             <Variable list="false" local="true" variableName="angle" />
             <Constant number="0" />
           </Comparison>
           <Instructions>
-            <Comment id="123" style="comment">
+            <Comment id="128" style="comment">
               <Constant style="comment-text" canReplace="false" text="Rung label position on the left" />
             </Comment>
-            <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="124" style="set-mfd-alignment">
+            <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="129" style="set-mfd-alignment">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="label" />
                 <Constant text="" />
               </StringOp>
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.SetPosition" id="125" style="set-mfd-widget">
+            <SetCraftProperty property="Mfd.SetPosition" id="130" style="set-mfd-widget">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="label" />
@@ -847,10 +864,10 @@
                 <Constant number="0" />
               </Vector>
             </SetCraftProperty>
-            <Comment id="126" style="comment">
+            <Comment id="131" style="comment">
               <Constant style="comment-text" canReplace="false" text="Negative rungs are |- - - - -   - - - - -|" />
             </Comment>
-            <For var="segment" id="127" style="for">
+            <For var="segment" id="132" style="for">
               <BinaryOp op="*" style="op-mul">
                 <Constant text="-0.5" />
                 <Variable list="false" local="false" variableName="ladderRungShortSegmentNum" />
@@ -861,7 +878,7 @@
               </BinaryOp>
               <Constant number="1" />
               <Instructions>
-                <If id="128" style="if">
+                <If id="133" style="if">
                   <Not style="op-not">
                     <Comparison op="=" style="op-eq">
                       <Variable list="false" local="true" variableName="segment" />
@@ -869,7 +886,7 @@
                     </Comparison>
                   </Not>
                   <Instructions>
-                    <SetVariable id="129" style="set-variable">
+                    <SetVariable id="134" style="set-variable">
                       <Variable list="false" local="false" variableName="ladderRungSegmentName" />
                       <StringOp op="join" style="join">
                         <Variable list="false" local="false" variableName="ladderRungName" />
@@ -878,19 +895,19 @@
                         <Constant text="" />
                       </StringOp>
                     </SetVariable>
-                    <CallCustomInstruction call="create HUD line named" id="130" style="call-custom-instruction">
+                    <CallCustomInstruction call="create HUD line named" id="135" style="call-custom-instruction">
                       <Variable list="false" local="false" variableName="ladderRungSegmentName" />
                       <Variable list="false" local="false" variableName="ladderRungName" />
                       <Constant text="" />
                       <Constant text="" />
                     </CallCustomInstruction>
-                    <If id="131" style="if">
+                    <If id="136" style="if">
                       <Comparison op="l" style="op-lt">
                         <Variable list="false" local="true" variableName="segment" />
                         <Constant number="0" />
                       </Comparison>
                       <Instructions>
-                        <SetCraftProperty property="Mfd.Line.SetLinePoints" id="132" style="set-mfd-line-points">
+                        <SetCraftProperty property="Mfd.Line.SetLinePoints" id="137" style="set-mfd-line-points">
                           <Variable list="false" local="false" variableName="ladderRungSegmentName" />
                           <Vector style="vec">
                             <BinaryOp op="+" style="op-add">
@@ -932,10 +949,10 @@
                         </SetCraftProperty>
                       </Instructions>
                     </If>
-                    <ElseIf id="133" style="else">
+                    <ElseIf id="138" style="else">
                       <Constant bool="true" />
                       <Instructions>
-                        <SetCraftProperty property="Mfd.Line.SetLinePoints" id="134" style="set-mfd-line-points">
+                        <SetCraftProperty property="Mfd.Line.SetLinePoints" id="139" style="set-mfd-line-points">
                           <Variable list="false" local="false" variableName="ladderRungSegmentName" />
                           <Vector style="vec">
                             <BinaryOp op="+" style="op-add">
@@ -981,10 +998,10 @@
                 </If>
               </Instructions>
             </For>
-            <Comment id="135" style="comment">
+            <Comment id="140" style="comment">
               <Constant style="comment-text" canReplace="false" text="Rung end caps | point up" />
             </Comment>
-            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="136" style="set-mfd-line-points">
+            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="141" style="set-mfd-line-points">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="left |" />
@@ -1022,7 +1039,7 @@
                 <Constant number="0" />
               </Vector>
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="137" style="set-mfd-line-points">
+            <SetCraftProperty property="Mfd.Line.SetLinePoints" id="142" style="set-mfd-line-points">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="right |" />
@@ -1062,26 +1079,26 @@
             </SetCraftProperty>
           </Instructions>
         </ElseIf>
-        <Comment id="138" style="comment">
+        <Comment id="143" style="comment">
           <Constant style="comment-text" canReplace="false" text="Horizon rung" />
         </Comment>
-        <ElseIf id="139" style="else">
+        <ElseIf id="144" style="else">
           <Constant bool="true" />
           <Instructions>
-            <Comment id="140" style="comment">
+            <Comment id="145" style="comment">
               <Constant style="comment-text" canReplace="false" text="No label" />
             </Comment>
-            <SetCraftProperty property="Mfd.Destroy" id="141" style="destroy-mfd-widget">
+            <SetCraftProperty property="Mfd.Destroy" id="146" style="destroy-mfd-widget">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="label" />
                 <Constant text="" />
               </StringOp>
             </SetCraftProperty>
-            <Comment id="142" style="comment">
+            <Comment id="147" style="comment">
               <Constant style="comment-text" canReplace="false" text="Horizon rung is --------------- ---------------" />
             </Comment>
-            <CallCustomInstruction call="create HUD line named" id="143" style="call-custom-instruction">
+            <CallCustomInstruction call="create HUD line named" id="148" style="call-custom-instruction">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="left -" />
@@ -1105,7 +1122,7 @@
                 <Constant number="0" />
               </Vector>
             </CallCustomInstruction>
-            <CallCustomInstruction call="create HUD line named" id="144" style="call-custom-instruction">
+            <CallCustomInstruction call="create HUD line named" id="149" style="call-custom-instruction">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="right -" />
@@ -1129,17 +1146,17 @@
                 <Constant number="0" />
               </Vector>
             </CallCustomInstruction>
-            <Comment id="145" style="comment">
+            <Comment id="150" style="comment">
               <Constant style="comment-text" canReplace="false" text="Horizon has no end caps" />
             </Comment>
-            <SetCraftProperty property="Mfd.Destroy" id="146" style="destroy-mfd-widget">
+            <SetCraftProperty property="Mfd.Destroy" id="151" style="destroy-mfd-widget">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="left |" />
                 <Constant text="" />
               </StringOp>
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.Destroy" id="147" style="destroy-mfd-widget">
+            <SetCraftProperty property="Mfd.Destroy" id="152" style="destroy-mfd-widget">
               <StringOp op="join" style="join">
                 <Variable list="false" local="false" variableName="ladderRungName" />
                 <Constant text="right |" />
@@ -1148,7 +1165,7 @@
             </SetCraftProperty>
           </Instructions>
         </ElseIf>
-        <SetCraftProperty property="Mfd.SetPosition" id="148" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetPosition" id="153" style="set-mfd-widget">
           <Variable list="false" local="false" variableName="ladderRungName" />
           <Vector style="vec">
             <Constant number="0" />
@@ -1156,24 +1173,17 @@
             <Constant number="0" />
           </Vector>
         </SetCraftProperty>
-        <WaitSeconds id="149" style="wait-seconds">
+        <WaitSeconds id="154" style="wait-seconds">
           <Constant text="0.1" />
         </WaitSeconds>
       </Instructions>
     </For>
-    <Comment id="150" style="comment">
+    <Comment id="155" style="comment">
       <Constant style="comment-text" canReplace="false" text="Heading tape" />
     </Comment>
-    <SetCraftProperty property="Mfd.Create.Ellipse" id="151" style="create-mfd-widget">
+    <CallCustomInstruction call="create HUD line named" id="156" style="call-custom-instruction">
       <Constant text="Heading tape" />
-    </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetOpacity" id="152" style="set-mfd-widget">
-      <Constant text="Heading tape" />
-      <Constant text="0" />
-    </SetCraftProperty>
-    <CallCustomInstruction call="create HUD line named" id="153" style="call-custom-instruction">
-      <Constant text="Heading tape baseline" />
-      <Constant text="Heading tape" />
+      <Constant text="Main" />
       <Vector style="vec">
         <BinaryOp op="/" style="op-div">
           <Variable list="false" local="false" variableName="headingTapeWidth" />
@@ -1191,42 +1201,42 @@
         <Constant number="0" />
       </Vector>
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD label named" id="154" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="157" style="call-custom-instruction">
       <Constant text="Heading label" />
       <Constant text="Heading tape" />
       <Constant text="12, 6" />
       <Constant text="-12, -7" />
       <Constant text="HDG" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD label named" id="155" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="158" style="call-custom-instruction">
       <Constant text="Heading readout" />
       <Constant text="Heading tape" />
       <Constant text="12, 6" />
       <Constant text="0, -7" />
       <Constant number="0" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Center" id="156" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Center" id="159" style="set-mfd-alignment">
       <Constant text="Heading readout" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD line named" id="157" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="160" style="call-custom-instruction">
       <Constant text="Heading readout top border" />
       <Constant text="Heading tape" />
       <Constant text="-19, -4" />
       <Constant text="6, -4" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="158" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="161" style="call-custom-instruction">
       <Constant text="Heading readout top /" />
       <Constant text="Heading tape" />
       <Constant text="-2, -4" />
       <Constant text="0, -1" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="159" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="162" style="call-custom-instruction">
       <Constant text="Heading readout top \" />
       <Constant text="Heading tape" />
       <Constant text="0, -1" />
       <Constant text="2, -4" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD ellipse named" id="160" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD ellipse named" id="163" style="call-custom-instruction">
       <Constant text="Heading readout top /\" />
       <Constant text="Heading tape" />
       <Vector style="vec">
@@ -1236,13 +1246,13 @@
       </Vector>
       <Constant text="0, -1" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="161" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="164" style="call-custom-instruction">
       <Constant text="Heading readout bottom border" />
       <Constant text="Heading tape" />
       <Constant text="-19, -10" />
       <Constant text="6, -10" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="162" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="165" style="call-custom-instruction">
       <Constant text="Heading readout left border" />
       <Constant text="Heading tape" />
       <Vector style="vec">
@@ -1268,7 +1278,7 @@
         <Constant number="0" />
       </Vector>
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="163" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="166" style="call-custom-instruction">
       <Constant text="Heading readout right border" />
       <Constant text="Heading tape" />
       <Vector style="vec">
@@ -1294,18 +1304,18 @@
         <Constant number="0" />
       </Vector>
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Create.Ellipse" id="164" style="create-mfd-widget">
+    <SetCraftProperty property="Mfd.Create.Ellipse" id="167" style="create-mfd-widget">
       <Constant text="Heading ticks minor base" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetParent" id="165" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetParent" id="168" style="set-mfd-widget">
       <Constant text="Heading ticks minor base" />
       <Constant text="Heading tape" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetOpacity" id="166" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetOpacity" id="169" style="set-mfd-widget">
       <Constant text="Heading ticks minor base" />
       <Constant text="0" />
     </SetCraftProperty>
-    <For var="tickMarkMinor" id="167" style="for">
+    <For var="tickMarkMinor" id="170" style="for">
       <MathFunction function="ceiling" style="op-math">
         <BinaryOp op="/" style="op-div">
           <Variable list="false" local="false" variableName="headingTickMinorNum" />
@@ -1323,7 +1333,7 @@
       </BinaryOp>
       <Constant number="1" />
       <Instructions>
-        <CallCustomInstruction call="create HUD line named" id="168" style="call-custom-instruction">
+        <CallCustomInstruction call="create HUD line named" id="171" style="call-custom-instruction">
           <StringOp op="join" style="join">
             <Constant text="Heading ticks minor" />
             <Variable list="false" local="true" variableName="tickMarkMinor" />
@@ -1347,23 +1357,23 @@
             <Constant number="0" />
           </Vector>
         </CallCustomInstruction>
-        <WaitSeconds id="169" style="wait-seconds">
+        <WaitSeconds id="172" style="wait-seconds">
           <Constant text="0.1" />
         </WaitSeconds>
       </Instructions>
     </For>
-    <SetCraftProperty property="Mfd.Create.Ellipse" id="170" style="create-mfd-widget">
+    <SetCraftProperty property="Mfd.Create.Ellipse" id="173" style="create-mfd-widget">
       <Constant text="Heading ticks major base" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetParent" id="171" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetParent" id="174" style="set-mfd-widget">
       <Constant text="Heading ticks major base" />
       <Constant text="Heading tape" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetOpacity" id="172" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetOpacity" id="175" style="set-mfd-widget">
       <Constant text="Heading ticks major base" />
       <Constant text="0" />
     </SetCraftProperty>
-    <For var="tickMarkMajor" id="173" style="for">
+    <For var="tickMarkMajor" id="176" style="for">
       <MathFunction function="ceiling" style="op-math">
         <BinaryOp op="/" style="op-div">
           <Variable list="false" local="false" variableName="headingTickMajorNum" />
@@ -1381,7 +1391,7 @@
       </BinaryOp>
       <Constant number="1" />
       <Instructions>
-        <CallCustomInstruction call="create HUD line named" id="174" style="call-custom-instruction">
+        <CallCustomInstruction call="create HUD line named" id="177" style="call-custom-instruction">
           <StringOp op="join" style="join">
             <Constant text="Heading ticks major" />
             <Variable list="false" local="true" variableName="tickMarkMajor" />
@@ -1414,7 +1424,7 @@
             <Constant number="0" />
           </Vector>
         </CallCustomInstruction>
-        <CallCustomInstruction call="create HUD label named" id="175" style="call-custom-instruction">
+        <CallCustomInstruction call="create HUD label named" id="178" style="call-custom-instruction">
           <StringOp op="join" style="join">
             <Constant text="Heading ticks major label" />
             <Variable list="false" local="true" variableName="tickMarkMajor" />
@@ -1438,19 +1448,19 @@
           </Vector>
           <Constant text="" />
         </CallCustomInstruction>
-        <SetCraftProperty property="Mfd.Label.SetAlignment.BottomCenter" id="176" style="set-mfd-alignment">
+        <SetCraftProperty property="Mfd.Label.SetAlignment.BottomCenter" id="179" style="set-mfd-alignment">
           <StringOp op="join" style="join">
             <Constant text="Heading ticks major label" />
             <Variable list="false" local="true" variableName="tickMarkMajor" />
             <Constant text="" />
           </StringOp>
         </SetCraftProperty>
-        <WaitSeconds id="177" style="wait-seconds">
+        <WaitSeconds id="180" style="wait-seconds">
           <Constant text="0.1" />
         </WaitSeconds>
       </Instructions>
     </For>
-    <SetCraftProperty property="Mfd.SetPosition" id="178" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetPosition" id="181" style="set-mfd-widget">
       <Constant text="Heading Tape" />
       <Vector style="vec">
         <Constant number="0" />
@@ -1458,17 +1468,21 @@
         <Constant number="0" />
       </Vector>
     </SetCraftProperty>
-    <Comment id="179" style="comment">
+    <Comment id="182" style="comment">
       <Constant style="comment-text" canReplace="false" text="Left readouts" />
     </Comment>
-    <SetCraftProperty property="Mfd.Create.Ellipse" id="180" style="create-mfd-widget">
+    <SetCraftProperty property="Mfd.Create.Ellipse" id="183" style="create-mfd-widget">
       <Constant text="Left readouts" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetOpacity" id="181" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetParent" id="184" style="set-mfd-widget">
+      <Constant text="Left readouts" />
+      <Constant text="Main" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetOpacity" id="185" style="set-mfd-widget">
       <Constant text="Left readouts" />
       <Constant text="0" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetPosition" id="182" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetPosition" id="186" style="set-mfd-widget">
       <Constant text="Left readouts" />
       <Vector style="vec">
         <Constant text="-55" />
@@ -1476,67 +1490,67 @@
         <Constant number="0" />
       </Vector>
     </SetCraftProperty>
-    <Comment id="183" style="comment">
+    <Comment id="187" style="comment">
       <Constant style="comment-text" canReplace="false" text="Airspeed readout" />
     </Comment>
-    <CallCustomInstruction call="create HUD label named" id="184" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="188" style="call-custom-instruction">
       <Constant text="Readouts airspeed label" />
       <Constant text="Left readouts" />
       <Constant text="10, 6" />
       <Constant text="-5, 3" />
       <Constant text="TAS" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="185" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="189" style="set-mfd-alignment">
       <Constant text="Readouts airspeed label" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="186" style="set-mfd-event">
+    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="190" style="set-mfd-event">
       <Constant text="Readouts airspeed label" />
       <Constant text="Change airspeed mode" />
       <Constant text="" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD label named" id="187" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="191" style="call-custom-instruction">
       <Constant text="Readouts airspeed units" />
       <Constant text="Left readouts" />
       <Constant text="7, 6" />
       <Constant text="-6.5, -3" />
       <Constant text="kt" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="188" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="192" style="set-mfd-alignment">
       <Constant text="Readouts airspeed units" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="189" style="set-mfd-event">
+    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="193" style="set-mfd-event">
       <Constant text="Readouts airspeed units" />
       <Constant text="Change airspeed units" />
       <Constant text="" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD label named" id="190" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="194" style="call-custom-instruction">
       <Constant text="Readouts airspeed value" />
       <Constant text="Left readouts" />
       <Constant text="12, 6" />
       <Constant text="4, -3" />
       <Constant text="" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="191" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="195" style="set-mfd-alignment">
       <Constant text="Readouts airspeed value" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="192" style="set-mfd-event">
+    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="196" style="set-mfd-event">
       <Constant text="Readouts airspeed value" />
       <Constant text="Change airspeed units" />
       <Constant text="" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD line named" id="193" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="197" style="call-custom-instruction">
       <Constant text="Airspeed top border" />
       <Constant text="Left readouts" />
       <Constant text="-12, 6" />
       <Constant text="12, 6" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="194" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="198" style="call-custom-instruction">
       <Constant text="Airspeed bottom border" />
       <Constant text="Left readouts" />
       <Constant text="-12, -6" />
       <Constant text="12, -6" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="195" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="199" style="call-custom-instruction">
       <Constant text="Airspeed left border" />
       <Constant text="Left readouts" />
       <Vector style="vec">
@@ -1562,7 +1576,7 @@
         <Constant number="0" />
       </Vector>
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="196" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="200" style="call-custom-instruction">
       <Constant text="Airspeed right border" />
       <Constant text="Left readouts" />
       <Vector style="vec">
@@ -1588,83 +1602,87 @@
         <Constant number="0" />
       </Vector>
     </CallCustomInstruction>
-    <Comment id="197" style="comment">
+    <Comment id="201" style="comment">
       <Constant style="comment-text" canReplace="false" text="Mach, G, and alpha readouts" />
     </Comment>
-    <CallCustomInstruction call="create HUD label named" id="198" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="202" style="call-custom-instruction">
       <Constant text="Readouts Mach label" />
       <Constant text="Left readouts" />
       <Constant text="5, 6" />
       <Constant text="-7, -25" />
       <Constant text="M" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="199" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="203" style="set-mfd-alignment">
       <Constant text="Readouts Mach label" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD label named" id="200" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="204" style="call-custom-instruction">
       <Constant text="Readouts G label" />
       <Constant text="Left readouts" />
       <Constant text="5, 6" />
       <Constant text="-7, -30" />
       <Constant text="G" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="201" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="205" style="set-mfd-alignment">
       <Constant text="Readouts G label" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD label named" id="202" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="206" style="call-custom-instruction">
       <Constant text="Readouts Alpha label" />
       <Constant text="Left readouts" />
       <Constant text="5, 6" />
       <Constant text="-7, -35" />
       <Constant text="α" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="203" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Left" id="207" style="set-mfd-alignment">
       <Constant text="Readouts Alpha label" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD label named" id="204" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="208" style="call-custom-instruction">
       <Constant text="Readouts Mach value" />
       <Constant text="Left readouts" />
       <Constant text="20, 6" />
       <Constant text="-2, -25" />
       <Constant text="" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="205" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="209" style="set-mfd-alignment">
       <Constant text="Readouts Mach value" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD label named" id="206" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="210" style="call-custom-instruction">
       <Constant text="Readouts G value" />
       <Constant text="Left readouts" />
       <Constant text="20, 6" />
       <Constant text="-2, -30" />
       <Constant text="" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="207" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="211" style="set-mfd-alignment">
       <Constant text="Readouts G value" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD label named" id="208" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="212" style="call-custom-instruction">
       <Constant text="Readouts Alpha value" />
       <Constant text="Left readouts" />
       <Constant text="20, 6" />
       <Constant text="-2, -35" />
       <Constant text="" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="209" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="213" style="set-mfd-alignment">
       <Constant text="Readouts Alpha value" />
     </SetCraftProperty>
-    <WaitSeconds id="210" style="wait-seconds">
+    <WaitSeconds id="214" style="wait-seconds">
       <Constant text="0.5" />
     </WaitSeconds>
-    <Comment id="211" style="comment">
+    <Comment id="215" style="comment">
       <Constant style="comment-text" canReplace="false" text="Right readouts" />
     </Comment>
-    <SetCraftProperty property="Mfd.Create.Ellipse" id="212" style="create-mfd-widget">
+    <SetCraftProperty property="Mfd.Create.Ellipse" id="216" style="create-mfd-widget">
       <Constant text="Right readouts" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetOpacity" id="213" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetParent" id="217" style="set-mfd-widget">
+      <Constant text="Right readouts" />
+      <Constant text="Main" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetOpacity" id="218" style="set-mfd-widget">
       <Constant text="Right readouts" />
       <Constant text="0" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetPosition" id="214" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetPosition" id="219" style="set-mfd-widget">
       <Constant text="Right readouts" />
       <Vector style="vec">
         <Constant text="55" />
@@ -1672,49 +1690,49 @@
         <Constant number="0" />
       </Vector>
     </SetCraftProperty>
-    <Comment id="215" style="comment">
+    <Comment id="220" style="comment">
       <Constant style="comment-text" canReplace="false" text="Altitude readout" />
     </Comment>
-    <CallCustomInstruction call="create HUD label named" id="216" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="221" style="call-custom-instruction">
       <Constant text="Readouts altitude label" />
       <Constant text="Right readouts" />
       <Constant text="10, 6" />
       <Constant text="-5, 3" />
       <Constant text="ASL" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="217" style="set-mfd-event">
+    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="222" style="set-mfd-event">
       <Constant text="Readouts altitude label" />
       <Constant text="Change altitude mode" />
       <Constant text="" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD label named" id="218" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="223" style="call-custom-instruction">
       <Constant text="Readouts altitude value" />
       <Constant text="Right readouts" />
       <Constant text="20, 6" />
       <Constant text="0, -3" />
       <Constant text="" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="219" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="224" style="set-mfd-alignment">
       <Constant text="Readouts altitude value" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="220" style="set-mfd-event">
+    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="225" style="set-mfd-event">
       <Constant text="Readouts altitude value" />
       <Constant text="Change altitude units" />
       <Constant text="" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD line named" id="221" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="226" style="call-custom-instruction">
       <Constant text="Altitude top border" />
       <Constant text="Right readouts" />
       <Constant text="-12, 6" />
       <Constant text="12, 6" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="222" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="227" style="call-custom-instruction">
       <Constant text="Altitude bottom border" />
       <Constant text="Right readouts" />
       <Constant text="-12, -6" />
       <Constant text="12, -6" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="223" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="228" style="call-custom-instruction">
       <Constant text="Altitude left border" />
       <Constant text="Right readouts" />
       <Vector style="vec">
@@ -1740,7 +1758,7 @@
         <Constant number="0" />
       </Vector>
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="224" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="229" style="call-custom-instruction">
       <Constant text="Altitude right border" />
       <Constant text="Right readouts" />
       <Vector style="vec">
@@ -1766,67 +1784,70 @@
         <Constant number="0" />
       </Vector>
     </CallCustomInstruction>
-    <Comment id="225" style="comment">
+    <Comment id="230" style="comment">
       <Constant style="comment-text" canReplace="false" text="Vertical speed readout" />
     </Comment>
-    <CallCustomInstruction call="create HUD label named" id="226" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="231" style="call-custom-instruction">
       <Constant text="Readouts vertical speed value" />
       <Constant text="Right readouts" />
       <Constant text="30, 6" />
       <Constant text="5, -45" />
       <Constant number="0" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="227" style="set-mfd-alignment">
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="232" style="set-mfd-alignment">
       <Constant text="Readouts vertical speed value" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="228" style="set-mfd-event">
+    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="233" style="set-mfd-event">
       <Constant text="Readouts vertical speed value" />
       <Constant text="Change vertical speed time interval" />
       <Constant text="" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD label named" id="229" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="234" style="call-custom-instruction">
       <Constant text="Readouts vertical speed label" />
       <Constant text="Right readouts" />
       <Constant text="15, 6" />
       <Constant text="-2.5, -40" />
       <Constant text="VERT" />
     </CallCustomInstruction>
-    <WaitSeconds id="230" style="wait-seconds">
+    <WaitSeconds id="235" style="wait-seconds">
       <Constant text="0.5" />
     </WaitSeconds>
-    <Comment id="231" style="comment">
+    <Comment id="236" style="comment">
       <Constant style="comment-text" canReplace="false" text="Flight path/prograde" />
     </Comment>
-    <CallCustomInstruction call="create HUD circle named" id="232" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD circle named" id="237" style="call-custom-instruction">
       <Constant text="Prograde" />
-      <Constant text="" />
+      <Constant text="Main" />
       <Constant text="4" />
       <Constant number="0" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="233" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="238" style="call-custom-instruction">
       <Constant text="Prograde left -" />
       <Constant text="Prograde" />
       <Constant text="-5, 0" />
       <Constant text="-2, 0" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="234" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="239" style="call-custom-instruction">
       <Constant text="Prograde right -" />
       <Constant text="Prograde" />
       <Constant text="5, 0" />
       <Constant text="2, 0" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="235" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="240" style="call-custom-instruction">
       <Constant text="Prograde up |" />
       <Constant text="Prograde" />
       <Constant text="0, 2" />
       <Constant text="0, 5" />
     </CallCustomInstruction>
-    <Comment id="236" style="comment">
+    <WaitSeconds id="241" style="wait-seconds">
+      <Constant text="0.5" />
+    </WaitSeconds>
+    <Comment id="242" style="comment">
       <Constant style="comment-text" canReplace="false" text="Boresight" />
     </Comment>
-    <CallCustomInstruction call="create HUD ellipse named" id="237" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD ellipse named" id="243" style="call-custom-instruction">
       <Constant text="Boresight" />
-      <Constant text="" />
+      <Constant text="Main" />
       <Vector style="vec">
         <Variable list="false" local="false" variableName="lineThickness" />
         <Variable list="false" local="false" variableName="lineThickness" />
@@ -1834,13 +1855,13 @@
       </Vector>
       <Constant text="" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="238" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="244" style="call-custom-instruction">
       <Constant text="Boresight left -" />
       <Constant text="Boresight" />
       <Constant text="-6, 0" />
       <Constant text="-3, 0" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD ellipse named" id="239" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD ellipse named" id="245" style="call-custom-instruction">
       <Constant text="Boresight left circle -\" />
       <Constant text="Boresight" />
       <Vector style="vec">
@@ -1850,13 +1871,13 @@
       </Vector>
       <Constant text="-3, 0" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="240" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="246" style="call-custom-instruction">
       <Constant text="Boresight left \" />
       <Constant text="Boresight" />
       <Constant text="-3, 0" />
       <Constant text="-1.5, -1.5" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD ellipse named" id="241" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD ellipse named" id="247" style="call-custom-instruction">
       <Constant text="Boresight left circle \/" />
       <Constant text="Boresight" />
       <Vector style="vec">
@@ -1866,19 +1887,19 @@
       </Vector>
       <Constant text="-1.5, -1.5" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="242" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="248" style="call-custom-instruction">
       <Constant text="Boresight left /" />
       <Constant text="Boresight" />
       <Constant text="-1.5, -1.5" />
       <Constant text="0, 0" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="243" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="249" style="call-custom-instruction">
       <Constant text="Boresight right -" />
       <Constant text="Boresight" />
       <Constant text="6, 0" />
       <Constant text="3, 0" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD ellipse named" id="244" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD ellipse named" id="250" style="call-custom-instruction">
       <Constant text="Boresight right circle /-" />
       <Constant text="Boresight" />
       <Vector style="vec">
@@ -1888,13 +1909,13 @@
       </Vector>
       <Constant text="3, 0" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="245" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="251" style="call-custom-instruction">
       <Constant text="Boresight right /" />
       <Constant text="Boresight" />
       <Constant text="3, 0" />
       <Constant text="1.5, -1.5" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD ellipse named" id="246" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD ellipse named" id="252" style="call-custom-instruction">
       <Constant text="Boresight right circle \/" />
       <Constant text="Boresight" />
       <Vector style="vec">
@@ -1904,156 +1925,144 @@
       </Vector>
       <Constant text="1.5, -1.5" />
     </CallCustomInstruction>
-    <CallCustomInstruction call="create HUD line named" id="247" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="253" style="call-custom-instruction">
       <Constant text="Boresight right \" />
       <Constant text="Boresight" />
       <Constant text="1.5, -1.5" />
       <Constant text="0, 0" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.SetParent" id="248" style="set-mfd-widget">
-      <Constant text="Heading Tape" />
-      <Constant text="Boresight" />
-    </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetParent" id="249" style="set-mfd-widget">
-      <Constant text="Left readouts" />
-      <Constant text="Boresight" />
-    </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetParent" id="250" style="set-mfd-widget">
-      <Constant text="Right readouts" />
-      <Constant text="Boresight" />
-    </SetCraftProperty>
-    <WaitSeconds id="251" style="wait-seconds">
+    <WaitSeconds id="254" style="wait-seconds">
       <Constant text="0.5" />
     </WaitSeconds>
-    <Comment id="252" style="comment">
+    <Comment id="255" style="comment">
       <Constant style="comment-text" canReplace="false" text="Warnings/Cautions" />
     </Comment>
-    <CallCustomInstruction call="create HUD label named" id="253" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="256" style="call-custom-instruction">
       <Constant text="TOO LOW GEAR" />
-      <Constant text="Boresight" />
+      <Constant text="Main" />
       <Constant text="200, 20" />
       <Constant text="0, -40" />
       <Constant text="TOO LOW GEAR" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.SetColor" id="254" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetColor" id="257" style="set-mfd-widget">
       <Constant text="TOO LOW GEAR" />
       <Variable list="false" local="false" variableName="hudColorCaution" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD label named" id="255" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="258" style="call-custom-instruction">
       <Constant text="CAUTION TERRAIN" />
-      <Constant text="Boresight" />
+      <Constant text="Main" />
       <Constant text="200, 20" />
       <Constant text="0, -40" />
       <Constant text="CAUTION TERRAIN" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.SetColor" id="256" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetColor" id="259" style="set-mfd-widget">
       <Constant text="CAUTION TERRAIN" />
       <Variable list="false" local="false" variableName="hudColorCaution" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD label named" id="257" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD label named" id="260" style="call-custom-instruction">
       <Constant text="TERRAIN PULL UP" />
-      <Constant text="Boresight" />
+      <Constant text="Main" />
       <Constant text="200, 20" />
       <Constant text="0, -40" />
       <Constant text="TERRAIN PULL UP" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.SetColor" id="258" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetColor" id="261" style="set-mfd-widget">
       <Constant text="TERRAIN PULL UP" />
       <Variable list="false" local="false" variableName="hudColorWarning" />
     </SetCraftProperty>
-    <CallCustomInstruction call="create HUD line named" id="259" style="call-custom-instruction">
+    <CallCustomInstruction call="create HUD line named" id="262" style="call-custom-instruction">
       <Constant text="TERRAIN PULL UP top border" />
       <Constant text="TERRAIN PULL UP" />
       <Constant text="-73, 11" />
       <Constant text="73, 11" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.SetColor" id="260" style="set-mfd-widget">
-      <Constant text="TERRAIN PULL UP top border" />
-      <Variable list="false" local="false" variableName="hudColorWarning" />
-    </SetCraftProperty>
-    <SetCraftProperty property="Mfd.Line.SetThickness" id="261" style="set-mfd-line">
-      <Constant text="TERRAIN PULL UP top border" />
-      <BinaryOp op="*" style="op-mul">
-        <Constant text="2" />
-        <Variable list="false" local="false" variableName="lineThickness" />
-      </BinaryOp>
-    </SetCraftProperty>
-    <CallCustomInstruction call="create HUD line named" id="262" style="call-custom-instruction">
-      <Constant text="TERRAIN PULL UP bottom border" />
-      <Constant text="TERRAIN PULL UP" />
-      <Constant text="-73, -11" />
-      <Constant text="73, -11" />
-    </CallCustomInstruction>
     <SetCraftProperty property="Mfd.SetColor" id="263" style="set-mfd-widget">
-      <Constant text="TERRAIN PULL UP bottom border" />
+      <Constant text="TERRAIN PULL UP top border" />
       <Variable list="false" local="false" variableName="hudColorWarning" />
     </SetCraftProperty>
     <SetCraftProperty property="Mfd.Line.SetThickness" id="264" style="set-mfd-line">
-      <Constant text="TERRAIN PULL UP bottom border" />
+      <Constant text="TERRAIN PULL UP top border" />
       <BinaryOp op="*" style="op-mul">
         <Constant text="2" />
         <Variable list="false" local="false" variableName="lineThickness" />
       </BinaryOp>
     </SetCraftProperty>
     <CallCustomInstruction call="create HUD line named" id="265" style="call-custom-instruction">
-      <Constant text="TERRAIN PULL UP left border" />
+      <Constant text="TERRAIN PULL UP bottom border" />
       <Constant text="TERRAIN PULL UP" />
       <Constant text="-73, -11" />
-      <Constant text="-73, 11" />
+      <Constant text="73, -11" />
     </CallCustomInstruction>
     <SetCraftProperty property="Mfd.SetColor" id="266" style="set-mfd-widget">
-      <Constant text="TERRAIN PULL UP left border" />
+      <Constant text="TERRAIN PULL UP bottom border" />
       <Variable list="false" local="false" variableName="hudColorWarning" />
     </SetCraftProperty>
     <SetCraftProperty property="Mfd.Line.SetThickness" id="267" style="set-mfd-line">
-      <Constant text="TERRAIN PULL UP left border" />
+      <Constant text="TERRAIN PULL UP bottom border" />
       <BinaryOp op="*" style="op-mul">
         <Constant text="2" />
         <Variable list="false" local="false" variableName="lineThickness" />
       </BinaryOp>
     </SetCraftProperty>
     <CallCustomInstruction call="create HUD line named" id="268" style="call-custom-instruction">
+      <Constant text="TERRAIN PULL UP left border" />
+      <Constant text="TERRAIN PULL UP" />
+      <Constant text="-73, -11" />
+      <Constant text="-73, 11" />
+    </CallCustomInstruction>
+    <SetCraftProperty property="Mfd.SetColor" id="269" style="set-mfd-widget">
+      <Constant text="TERRAIN PULL UP left border" />
+      <Variable list="false" local="false" variableName="hudColorWarning" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Line.SetThickness" id="270" style="set-mfd-line">
+      <Constant text="TERRAIN PULL UP left border" />
+      <BinaryOp op="*" style="op-mul">
+        <Constant text="2" />
+        <Variable list="false" local="false" variableName="lineThickness" />
+      </BinaryOp>
+    </SetCraftProperty>
+    <CallCustomInstruction call="create HUD line named" id="271" style="call-custom-instruction">
       <Constant text="TERRAIN PULL UP right border" />
       <Constant text="TERRAIN PULL UP" />
       <Constant text="73, -11" />
       <Constant text="73, 11" />
     </CallCustomInstruction>
-    <SetCraftProperty property="Mfd.SetColor" id="269" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetColor" id="272" style="set-mfd-widget">
       <Constant text="TERRAIN PULL UP right border" />
       <Variable list="false" local="false" variableName="hudColorWarning" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.Line.SetThickness" id="270" style="set-mfd-line">
+    <SetCraftProperty property="Mfd.Line.SetThickness" id="273" style="set-mfd-line">
       <Constant text="TERRAIN PULL UP right border" />
       <BinaryOp op="*" style="op-mul">
         <Constant text="2" />
         <Variable list="false" local="false" variableName="lineThickness" />
       </BinaryOp>
     </SetCraftProperty>
-    <WaitSeconds id="271" style="wait-seconds">
+    <WaitSeconds id="274" style="wait-seconds">
       <Constant text="0.5" />
     </WaitSeconds>
-    <SetVariable id="272" style="set-variable">
+    <SetVariable id="275" style="set-variable">
       <Variable list="false" local="false" variableName="isInitiated" />
       <Constant style="true" bool="true" />
     </SetVariable>
-    <SetCraftProperty property="Mfd.Destroy" id="273" style="destroy-mfd-widget">
+    <SetCraftProperty property="Mfd.Destroy" id="276" style="destroy-mfd-widget">
       <Constant text="Initializing" />
     </SetCraftProperty>
   </Instructions>
   <Instructions>
-    <CustomInstruction callFormat="create HUD circle named (0) under parent (1) with a diameter of (2) positioned at (3) " format="create HUD circle named |name| under parent |parent| with a diameter of |diameter| positioned at |position| " name="create HUD circle named" id="274" style="custom-instruction" pos="-3408.09,-1071.968" />
-    <SetCraftProperty property="Mfd.Create.Ellipse" id="275" style="create-mfd-widget">
+    <CustomInstruction callFormat="create HUD circle named (0) under parent (1) with a diameter of (2) positioned at (3) " format="create HUD circle named |name| under parent |parent| with a diameter of |diameter| positioned at |position| " name="create HUD circle named" id="277" style="custom-instruction" pos="-3408.09,-1071.968" />
+    <SetCraftProperty property="Mfd.Create.Ellipse" id="278" style="create-mfd-widget">
       <Variable list="false" local="true" variableName="name" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetOpacity" id="276" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetOpacity" id="279" style="set-mfd-widget">
       <Variable list="false" local="true" variableName="name" />
       <Constant text="0" />
     </SetCraftProperty>
-    <SetCraftProperty property="Mfd.SetParent" id="277" style="set-mfd-widget">
+    <SetCraftProperty property="Mfd.SetParent" id="280" style="set-mfd-widget">
       <Variable list="false" local="true" variableName="name" />
       <Variable list="false" local="true" variableName="parent" />
     </SetCraftProperty>
-    <SetVariable id="278" style="set-variable">
+    <SetVariable id="281" style="set-variable">
       <Variable list="false" local="false" variableName="createHUDCircleNumSegments" />
       <BinaryOp op="min" style="op-min">
         <Constant text="12" />
@@ -2063,7 +2072,7 @@
         </BinaryOp>
       </BinaryOp>
     </SetVariable>
-    <For var="segment" id="279" style="for">
+    <For var="segment" id="282" style="for">
       <Constant text="0" />
       <BinaryOp op="-" style="op-sub">
         <Variable list="false" local="false" variableName="createHUDCircleNumSegments" />
@@ -2071,7 +2080,7 @@
       </BinaryOp>
       <Constant number="1" />
       <Instructions>
-        <CallCustomInstruction call="create HUD line named" id="280" style="call-custom-instruction">
+        <CallCustomInstruction call="create HUD line named" id="283" style="call-custom-instruction">
           <StringOp op="join" style="join">
             <Constant text="circle" />
             <Variable list="false" local="true" variableName="name" />
@@ -2118,64 +2127,64 @@
     </For>
   </Instructions>
   <Instructions>
-    <Event event="FlightStart" id="281" style="flight-start" pos="3025.262,-15.53481" />
-    <Comment id="282" style="comment">
+    <Event event="FlightStart" id="284" style="flight-start" pos="3025.262,-15.53481" />
+    <Comment id="285" style="comment">
       <Constant style="comment-text" canReplace="false" text="Optimzied code by removing custom expressions and using fUNK." />
     </Comment>
-    <SetVariable id="283" style="set-variable">
+    <SetVariable id="286" style="set-variable">
       <Constant text="deg2rad" />
       <EvaluateExpression style="evaluate-expression">
         <Constant text="pi / 180" />
       </EvaluateExpression>
     </SetVariable>
-    <SetVariable id="284" style="set-variable">
+    <SetVariable id="287" style="set-variable">
       <Constant text="rad2deg" />
       <EvaluateExpression style="evaluate-expression">
         <Constant text="180 / pi" />
       </EvaluateExpression>
     </SetVariable>
-    <SetVariable id="285" style="set-variable">
+    <SetVariable id="288" style="set-variable">
       <Constant text="dayLength" />
       <Planet op="day" style="planet">
         <CraftProperty property="Orbit.Planet" style="prop-name" />
       </Planet>
     </SetVariable>
-    <WaitUntil id="286" style="wait-until">
+    <WaitUntil id="289" style="wait-until">
       <Variable list="false" local="false" variableName="isInitiated" />
     </WaitUntil>
-    <Comment id="287" style="comment">
+    <Comment id="290" style="comment">
       <Constant style="comment-text" canReplace="false" text="Move the widgets" />
     </Comment>
-    <While id="288" style="while">
+    <While id="291" style="while">
       <Constant style="true" bool="true" />
       <Instructions>
-        <SetCraftProperty property="Mfd.SetVisible" id="289" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetVisible" id="292" style="set-mfd-widget">
           <Constant text="_Screen" />
           <Constant style="true" bool="true" />
         </SetCraftProperty>
-        <While id="290" style="while">
+        <While id="293" style="while">
           <Variable list="false" local="false" variableName="isCameraClose" />
           <Instructions>
-            <If id="291" style="if">
+            <If id="294" style="if">
               <Comparison op="g" style="op-gt">
                 <CraftProperty property="Time.FrameDeltaTime" style="prop-time" />
                 <Constant number="0" />
               </Comparison>
               <Instructions>
-                <Comment id="292" style="comment">
+                <Comment id="295" style="comment">
                   <Constant style="comment-text" canReplace="false" text="Variables" />
                 </Comment>
-                <SetVariable id="293" style="set-variable">
+                <SetVariable id="296" style="set-variable">
                   <Constant text="iterationStartTime" />
                   <CraftProperty property="Time.TotalTime" style="prop-time" />
                 </SetVariable>
-                <SetVariable id="294" style="set-variable">
+                <SetVariable id="297" style="set-variable">
                   <Constant text="partID" />
                   <CraftProperty property="Part.ThisID" style="part">
                     <Constant number="0" />
                   </CraftProperty>
                 </SetVariable>
-                <SetVariable id="295" style="set-variable">
+                <SetVariable id="298" style="set-variable">
                   <Constant text="partPos" />
                   <CraftProperty property="Part.Position" style="part">
                     <EvaluateExpression style="evaluate-expression">
@@ -2183,7 +2192,7 @@
                     </EvaluateExpression>
                   </CraftProperty>
                 </SetVariable>
-                <SetVariable id="296" style="set-variable">
+                <SetVariable id="299" style="set-variable">
                   <Constant text="cameraPos" />
                   <CraftProperty property="Part.PciToLocal" style="part-transform">
                     <EvaluateExpression style="evaluate-expression">
@@ -2197,46 +2206,46 @@
                     </BinaryOp>
                   </CraftProperty>
                 </SetVariable>
-                <SetVariable id="297" style="set-variable">
+                <SetVariable id="300" style="set-variable">
                   <Constant text="cameraDist" />
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="hudZOffset - z(v:cameraPos)" />
                   </EvaluateExpression>
                 </SetVariable>
-                <SetVariable id="298" style="set-variable">
+                <SetVariable id="301" style="set-variable">
                   <Constant text="cameraDist2DVec" />
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="vec(cameraDist, cameraDist, 0)" />
                   </EvaluateExpression>
                 </SetVariable>
-                <SetCraftProperty property="Mfd.SetPosition" id="299" style="set-mfd-widget">
-                  <Constant text="Boresight" />
+                <SetCraftProperty property="Mfd.SetPosition" id="302" style="set-mfd-widget">
+                  <Constant text="Main" />
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="mfdScale * v:cameraPos" />
                   </EvaluateExpression>
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetScale" id="300" style="set-mfd-widget">
-                  <Constant text="Boresight" />
+                <SetCraftProperty property="Mfd.SetScale" id="303" style="set-mfd-widget">
+                  <Constant text="Main" />
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="v:cameraDist2DVec" />
                   </EvaluateExpression>
                 </SetCraftProperty>
-                <Comment id="301" style="comment">
+                <Comment id="304" style="comment">
                   <Constant style="comment-text" canReplace="false" text="Heading tape" />
                 </Comment>
-                <SetCraftProperty property="Mfd.SetPosition" id="302" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetPosition" id="305" style="set-mfd-widget">
                   <Constant text="Heading ticks minor base" />
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="vec(headingTickMinorGap * (1 - (FD.Heading % headingTickMinorInterval) / headingTickMinorInterval), 0, 0)" />
                   </EvaluateExpression>
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.SetPosition" id="303" style="set-mfd-widget">
+                <SetCraftProperty property="Mfd.SetPosition" id="306" style="set-mfd-widget">
                   <Constant text="Heading ticks major base" />
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="vec(10 * headingTapeWidthPerDegree * (1 - (FD.Heading % 10) / 10), 0, 0)" />
                   </EvaluateExpression>
                 </SetCraftProperty>
-                <SetCraftProperty property="Mfd.Label.SetText" id="304" style="set-mfd-label">
+                <SetCraftProperty property="Mfd.Label.SetText" id="307" style="set-mfd-label">
                   <Constant text="Heading readout" />
                   <StringOp op="format" style="format">
                     <Constant text="{0:000}" />
@@ -2246,7 +2255,7 @@
                     <Constant text="" />
                   </StringOp>
                 </SetCraftProperty>
-                <For var="tickMarkMajor" id="305" style="for">
+                <For var="tickMarkMajor" id="308" style="for">
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="ceil(headingTickMajorNum / -2)" />
                   </EvaluateExpression>
@@ -2255,7 +2264,7 @@
                   </EvaluateExpression>
                   <Constant text="1" />
                   <Instructions>
-                    <SetCraftProperty property="Mfd.Label.SetText" id="306" style="set-mfd-label">
+                    <SetCraftProperty property="Mfd.Label.SetText" id="309" style="set-mfd-label">
                       <StringOp op="join" style="join">
                         <Constant text="Heading ticks major label" />
                         <Variable list="false" local="true" variableName="tickMarkMajor" />
@@ -2271,10 +2280,10 @@
                     </SetCraftProperty>
                   </Instructions>
                 </For>
-                <Comment id="307" style="comment">
+                <Comment id="310" style="comment">
                   <Constant style="comment-text" canReplace="false" text="Variables for prograde" />
                 </Comment>
-                <SetVariable id="308" style="set-variable">
+                <SetVariable id="311" style="set-variable">
                   <Constant text="progradeLocal" />
                   <CraftProperty property="Part.PciToLocal" style="part-transform">
                     <EvaluateExpression style="evaluate-expression">
@@ -2285,59 +2294,53 @@
                     </EvaluateExpression>
                   </CraftProperty>
                 </SetVariable>
-                <Comment id="309" style="comment">
+                <Comment id="312" style="comment">
                   <Constant style="comment-text" canReplace="false" text="Prograde" />
                 </Comment>
-                <If id="310" style="if">
+                <If id="313" style="if">
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="z(v:progradeLocal) &gt; 0 &amp; FD.SurfaceVelocityMagnitude &gt; progradeValidityThreshold" />
                   </EvaluateExpression>
                   <Instructions>
-                    <SetCraftProperty property="Mfd.SetVisible" id="311" style="set-mfd-widget">
+                    <SetCraftProperty property="Mfd.SetVisible" id="314" style="set-mfd-widget">
                       <Constant text="Prograde" />
                       <Constant style="true" bool="true" />
                     </SetCraftProperty>
-                    <SetCraftProperty property="Mfd.SetPosition" id="312" style="set-mfd-widget">
+                    <SetCraftProperty property="Mfd.SetPosition" id="315" style="set-mfd-widget">
                       <Constant text="Prograde" />
                       <EvaluateExpression style="evaluate-expression">
-                        <Constant text="mfdScale * (cameraDist * v:progradeLocal / z(v:progradeLocal) + v:cameraPos)" />
-                      </EvaluateExpression>
-                    </SetCraftProperty>
-                    <SetCraftProperty property="Mfd.SetScale" id="313" style="set-mfd-widget">
-                      <Constant text="Prograde" />
-                      <EvaluateExpression style="evaluate-expression">
-                        <Constant text="v:cameraDist2DVec" />
+                        <Constant text="mfdScale * (v:progradeLocal / z(v:progradeLocal))" />
                       </EvaluateExpression>
                     </SetCraftProperty>
                   </Instructions>
                 </If>
-                <ElseIf id="314" style="else">
+                <ElseIf id="316" style="else">
                   <Constant bool="true" />
                   <Instructions>
-                    <SetCraftProperty property="Mfd.SetVisible" id="315" style="set-mfd-widget">
+                    <SetCraftProperty property="Mfd.SetVisible" id="317" style="set-mfd-widget">
                       <Constant text="Prograde" />
                       <Constant style="false" bool="false" />
                     </SetCraftProperty>
                   </Instructions>
                 </ElseIf>
-                <Comment id="316" style="comment">
+                <Comment id="318" style="comment">
                   <Constant style="comment-text" canReplace="false" text="Pitch ladder" />
                 </Comment>
-                <If id="317" style="if">
+                <If id="319" style="if">
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="FD.SurfaceVelocityMagnitude &gt; progradeValidityThreshold &amp; angle(FD.SurfaceVelocity, FD.CraftForward) &lt; ladderUseProgradeAngleThreshold" />
                   </EvaluateExpression>
                   <Instructions>
-                    <SetVariable id="318" style="set-variable">
+                    <SetVariable id="320" style="set-variable">
                       <Constant text="progradeWorldHorizontal" />
                       <EvaluateExpression style="evaluate-expression">
                         <Constant text="normalize(projectOnPlane(normalize(FD.SurfaceVelocity), FD.PositionNormalized))" />
                       </EvaluateExpression>
                     </SetVariable>
-                    <Comment id="319" style="comment">
+                    <Comment id="321" style="comment">
                       <Constant style="comment-text" canReplace="false" text="Vertical cross prograde yields a leftward vector." />
                     </Comment>
-                    <SetVariable id="320" style="set-variable">
+                    <SetVariable id="322" style="set-variable">
                       <Constant text="sidewaysWorld" />
                       <EvaluateExpression style="evaluate-expression">
                         <Constant text="normalize(cross(FD.PositionNormalized, normalize(FD.SurfaceVelocity)))" />
@@ -2345,19 +2348,19 @@
                     </SetVariable>
                   </Instructions>
                 </If>
-                <ElseIf id="321" style="else">
+                <ElseIf id="323" style="else">
                   <Constant bool="true" />
                   <Instructions>
-                    <SetVariable id="322" style="set-variable">
+                    <SetVariable id="324" style="set-variable">
                       <Constant text="progradeWorldHorizontal" />
                       <EvaluateExpression style="evaluate-expression">
                         <Constant text="normalize(projectOnPlane(FD.CraftForward, FD.PositionNormalized))" />
                       </EvaluateExpression>
                     </SetVariable>
-                    <Comment id="323" style="comment">
+                    <Comment id="325" style="comment">
                       <Constant style="comment-text" canReplace="false" text="Vertical cross craft forward yields a leftward vector." />
                     </Comment>
-                    <SetVariable id="324" style="set-variable">
+                    <SetVariable id="326" style="set-variable">
                       <Constant text="sidewaysWorld" />
                       <EvaluateExpression style="evaluate-expression">
                         <Constant text="normalize(cross(FD.PositionNormalized, FD.CraftForward))" />
@@ -2365,7 +2368,7 @@
                     </SetVariable>
                   </Instructions>
                 </ElseIf>
-                <SetVariable id="325" style="set-variable">
+                <SetVariable id="327" style="set-variable">
                   <Constant text="sidewaysLocal" />
                   <CraftProperty property="Part.PciToLocal" style="part-transform">
                     <EvaluateExpression style="evaluate-expression">
@@ -2376,18 +2379,18 @@
                     </EvaluateExpression>
                   </CraftProperty>
                 </SetVariable>
-                <SetVariable id="326" style="set-variable">
+                <SetVariable id="328" style="set-variable">
                   <Constant text="ladderRollAngle" />
                   <EvaluateExpression style="evaluate-expression">
                     <Constant text="rad2deg * (atan2(y(v:sidewaysLocal), x(v:sidewaysLocal)))" />
                   </EvaluateExpression>
                 </SetVariable>
-                <For var="angle" id="327" style="for">
+                <For var="angle" id="329" style="for">
                   <Constant text="-85" />
                   <Constant text="85" />
                   <Variable list="false" local="false" variableName="ladderAngleGap" />
                   <Instructions>
-                    <SetVariable id="328" style="set-variable">
+                    <SetVariable id="330" style="set-variable">
                       <Variable list="false" local="false" variableName="ladderRungName" />
                       <StringOp op="join" style="join">
                         <Constant text="Ladder rung parent" />
@@ -2395,10 +2398,10 @@
                         <Constant text="" />
                       </StringOp>
                     </SetVariable>
-                    <Comment id="329" style="comment">
+                    <Comment id="331" style="comment">
                       <Constant style="comment-text" canReplace="false" text="Cull rungs that are off-of-HUD." />
                     </Comment>
-                    <If id="330" style="if">
+                    <If id="332" style="if">
                       <Comparison op="l" style="op-lt">
                         <MathFunction function="abs" style="op-math">
                           <BinaryOp op="-" style="op-sub">
@@ -2409,17 +2412,17 @@
                         <Constant text="20" />
                       </Comparison>
                       <Instructions>
-                        <SetCraftProperty property="Mfd.SetVisible" id="331" style="set-mfd-widget">
+                        <SetCraftProperty property="Mfd.SetVisible" id="333" style="set-mfd-widget">
                           <Variable list="false" local="false" variableName="ladderRungName" />
                           <Constant style="true" bool="true" />
                         </SetCraftProperty>
-                        <SetVariable id="332" style="set-variable">
+                        <SetVariable id="334" style="set-variable">
                           <Constant text="ladderRungCenterWorld" />
                           <EvaluateExpression style="evaluate-expression">
                             <Constant text="v:progradeWorldHorizontal * cos(deg2rad * angle) + FD.PositionNormalized * sin(deg2rad * angle)" />
                           </EvaluateExpression>
                         </SetVariable>
-                        <SetVariable id="333" style="set-variable">
+                        <SetVariable id="335" style="set-variable">
                           <Constant text="ladderRungCenterLocal" />
                           <CraftProperty property="Part.PciToLocal" style="part-transform">
                             <EvaluateExpression style="evaluate-expression">
@@ -2430,19 +2433,13 @@
                             </EvaluateExpression>
                           </CraftProperty>
                         </SetVariable>
-                        <SetCraftProperty property="Mfd.SetPosition" id="334" style="set-mfd-widget">
+                        <SetCraftProperty property="Mfd.SetPosition" id="336" style="set-mfd-widget">
                           <Variable list="false" local="false" variableName="ladderRungName" />
                           <EvaluateExpression style="evaluate-expression">
-                            <Constant text="mfdScale * (cameraDist * v:ladderRungCenterLocal / z(v:ladderRungCenterLocal) + v:cameraPos)" />
+                            <Constant text="mfdScale * (v:ladderRungCenterLocal / z(v:ladderRungCenterLocal))" />
                           </EvaluateExpression>
                         </SetCraftProperty>
-                        <SetCraftProperty property="Mfd.SetScale" id="335" style="set-mfd-widget">
-                          <Variable list="false" local="false" variableName="ladderRungName" />
-                          <EvaluateExpression style="evaluate-expression">
-                            <Constant text="v:cameraDist2DVec" />
-                          </EvaluateExpression>
-                        </SetCraftProperty>
-                        <SetCraftProperty property="Mfd.SetRotation" id="336" style="set-mfd-widget">
+                        <SetCraftProperty property="Mfd.SetRotation" id="337" style="set-mfd-widget">
                           <Variable list="false" local="false" variableName="ladderRungName" />
                           <EvaluateExpression style="evaluate-expression">
                             <Constant text="ladderRollAngle" />
@@ -2450,10 +2447,10 @@
                         </SetCraftProperty>
                       </Instructions>
                     </If>
-                    <ElseIf id="337" style="else">
+                    <ElseIf id="338" style="else">
                       <Constant bool="true" />
                       <Instructions>
-                        <SetCraftProperty property="Mfd.SetVisible" id="338" style="set-mfd-widget">
+                        <SetCraftProperty property="Mfd.SetVisible" id="339" style="set-mfd-widget">
                           <Variable list="false" local="false" variableName="ladderRungName" />
                           <Constant style="false" bool="false" />
                         </SetCraftProperty>
@@ -2461,17 +2458,17 @@
                     </ElseIf>
                   </Instructions>
                 </For>
-                <Comment id="339" style="comment">
+                <Comment id="340" style="comment">
                   <Constant style="comment-text" canReplace="false" text="Render in-range runways." />
                 </Comment>
-                <For var="runwayRendererID" id="340" style="for">
+                <For var="runwayRendererID" id="341" style="for">
                   <Constant number="1" />
                   <ListOp op="length" style="list-length">
                     <Variable list="true" local="false" variableName="runwayRendererIDs" />
                   </ListOp>
                   <Constant number="1" />
                   <Instructions>
-                    <SetVariable id="341" style="set-variable">
+                    <SetVariable id="342" style="set-variable">
                       <Variable list="false" local="false" variableName="runwayRendererID" />
                       <StringOp op="join" style="join">
                         <Constant text="Runway Renderer " />
@@ -2482,7 +2479,7 @@
                         <Constant text="" />
                       </StringOp>
                     </SetVariable>
-                    <If id="342" style="if">
+                    <If id="343" style="if">
                       <Comparison op="le" style="op-lte">
                         <Variable list="false" local="true" variableName="runwayRendererID" />
                         <ListOp op="length" style="list-length">
@@ -2490,23 +2487,23 @@
                         </ListOp>
                       </Comparison>
                       <Instructions>
-                        <SetVariable id="343" style="set-variable">
+                        <SetVariable id="344" style="set-variable">
                           <Variable list="false" local="false" variableName="renderingRunwayStrip" />
                           <ListOp op="get" style="list-get">
                             <Variable list="true" local="false" variableName="runwayStripsToRender" />
                             <Variable list="false" local="true" variableName="runwayRendererID" />
                           </ListOp>
                         </SetVariable>
-                        <SetVariable id="344" style="set-variable">
+                        <SetVariable id="345" style="set-variable">
                           <Constant text="index" />
                           <EvaluateExpression style="evaluate-expression">
                             <Constant text="6 * (renderingRunwayStrip - 1) + 1" />
                           </EvaluateExpression>
                         </SetVariable>
-                        <Comment id="345" style="comment">
+                        <Comment id="346" style="comment">
                           <Constant style="comment-text" canReplace="false" text="This is to account for running out of instructions per frame, and having to position the runway with out-of-date information." />
                         </Comment>
-                        <SetVariable id="346" style="set-variable">
+                        <SetVariable id="347" style="set-variable">
                           <Constant text="planetRotationLonOffset" />
                           <BinaryOp op="*" style="op-mul">
                             <Constant text="360" />
@@ -2523,7 +2520,7 @@
                             </BinaryOp>
                           </BinaryOp>
                         </SetVariable>
-                        <SetVariable id="347" style="set-variable">
+                        <SetVariable id="348" style="set-variable">
                           <Constant text="runwayDisplacedThresholdStartLeft" />
                           <CraftProperty property="Part.PciToLocal" style="part-transform">
                             <EvaluateExpression style="evaluate-expression">
@@ -2541,7 +2538,7 @@
                             </BinaryOp>
                           </CraftProperty>
                         </SetVariable>
-                        <SetVariable id="348" style="set-variable">
+                        <SetVariable id="349" style="set-variable">
                           <Constant text="runwayDisplacedThresholdStartRight" />
                           <CraftProperty property="Part.PciToLocal" style="part-transform">
                             <EvaluateExpression style="evaluate-expression">
@@ -2559,7 +2556,7 @@
                             </BinaryOp>
                           </CraftProperty>
                         </SetVariable>
-                        <SetVariable id="349" style="set-variable">
+                        <SetVariable id="350" style="set-variable">
                           <Constant text="runwayDisplacedThresholdEndLeft" />
                           <CraftProperty property="Part.PciToLocal" style="part-transform">
                             <EvaluateExpression style="evaluate-expression">
@@ -2577,7 +2574,7 @@
                             </BinaryOp>
                           </CraftProperty>
                         </SetVariable>
-                        <SetVariable id="350" style="set-variable">
+                        <SetVariable id="351" style="set-variable">
                           <Constant text="runwayDisplacedThresholdEndRight" />
                           <CraftProperty property="Part.PciToLocal" style="part-transform">
                             <EvaluateExpression style="evaluate-expression">
@@ -2595,7 +2592,7 @@
                             </BinaryOp>
                           </CraftProperty>
                         </SetVariable>
-                        <SetVariable id="351" style="set-variable">
+                        <SetVariable id="352" style="set-variable">
                           <Constant text="runwayCenterlineStart" />
                           <CraftProperty property="Part.PciToLocal" style="part-transform">
                             <EvaluateExpression style="evaluate-expression">
@@ -2613,7 +2610,7 @@
                             </BinaryOp>
                           </CraftProperty>
                         </SetVariable>
-                        <SetVariable id="352" style="set-variable">
+                        <SetVariable id="353" style="set-variable">
                           <Constant text="runwayCenterlineEnd" />
                           <CraftProperty property="Part.PciToLocal" style="part-transform">
                             <EvaluateExpression style="evaluate-expression">
@@ -2631,7 +2628,7 @@
                             </BinaryOp>
                           </CraftProperty>
                         </SetVariable>
-                        <CallCustomInstruction call="project line" id="353" style="call-custom-instruction">
+                        <CallCustomInstruction call="project line" id="354" style="call-custom-instruction">
                           <StringOp op="join" style="join">
                             <Variable list="false" local="false" variableName="runwayRendererID" />
                             <Constant text=" Displaced Threshold Start" />
@@ -2644,7 +2641,7 @@
                             <Constant text="v:runwayDisplacedThresholdStartRight" />
                           </EvaluateExpression>
                         </CallCustomInstruction>
-                        <CallCustomInstruction call="project line" id="354" style="call-custom-instruction">
+                        <CallCustomInstruction call="project line" id="355" style="call-custom-instruction">
                           <StringOp op="join" style="join">
                             <Variable list="false" local="false" variableName="runwayRendererID" />
                             <Constant text=" Displaced Threshold End" />
@@ -2657,7 +2654,7 @@
                             <Constant text="v:runwayDisplacedThresholdEndRight" />
                           </EvaluateExpression>
                         </CallCustomInstruction>
-                        <CallCustomInstruction call="project line" id="355" style="call-custom-instruction">
+                        <CallCustomInstruction call="project line" id="356" style="call-custom-instruction">
                           <StringOp op="join" style="join">
                             <Variable list="false" local="false" variableName="runwayRendererID" />
                             <Constant text=" Side Stripe Left" />
@@ -2670,7 +2667,7 @@
                             <Constant text="v:runwayDisplacedThresholdEndLeft" />
                           </EvaluateExpression>
                         </CallCustomInstruction>
-                        <CallCustomInstruction call="project line" id="356" style="call-custom-instruction">
+                        <CallCustomInstruction call="project line" id="357" style="call-custom-instruction">
                           <StringOp op="join" style="join">
                             <Variable list="false" local="false" variableName="runwayRendererID" />
                             <Constant text=" Side Stripe Right" />
@@ -2683,7 +2680,7 @@
                             <Constant text="v:runwayDisplacedThresholdEndRight" />
                           </EvaluateExpression>
                         </CallCustomInstruction>
-                        <CallCustomInstruction call="project line" id="357" style="call-custom-instruction">
+                        <CallCustomInstruction call="project line" id="358" style="call-custom-instruction">
                           <StringOp op="join" style="join">
                             <Variable list="false" local="false" variableName="runwayRendererID" />
                             <Constant text=" Centerline" />
@@ -2698,10 +2695,10 @@
                         </CallCustomInstruction>
                       </Instructions>
                     </If>
-                    <ElseIf id="358" style="else">
+                    <ElseIf id="359" style="else">
                       <Constant bool="true" />
                       <Instructions>
-                        <SetCraftProperty property="Mfd.SetVisible" id="359" style="set-mfd-widget">
+                        <SetCraftProperty property="Mfd.SetVisible" id="360" style="set-mfd-widget">
                           <StringOp op="join" style="join">
                             <Variable list="false" local="false" variableName="runwayRendererID" />
                             <Constant text=" Displaced Threshold Start" />
@@ -2709,7 +2706,7 @@
                           </StringOp>
                           <Constant style="false" bool="false" />
                         </SetCraftProperty>
-                        <SetCraftProperty property="Mfd.SetVisible" id="360" style="set-mfd-widget">
+                        <SetCraftProperty property="Mfd.SetVisible" id="361" style="set-mfd-widget">
                           <StringOp op="join" style="join">
                             <Variable list="false" local="false" variableName="runwayRendererID" />
                             <Constant text=" Displaced Threshold End" />
@@ -2717,7 +2714,7 @@
                           </StringOp>
                           <Constant style="false" bool="false" />
                         </SetCraftProperty>
-                        <SetCraftProperty property="Mfd.SetVisible" id="361" style="set-mfd-widget">
+                        <SetCraftProperty property="Mfd.SetVisible" id="362" style="set-mfd-widget">
                           <StringOp op="join" style="join">
                             <Variable list="false" local="false" variableName="runwayRendererID" />
                             <Constant text=" Side Stripe Left" />
@@ -2725,7 +2722,7 @@
                           </StringOp>
                           <Constant style="false" bool="false" />
                         </SetCraftProperty>
-                        <SetCraftProperty property="Mfd.SetVisible" id="362" style="set-mfd-widget">
+                        <SetCraftProperty property="Mfd.SetVisible" id="363" style="set-mfd-widget">
                           <StringOp op="join" style="join">
                             <Variable list="false" local="false" variableName="runwayRendererID" />
                             <Constant text=" Side Stripe Right" />
@@ -2733,7 +2730,7 @@
                           </StringOp>
                           <Constant style="false" bool="false" />
                         </SetCraftProperty>
-                        <SetCraftProperty property="Mfd.SetVisible" id="363" style="set-mfd-widget">
+                        <SetCraftProperty property="Mfd.SetVisible" id="364" style="set-mfd-widget">
                           <StringOp op="join" style="join">
                             <Variable list="false" local="false" variableName="runwayRendererID" />
                             <Constant text=" Centerline" />
@@ -2747,24 +2744,24 @@
                 </For>
               </Instructions>
             </If>
-            <WaitSeconds id="364" style="wait-seconds">
+            <WaitSeconds id="365" style="wait-seconds">
               <Constant text="0" />
             </WaitSeconds>
           </Instructions>
         </While>
-        <Comment id="365" style="comment">
+        <Comment id="366" style="comment">
           <Constant style="comment-text" canReplace="false" text="Hiding the base screen widget improves performance by 10 FPS, from 80 to 90 FPS, on my machine." />
         </Comment>
-        <SetCraftProperty property="Mfd.SetVisible" id="366" style="set-mfd-widget">
+        <SetCraftProperty property="Mfd.SetVisible" id="367" style="set-mfd-widget">
           <Constant text="_Screen" />
           <Constant style="false" bool="false" />
         </SetCraftProperty>
-        <WaitUntil id="367" style="wait-until">
+        <WaitUntil id="368" style="wait-until">
           <Variable list="false" local="false" variableName="isCameraClose" />
         </WaitUntil>
       </Instructions>
     </While>
-    <LogFlight id="368" style="flightlog">
+    <LogFlight id="369" style="flightlog">
       <StringOp op="format" style="format">
         <Constant text="[{0}]: time delta: {1:f3}, long offset: {2:f6} " />
         <CraftProperty property="Name.Craft" style="prop-name" />
@@ -2781,7 +2778,7 @@
       </StringOp>
       <Constant style="true" bool="true" />
     </LogFlight>
-    <LogFlight id="369" style="flightlog">
+    <LogFlight id="370" style="flightlog">
       <StringOp op="format" style="format">
         <Constant text="[{0}]: runway strip {1} centerline start is at {2}" />
         <CraftProperty property="Name.Craft" style="prop-name" />
@@ -2793,7 +2790,7 @@
       </StringOp>
       <Constant style="true" bool="true" />
     </LogFlight>
-    <LogFlight id="370" style="flightlog">
+    <LogFlight id="371" style="flightlog">
       <StringOp op="format" style="format">
         <Constant text="[{0}]: runway strip {1} centerline end is at {2}" />
         <CraftProperty property="Name.Craft" style="prop-name" />
@@ -2807,62 +2804,62 @@
     </LogFlight>
   </Instructions>
   <Instructions>
-    <Event event="FlightStart" id="371" style="flight-start" pos="5202.687,-16.67763" />
-    <SetVariable id="372" style="set-variable">
+    <Event event="FlightStart" id="372" style="flight-start" pos="5202.687,-16.67763" />
+    <SetVariable id="373" style="set-variable">
       <Variable list="false" local="false" variableName="airspeedMode" />
       <Constant text="IAS" />
     </SetVariable>
-    <SetVariable id="373" style="set-variable">
+    <SetVariable id="374" style="set-variable">
       <Variable list="false" local="false" variableName="airspeedUnits" />
       <Constant text="kt" />
     </SetVariable>
-    <SetVariable id="374" style="set-variable">
+    <SetVariable id="375" style="set-variable">
       <Variable list="false" local="false" variableName="airspeedConversionRatio" />
       <Constant text="1.944" />
     </SetVariable>
-    <SetVariable id="375" style="set-variable">
+    <SetVariable id="376" style="set-variable">
       <Variable list="false" local="false" variableName="altitudeMode" />
       <Constant text="ASL" />
     </SetVariable>
-    <SetVariable id="376" style="set-variable">
+    <SetVariable id="377" style="set-variable">
       <Variable list="false" local="false" variableName="altitudeUnits" />
       <Constant text="ft" />
     </SetVariable>
-    <SetVariable id="377" style="set-variable">
+    <SetVariable id="378" style="set-variable">
       <Variable list="false" local="false" variableName="altitudeUnitsConversionRatio" />
       <Constant text="3.281" />
     </SetVariable>
-    <SetVariable id="378" style="set-variable">
+    <SetVariable id="379" style="set-variable">
       <Variable list="false" local="false" variableName="verticalSpeedTimeInterval" />
       <Constant text="min" />
     </SetVariable>
-    <SetVariable id="379" style="set-variable">
+    <SetVariable id="380" style="set-variable">
       <Variable list="false" local="false" variableName="verticalSpeedTimeIntervalConverstionRatio" />
       <Constant text="60" />
     </SetVariable>
-    <WaitUntil id="380" style="wait-until">
+    <WaitUntil id="381" style="wait-until">
       <Variable list="false" local="false" variableName="isInitiated" />
     </WaitUntil>
-    <Comment id="381" style="comment">
+    <Comment id="382" style="comment">
       <Constant style="comment-text" canReplace="false" text="Update readouts" />
     </Comment>
-    <Comment id="382" style="comment">
+    <Comment id="383" style="comment">
       <Constant style="comment-text" canReplace="false" text="This is done less frequently to avoid crowding the instructions per frame budget." />
     </Comment>
-    <While id="383" style="while">
+    <While id="384" style="while">
       <Constant style="true" bool="true" />
       <Instructions>
-        <While id="384" style="while">
+        <While id="385" style="while">
           <Variable list="false" local="false" variableName="isCameraClose" />
           <Instructions>
-            <Comment id="385" style="comment">
+            <Comment id="386" style="comment">
               <Constant style="comment-text" canReplace="false" text="Left readouts" />
             </Comment>
-            <SetCraftProperty property="Mfd.Label.SetText" id="386" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="387" style="set-mfd-label">
               <Constant text="Readouts airspeed label" />
               <Variable list="false" local="false" variableName="airspeedMode" />
             </SetCraftProperty>
-            <If id="387" style="if">
+            <If id="388" style="if">
               <BoolOp op="and" style="op-and">
                 <StringOp op="contains" style="contains">
                   <Variable list="false" local="false" variableName="airspeedMode" />
@@ -2876,19 +2873,19 @@
                 </Comparison>
               </BoolOp>
               <Instructions>
-                <Comment id="388" style="comment">
+                <Comment id="389" style="comment">
                   <Constant style="comment-text" canReplace="false" text="IAS assumes isothermal atmosphere" />
                 </Comment>
-                <If id="389" style="if">
+                <If id="390" style="if">
                   <Comparison op="le" style="op-lte">
                     <CraftProperty property="Vel.MachNumber" style="prop-velocity" />
                     <Constant text="1" />
                   </Comparison>
                   <Instructions>
-                    <Comment id="390" style="comment">
+                    <Comment id="391" style="comment">
                       <Constant style="comment-text" canReplace="false" text="Isentropic formula from NACA Report 1135 equation 44 https://ntrs.nasa.gov/citations/19930091059" />
                     </Comment>
-                    <SetVariable id="391" style="set-variable">
+                    <SetVariable id="392" style="set-variable">
                       <Variable list="false" local="false" variableName="impactPressureRatio" />
                       <BinaryOp op="*" style="op-mul">
                         <BinaryOp op="/" style="op-div">
@@ -2917,13 +2914,13 @@
                     </SetVariable>
                   </Instructions>
                 </If>
-                <ElseIf id="392" style="else">
+                <ElseIf id="393" style="else">
                   <Constant bool="true" />
                   <Instructions>
-                    <Comment id="393" style="comment">
+                    <Comment id="394" style="comment">
                       <Constant style="comment-text" canReplace="false" text="Rayleigh formula from NACA Report 1135 equation 100 https://ntrs.nasa.gov/citations/19930091059" />
                     </Comment>
-                    <SetVariable id="394" style="set-variable">
+                    <SetVariable id="395" style="set-variable">
                       <Variable list="false" local="false" variableName="impactPressureRatio" />
                       <BinaryOp op="*" style="op-mul">
                         <BinaryOp op="/" style="op-div">
@@ -2961,7 +2958,7 @@
                     </SetVariable>
                   </Instructions>
                 </ElseIf>
-                <SetCraftProperty property="Mfd.Label.SetText" id="395" style="set-mfd-label">
+                <SetCraftProperty property="Mfd.Label.SetText" id="396" style="set-mfd-label">
                   <Constant text="Readouts airspeed value" />
                   <StringOp op="format" style="format">
                     <Constant text="{0,4:f0}" />
@@ -2999,10 +2996,10 @@
                 </SetCraftProperty>
               </Instructions>
             </If>
-            <ElseIf id="396" style="else">
+            <ElseIf id="397" style="else">
               <Constant bool="true" />
               <Instructions>
-                <SetCraftProperty property="Mfd.Label.SetText" id="397" style="set-mfd-label">
+                <SetCraftProperty property="Mfd.Label.SetText" id="398" style="set-mfd-label">
                   <Constant text="Readouts airspeed value" />
                   <StringOp op="format" style="format">
                     <Constant text="{0,4:f0}" />
@@ -3017,14 +3014,14 @@
                 </SetCraftProperty>
               </Instructions>
             </ElseIf>
-            <SetCraftProperty property="Mfd.Label.SetText" id="398" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="399" style="set-mfd-label">
               <Constant text="Readouts airspeed units" />
               <Variable list="false" local="false" variableName="airspeedUnits" />
             </SetCraftProperty>
-            <WaitSeconds id="399" style="wait-seconds">
+            <WaitSeconds id="400" style="wait-seconds">
               <Constant text="0" />
             </WaitSeconds>
-            <SetCraftProperty property="Mfd.Label.SetText" id="400" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="401" style="set-mfd-label">
               <Constant text="Readouts Mach value" />
               <StringOp op="format" style="format">
                 <Constant text="{0,4:f2}" />
@@ -3032,10 +3029,10 @@
                 <Constant text="" />
               </StringOp>
             </SetCraftProperty>
-            <Comment id="401" style="comment">
+            <Comment id="402" style="comment">
               <Constant style="comment-text" canReplace="false" text="Remove world gravity to get structural acceleration, not total acceleration." />
             </Comment>
-            <SetCraftProperty property="Mfd.Label.SetText" id="402" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="403" style="set-mfd-label">
               <Constant text="Readouts G value" />
               <StringOp op="format" style="format">
                 <Constant text="{0,5:f2}" />
@@ -3067,7 +3064,7 @@
                 <Constant text="" />
               </StringOp>
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.Label.SetText" id="403" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="404" style="set-mfd-label">
               <Constant text="Readouts Alpha value" />
               <Conditional style="conditional">
                 <Comparison op="g" style="op-gt">
@@ -3084,17 +3081,17 @@
                 <Constant text="‒‒.‒" />
               </Conditional>
             </SetCraftProperty>
-            <WaitSeconds id="404" style="wait-seconds">
+            <WaitSeconds id="405" style="wait-seconds">
               <Constant text="0" />
             </WaitSeconds>
-            <Comment id="405" style="comment">
+            <Comment id="406" style="comment">
               <Constant style="comment-text" canReplace="false" text="Right readouts" />
             </Comment>
-            <SetCraftProperty property="Mfd.Label.SetText" id="406" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="407" style="set-mfd-label">
               <Constant text="Readouts altitude label" />
               <Variable list="false" local="false" variableName="altitudeMode" />
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.Label.SetText" id="407" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="408" style="set-mfd-label">
               <Constant text="Readouts altitude value" />
               <StringOp op="format" style="format">
                 <Constant text="{0,5:f0} {1}" />
@@ -3113,7 +3110,7 @@
                 <Constant text="" />
               </StringOp>
             </SetCraftProperty>
-            <SetCraftProperty property="Mfd.Label.SetText" id="408" style="set-mfd-label">
+            <SetCraftProperty property="Mfd.Label.SetText" id="409" style="set-mfd-label">
               <Constant text="Readouts vertical speed value" />
               <StringOp op="format" style="format">
                 <Constant text="{0}{1:f0} {2}/{3}" />
@@ -3139,25 +3136,19 @@
                 <Constant text="" />
               </StringOp>
             </SetCraftProperty>
-            <WaitSeconds id="409" style="wait-seconds">
+            <WaitSeconds id="410" style="wait-seconds">
               <Constant text="0.05" />
             </WaitSeconds>
           </Instructions>
         </While>
-        <WaitUntil id="410" style="wait-until">
+        <WaitUntil id="411" style="wait-until">
           <Variable list="false" local="false" variableName="isCameraClose" />
         </WaitUntil>
       </Instructions>
     </While>
   </Instructions>
   <Instructions>
-    <CustomInstruction callFormat="project line (0) in 3D from local position (1) to (2) " format="project line |name| in 3D from local position |origin| to |destination| " name="project line" id="411" style="custom-instruction" pos="-3406.508,-1456.635" />
-    <SetCraftProperty property="Mfd.Line.SetThickness" id="412" style="set-mfd-line">
-      <Variable list="false" local="true" variableName="name" />
-      <EvaluateExpression style="evaluate-expression">
-        <Constant text="lineThickness * cameraDist" />
-      </EvaluateExpression>
-    </SetCraftProperty>
+    <CustomInstruction callFormat="project line (0) in 3D from local position (1) to (2) " format="project line |name| in 3D from local position |origin| to |destination| " name="project line" id="412" style="custom-instruction" pos="-3406.508,-1456.635" />
     <Comment id="413" style="comment">
       <Constant style="comment-text" canReplace="false" text="Frustum clipping against the near plane" />
     </Comment>
@@ -3201,10 +3192,10 @@
             <SetCraftProperty property="Mfd.Line.SetLinePoints" id="421" style="set-mfd-line-points">
               <Variable list="false" local="true" variableName="name" />
               <EvaluateExpression style="evaluate-expression">
-                <Constant text="mfdScale * (cameraDist * (v:clipped - v:cameraPos) / (z(v:clipped) - z(v:cameraPos)) + v:cameraPos)" />
+                <Constant text="mfdScale * ((v:clipped - v:cameraPos) / (z(v:clipped) - z(v:cameraPos)))" />
               </EvaluateExpression>
               <EvaluateExpression style="evaluate-expression">
-                <Constant text="mfdScale * (cameraDist * (v:destination - v:cameraPos) / (z(v:destination) - z(v:cameraPos)) + v:cameraPos)" />
+                <Constant text="mfdScale * ((v:destination - v:cameraPos) / (z(v:destination) - z(v:cameraPos)))" />
               </EvaluateExpression>
             </SetCraftProperty>
           </Instructions>
@@ -3215,10 +3206,10 @@
             <SetCraftProperty property="Mfd.Line.SetLinePoints" id="423" style="set-mfd-line-points">
               <Variable list="false" local="true" variableName="name" />
               <EvaluateExpression style="evaluate-expression">
-                <Constant text="mfdScale * (cameraDist * (v:origin - v:cameraPos) / (z(v:origin) - z(v:cameraPos)) + v:cameraPos)" />
+                <Constant text="mfdScale * ((v:origin - v:cameraPos) / (z(v:origin) - z(v:cameraPos)))" />
               </EvaluateExpression>
               <EvaluateExpression style="evaluate-expression">
-                <Constant text="mfdScale * (cameraDist * (v:clipped - v:cameraPos) / (z(v:clipped) - z(v:cameraPos)) + v:cameraPos)" />
+                <Constant text="mfdScale * ((v:clipped - v:cameraPos) / (z(v:clipped) - z(v:cameraPos)))" />
               </EvaluateExpression>
             </SetCraftProperty>
           </Instructions>
@@ -3235,10 +3226,10 @@
         <SetCraftProperty property="Mfd.Line.SetLinePoints" id="426" style="set-mfd-line-points">
           <Variable list="false" local="true" variableName="name" />
           <EvaluateExpression style="evaluate-expression">
-            <Constant text="mfdScale * (cameraDist * (v:origin - v:cameraPos) / (z(v:origin) - z(v:cameraPos)) + v:cameraPos)" />
+            <Constant text="mfdScale * ((v:origin - v:cameraPos) / (z(v:origin) - z(v:cameraPos)))" />
           </EvaluateExpression>
           <EvaluateExpression style="evaluate-expression">
-            <Constant text="mfdScale * (cameraDist * (v:destination - v:cameraPos) / (z(v:destination) - z(v:cameraPos)) + v:cameraPos)" />
+            <Constant text="mfdScale * ((v:destination - v:cameraPos) / (z(v:destination) - z(v:cameraPos)))" />
           </EvaluateExpression>
         </SetCraftProperty>
       </Instructions>
@@ -3720,18 +3711,32 @@
           <Constant style="false" bool="false" />
         </SetVariable>
         <WaitUntil id="515" style="wait-until">
-          <EvaluateExpression style="evaluate-expression">
-            <Constant text="timeToGround &lt; 10 &amp; vertSpdRelToGrnd &lt; -5" />
-          </EvaluateExpression>
+          <BoolOp op="and" style="op-and">
+            <EvaluateExpression style="evaluate-expression">
+              <Constant text="timeToGround &lt; 10 &amp; vertSpdRelToGrnd &lt; -5" />
+            </EvaluateExpression>
+            <CraftProperty property="Craft.IsPlayer" style="craft">
+              <CraftProperty property="Craft.NameToID" style="craft-id" pos="6908.072,-2815.339">
+                <Constant text="" />
+              </CraftProperty>
+            </CraftProperty>
+          </BoolOp>
         </WaitUntil>
         <SetVariable id="516" style="set-variable">
           <Variable list="false" local="false" variableName="isTerrainImpactCaution" />
           <Constant style="true" bool="true" />
         </SetVariable>
         <While id="517" style="while">
-          <EvaluateExpression style="evaluate-expression">
-            <Constant text="timeToGround &lt; 10 &amp; vertSpdRelToGrnd &lt; -5" />
-          </EvaluateExpression>
+          <BoolOp op="and" style="op-and">
+            <EvaluateExpression style="evaluate-expression">
+              <Constant text="timeToGround &lt; 10 &amp; vertSpdRelToGrnd &lt; -5" />
+            </EvaluateExpression>
+            <CraftProperty property="Craft.IsPlayer" style="craft">
+              <CraftProperty property="Craft.NameToID" style="craft-id" pos="6878.429,-2912.016">
+                <Constant text="" />
+              </CraftProperty>
+            </CraftProperty>
+          </BoolOp>
           <Instructions>
             <If id="518" style="if">
               <EvaluateExpression style="evaluate-expression">
@@ -3841,32 +3846,39 @@
               <BoolOp op="and" style="op-and">
                 <BoolOp op="and" style="op-and">
                   <BoolOp op="and" style="op-and">
-                    <Not style="op-not">
-                      <ActivationGroup style="activation-group">
-                        <Variable list="false" local="false" variableName="agLandingGear" />
-                      </ActivationGroup>
-                    </Not>
+                    <BoolOp op="and" style="op-and">
+                      <Not style="op-not">
+                        <ActivationGroup style="activation-group">
+                          <Variable list="false" local="false" variableName="agLandingGear" />
+                        </ActivationGroup>
+                      </Not>
+                      <EvaluateExpression style="evaluate-expression">
+                        <Constant text="FD.AltitudeAboveGroundLevel &lt; 100" />
+                      </EvaluateExpression>
+                    </BoolOp>
                     <EvaluateExpression style="evaluate-expression">
-                      <Constant text="FD.AltitudeAboveGroundLevel &lt; 100" />
+                      <Constant text="vertSpdRelToGrnd &lt; 0" />
                     </EvaluateExpression>
                   </BoolOp>
                   <EvaluateExpression style="evaluate-expression">
-                    <Constant text="vertSpdRelToGrnd &lt; 0" />
+                    <Constant text="FD.SurfaceVelocityMagnitude &lt; 100" />
                   </EvaluateExpression>
                 </BoolOp>
-                <EvaluateExpression style="evaluate-expression">
-                  <Constant text="FD.SurfaceVelocityMagnitude &lt; 100" />
-                </EvaluateExpression>
+                <Not style="op-not">
+                  <EvaluateExpression style="evaluate-expression">
+                    <Constant text="isTerrainImpactCaution" />
+                  </EvaluateExpression>
+                </Not>
               </BoolOp>
               <Not style="op-not">
-                <EvaluateExpression style="evaluate-expression">
-                  <Constant text="isTerrainImpactCaution" />
-                </EvaluateExpression>
+                <CraftProperty property="Misc.Grounded" style="prop-misc" />
               </Not>
             </BoolOp>
-            <Not style="op-not">
-              <CraftProperty property="Misc.Grounded" style="prop-misc" />
-            </Not>
+            <CraftProperty property="Craft.IsPlayer" style="craft">
+              <CraftProperty property="Craft.NameToID" style="craft-id" pos="8892.181,-4101.349">
+                <Constant text="" />
+              </CraftProperty>
+            </CraftProperty>
           </BoolOp>
         </WaitUntil>
         <While id="544" style="while">
@@ -3875,32 +3887,39 @@
               <BoolOp op="and" style="op-and">
                 <BoolOp op="and" style="op-and">
                   <BoolOp op="and" style="op-and">
-                    <Not style="op-not">
-                      <ActivationGroup style="activation-group">
-                        <Variable list="false" local="false" variableName="agLandingGear" />
-                      </ActivationGroup>
-                    </Not>
+                    <BoolOp op="and" style="op-and">
+                      <Not style="op-not">
+                        <ActivationGroup style="activation-group">
+                          <Variable list="false" local="false" variableName="agLandingGear" />
+                        </ActivationGroup>
+                      </Not>
+                      <EvaluateExpression style="evaluate-expression">
+                        <Constant text="FD.AltitudeAboveGroundLevel &lt; 100" />
+                      </EvaluateExpression>
+                    </BoolOp>
                     <EvaluateExpression style="evaluate-expression">
-                      <Constant text="FD.AltitudeAboveGroundLevel &lt; 100" />
+                      <Constant text="vertSpdRelToGrnd &lt; 0" />
                     </EvaluateExpression>
                   </BoolOp>
                   <EvaluateExpression style="evaluate-expression">
-                    <Constant text="vertSpdRelToGrnd &lt; 0" />
+                    <Constant text="FD.SurfaceVelocityMagnitude &lt; 100" />
                   </EvaluateExpression>
                 </BoolOp>
-                <EvaluateExpression style="evaluate-expression">
-                  <Constant text="FD.SurfaceVelocityMagnitude &lt; 100" />
-                </EvaluateExpression>
+                <Not style="op-not">
+                  <EvaluateExpression style="evaluate-expression">
+                    <Constant text="isTerrainImpactCaution" />
+                  </EvaluateExpression>
+                </Not>
               </BoolOp>
               <Not style="op-not">
-                <EvaluateExpression style="evaluate-expression">
-                  <Constant text="isTerrainImpactCaution" />
-                </EvaluateExpression>
+                <CraftProperty property="Misc.Grounded" style="prop-misc" />
               </Not>
             </BoolOp>
-            <Not style="op-not">
-              <CraftProperty property="Misc.Grounded" style="prop-misc" />
-            </Not>
+            <CraftProperty property="Craft.IsPlayer" style="craft">
+              <CraftProperty property="Craft.NameToID" style="craft-id" pos="8863.257,-4161.475">
+                <Constant text="" />
+              </CraftProperty>
+            </CraftProperty>
           </BoolOp>
           <Instructions>
             <SetCraftProperty property="Mfd.SetVisible" id="545" style="set-mfd-widget">
